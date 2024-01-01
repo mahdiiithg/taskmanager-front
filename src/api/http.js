@@ -6,7 +6,7 @@ const userToken = Cookies.get('userToken');
 
 // Axios instance
 const instance = axios.create({
-  baseURL: 'https://mahdi-taskmanager.netlify.app/',
+  baseURL: 'http://localhost:3000/',
   timeout: 10000,
   headers: {
     'content-type': 'application/json',
@@ -31,8 +31,14 @@ const instance = axios.create({
 export const https = {
   // auth
   login: (callback, catchError, data) => instance.post('users/login', data).then(callback).catch(catchError),
+  logout: (callback, catchError, data) => instance.post('users/logout').then(callback).catch(catchError),
   addTasks: (callback, catchError, data) => instance.post(`tasks`, data).then(callback).catch(catchError),
   getTasks: (callback, catchError) => instance.get(`tasks`).then(callback).catch(catchError),
+  addCategory: (callback, catchError, data) => instance.post(`/category`, data).then(callback).catch(catchError),
+  deletCategory: (callback, catchError, id) => instance.delete(`/category/${id}`).then(callback).catch(catchError),
+  getCategories: (callback, catchError) => instance.get(`/category`).then(callback).catch(catchError),
   deleteTasks: (callback, catchError, id) => instance.delete(`tasks/${id}`).then(callback).catch(catchError),
+  getTaskByCategory: (callback, catchError, id) => instance.get(`tasks/category/${id}`).then(callback).catch(catchError),
   toggleTaskStatus: (callback, catchError, id, data) => instance.patch(`tasks/${id}`, data).then(callback).catch(catchError),
+  updateTask: (callback, catchError, id, data) => instance.patch(`tasks/${id}`, data).then(callback).catch(catchError),
 };
