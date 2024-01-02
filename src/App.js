@@ -42,6 +42,7 @@ function App() {
     socket.on("notification", (data) => {
       console.log("data", data);
       setNotification(data.message);
+      getTasks();
     });
 
     return () => {
