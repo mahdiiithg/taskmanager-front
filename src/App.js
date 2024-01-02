@@ -308,27 +308,29 @@ function App() {
           />
           {isLogin ? (
             <button
-              className=" bg-green-600 px-2 py-1 rounded-sm font-semibold text-white"
+              className=" bg-green-600 active:scale-95 active:bg-green-500 px-2 py-1 rounded-sm font-semibold text-white"
               type="submit"
             >
               login
             </button>
           ) : (
             <button
-              className=" bg-green-600 px-2 py-1 rounded-sm font-semibold text-white"
+              className=" bg-green-600 active:scale-95 active:bg-green-500 px-2 py-1 rounded-sm font-semibold text-white"
               type="submit"
             >
               register
             </button>
           )}
           {
-            <div>
-              don't have account?
+            <div className="flex items-start gap-x-1 justify-center">
+              <div>
+              don't have account? 
+              </div>
               <button
                 onClick={() => setIsLogin(!isLogin)}
                 className=" underline text-blue-600 font-semibold"
               >
-                register
+                {isLogin ? ' register' : ' login'}
               </button>
             </div>
           }
@@ -447,7 +449,6 @@ function App() {
                 py-1
                 w-full
                 bg-green-600
-                hover:scale-105
                 active:scale-95
                 transition-all
                 delay-75
