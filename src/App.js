@@ -37,7 +37,7 @@ function App() {
     getUser();
     getCategories();
 
-    const socket = io("http://localhost:3002"); // Replace with your server's URL
+    const socket = io("http://116.203.241.176:3002"); // Replace with your server's URL
 
     socket.on("notification", (data) => {
       console.log("data", data);
