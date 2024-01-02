@@ -86,7 +86,7 @@ function App() {
 
   const onAddTask = () => {
     const response = () => {
-      if(selectedCategory) return getCategories()
+      if (selectedCategory) return getCategories();
       getTasks();
     };
 
@@ -145,7 +145,9 @@ function App() {
       }, 500);
     };
 
-    const error = () => {};
+    const error = (error) => {
+      alert(error);
+    };
 
     https.login(response, error, data);
   };
@@ -160,7 +162,9 @@ function App() {
       }, 500);
     };
 
-    const error = () => {};
+    const error = (error) => {
+      alert(error);
+    };
 
     https.register(response, error, data);
   };
@@ -232,8 +236,8 @@ function App() {
   return (
     <div className="App px-5 py-5 relative">
       <div className="flex justify-between items-center pb-10">
-      <p
-        className="
+        <p
+          className="
           py-2 px-8
           right-5
           top-5
@@ -245,11 +249,11 @@ function App() {
           flex-col
           justify-center
           items-center"
-      >
-        {notification || 0}
-      </p>
-      <p
-        className="
+        >
+          {notification || 0}
+        </p>
+        <p
+          className="
           py-2 px-4
           right-5
           top-5
@@ -261,9 +265,9 @@ function App() {
           flex-col
           justify-center
           items-center"
-      >
-        wellcome {user.name || ''}
-      </p>
+        >
+          wellcome {user.name || ""}
+        </p>
       </div>
       {!Cookies.get("userToken") || Cookies.get("userToken").length < 10 ? (
         <form
@@ -323,14 +327,12 @@ function App() {
           )}
           {
             <div className="flex items-start gap-x-1 justify-center">
-              <div>
-              don't have account? 
-              </div>
+              <div>don't have account?</div>
               <button
                 onClick={() => setIsLogin(!isLogin)}
                 className=" underline text-blue-600 font-semibold"
               >
-                {isLogin ? ' register' : ' login'}
+                {isLogin ? " register" : " login"}
               </button>
             </div>
           }
@@ -363,7 +365,10 @@ function App() {
                     onChange={(event) =>
                       setNewTask((prev) => ({
                         ...prev,
-                        category: event.target.value === "un select" ? null : event.target.value,
+                        category:
+                          event.target.value === "un select"
+                            ? null
+                            : event.target.value,
                       }))
                     }
                   >
