@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 
 // cehck user is loged in
 const userToken = Cookies.get('userToken');
-
 // Axios instance
 const instance = axios.create({
   baseURL: 'http://localhost:3000/',
@@ -31,6 +30,8 @@ const instance = axios.create({
 export const https = {
   // auth
   login: (callback, catchError, data) => instance.post('users/login', data).then(callback).catch(catchError),
+  register: (callback, catchError, data) => instance.post('users', data).then(callback).catch(catchError),
+  getUser: (callback, catchError) => instance.get('users/me').then(callback).catch(catchError),
   logout: (callback, catchError, data) => instance.post('users/logout').then(callback).catch(catchError),
   addTasks: (callback, catchError, data) => instance.post(`tasks`, data).then(callback).catch(catchError),
   getTasks: (callback, catchError) => instance.get(`tasks`).then(callback).catch(catchError),

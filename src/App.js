@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { useEffect } from "react";
 // import socketIOClient from "socket.io-client";
-import io from 'socket.io-client';
-
+import io from "socket.io-client";
 
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { https } from "./api/http";
@@ -11,7 +10,9 @@ import Cookies from "js-cookie";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [user, setUser] = useState({});
   const [categories, setCategories] = useState([]);
+  const [isLogin, setIsLogin] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [notification, setNotification] = useState("0");
 
@@ -33,6 +34,7 @@ function App() {
   });
   useEffect(() => {
     getTasks();
+    getUser();
     getCategories();
 
     const socket = io("http://localhost:3002"); // Replace with your server's URL
@@ -59,7 +61,6 @@ function App() {
   };
   const getCategories = () => {
     const response = (res) => {
-      console.log("getCategories", res);
       setCategories(res.data);
     };
 
@@ -85,6 +86,7 @@ function App() {
 
   const onAddTask = () => {
     const response = () => {
+      if(selectedCategory) return getCategories()
       getTasks();
     };
 
@@ -102,6 +104,7 @@ function App() {
       if (selectedCategory) {
         return getTaskByCategory(selectedCategory);
       }
+      console.log("selectedCategory", selectedCategory);
       getTasks();
     };
 
@@ -122,6 +125,16 @@ function App() {
     });
   };
 
+  const getUser = () => {
+    const response = (res) => {
+      setUser(res.data);
+    };
+
+    const error = () => {};
+
+    https.getUser(response, error);
+  };
+
   const login = (event) => {
     event.preventDefault();
 
@@ -135,6 +148,21 @@ function App() {
     const error = () => {};
 
     https.login(response, error, data);
+  };
+
+  const register = (event) => {
+    event.preventDefault();
+
+    const response = (res) => {
+      setTimeout(() => {
+        window.location.reload();
+        setIsLogin(true);
+      }, 500);
+    };
+
+    const error = () => {};
+
+    https.register(response, error, data);
   };
 
   const logout = (event) => {
@@ -202,11 +230,11 @@ function App() {
   };
 
   return (
-    <div className="App px-5 pb-5 pt-32 relative">
+    <div className="App px-5 py-5 relative">
+      <div className="flex justify-between items-center pb-10">
       <p
         className="
-          h-14 px-8
-          absolute
+          py-2 px-8
           right-5
           top-5
           rounded-full
@@ -220,17 +248,55 @@ function App() {
       >
         {notification || 0}
       </p>
-      {!Cookies.get("userToken") ? (
+      <p
+        className="
+          py-2 px-4
+          right-5
+          top-5
+          rounded-full
+          shadow-sm
+          border
+          border-black/10
+          flex
+          flex-col
+          justify-center
+          items-center"
+      >
+        wellcome {user.name || ''}
+      </p>
+      </div>
+      {!Cookies.get("userToken") || Cookies.get("userToken").length < 10 ? (
         <form
           className="flex flex-col gap-4 shadow-md h-fit mb-5 bg-black/10 border rounded-md p-2"
-          onSubmit={login}
+          onSubmit={isLogin ? login : register}
         >
+          {!isLogin && (
+            <>
+              <input
+                onChange={(event) =>
+                  setData((prev) => ({ ...prev, name: event.target.value }))
+                }
+                name="name"
+                type="text"
+                placeholder="name"
+              />
+              <input
+                onChange={(event) =>
+                  setData((prev) => ({ ...prev, age: event.target.value }))
+                }
+                name="age"
+                type="number"
+                placeholder="age"
+              />
+            </>
+          )}
           <input
             onChange={(event) =>
               setData((prev) => ({ ...prev, email: event.target.value }))
             }
             name="email"
             type="email"
+            placeholder="email"
           />
           <input
             onChange={(event) =>
@@ -238,13 +304,34 @@ function App() {
             }
             name="passowrd"
             type="password"
+            placeholder="password"
           />
-          <button
-            className=" bg-green-600 px-2 py-1 rounded-sm font-semibold text-white"
-            type="submit"
-          >
-            submit
-          </button>
+          {isLogin ? (
+            <button
+              className=" bg-green-600 px-2 py-1 rounded-sm font-semibold text-white"
+              type="submit"
+            >
+              login
+            </button>
+          ) : (
+            <button
+              className=" bg-green-600 px-2 py-1 rounded-sm font-semibold text-white"
+              type="submit"
+            >
+              register
+            </button>
+          )}
+          {
+            <div>
+              don't have account?
+              <button
+                onClick={() => setIsLogin(!isLogin)}
+                className=" underline text-blue-600 font-semibold"
+              >
+                register
+              </button>
+            </div>
+          }
         </form>
       ) : (
         <>
@@ -274,10 +361,11 @@ function App() {
                     onChange={(event) =>
                       setNewTask((prev) => ({
                         ...prev,
-                        category: event.target.value,
+                        category: event.target.value === "un select" ? null : event.target.value,
                       }))
                     }
                   >
+                    <option value={null}>un select</option>
                     {categories.map((data) => (
                       <option key={data._id} value={data._id}>
                         {data.name}
