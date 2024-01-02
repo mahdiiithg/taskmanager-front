@@ -355,7 +355,7 @@ function App() {
               onChange={onTypeTask}
             />
             <label for="category">Choose a category:</label>
-            <div className="w-full flex  space-x-2">
+            <div className="w-full flex flex-col gap-x-2 gap-y-2 sm:flex-row ">
               {!isAddingCategory ? (
                 <>
                   <select
@@ -415,6 +415,7 @@ function App() {
                     className="rounded-sm flex-1"
                     type="text"
                     name="name"
+                    placeholder="name"
                     onChange={(event) =>
                       setCategory((prevState) => ({
                         ...prevState,
@@ -426,6 +427,7 @@ function App() {
                     className="rounded-sm flex-1"
                     type="text"
                     name="description"
+                    placeholder="description"
                     onChange={(event) =>
                       setCategory((prevState) => ({
                         ...prevState,
@@ -433,11 +435,12 @@ function App() {
                       }))
                     }
                   />
+                  <div className="flex items-center">
                   <button
                     onClick={addCategory}
                     className=" px-2 py-2 rounded-md bg-green-600 text-white"
                   >
-                    submit
+                    add
                   </button>
                   <button
                     onClick={() => setIsAddingCategory(false)}
@@ -445,6 +448,7 @@ function App() {
                   >
                     cancel
                   </button>
+                  </div>
                 </>
               )}
             </div>

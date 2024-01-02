@@ -11,6 +11,7 @@ const instance = axios.create({
   headers: {
     'content-type': 'application/json',
     Authorization: userToken ? `Bearer ${userToken}` : '',
+    cors: '*'
   },
 });
 
