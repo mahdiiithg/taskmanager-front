@@ -2,7 +2,6 @@ import { useRoutes } from 'react-router-dom';
 import Main from '../pages/Index';
 import Today from '../pages/Today';
 import MainLayout from '../layout/MainLayout';
-// import AuthLayout from '../layout/AuthLayout';
 
 
 
