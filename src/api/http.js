@@ -2,16 +2,15 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 // cehck user is loged in
-const userToken = Cookies.get('userToken');
+const userToken = Cookies.get('userToken') || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTY2ZWQxYjA1NTFkZGUxYjgxYTM1OGEiLCJpYXQiOjE3MDQzNzIxNDZ9.XZ46konprG_CPePCm-oqe0wqfOE3pWbpt6QkRtyI5Qk";
 // Axios instance
 const instance = axios.create({
-  // baseURL: 'http://localhost:3000/',
-  baseURL: 'http://116.203.241.176:3000/',
-  timeout: 10000,
+  baseURL: 'http://localhost:3000/',
+  // baseURL: 'http://116.203.241.176:3000/',
+  timeout: 100000,
   headers: {
     'content-type': 'application/json',
     Authorization: userToken ? `Bearer ${userToken}` : '',
-    cors: '*'
   },
 });
 
