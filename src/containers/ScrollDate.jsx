@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const getWeekDates = (date = new Date()) => {
   const firstDayOfWeek = date.getDate() - date.getDay();

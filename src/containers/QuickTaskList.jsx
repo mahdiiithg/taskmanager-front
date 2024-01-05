@@ -1,3 +1,5 @@
+import React from "react";
+
 import QuickTasks from "../components/QuickTasks"
 import { CiStar } from "react-icons/ci";
 import { CiCalendar } from "react-icons/ci";

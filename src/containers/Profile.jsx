@@ -1,6 +1,6 @@
-const Profile = ({user}) => {
-  
+import React from "react";
 
+const Profile = ({user}) => {
   return (
     <div className=" flex flex-col items-center capitalize py-2 px-2">
       <img
