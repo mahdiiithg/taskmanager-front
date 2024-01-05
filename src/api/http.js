@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 // cehck user is loged in
-const userToken = Cookies.get('userToken') || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTY2ZWQxYjA1NTFkZGUxYjgxYTM1OGEiLCJpYXQiOjE3MDQzNzIxNDZ9.XZ46konprG_CPePCm-oqe0wqfOE3pWbpt6QkRtyI5Qk";
+const userToken = Cookies.get('userToken')
 // Axios instance
 const instance = axios.create({
   baseURL: 'http://localhost:3000/',
@@ -36,6 +36,7 @@ export const https = {
   logout: (callback, catchError, data) => instance.post('users/logout').then(callback).catch(catchError),
   addTasks: (callback, catchError, data) => instance.post(`tasks`, data).then(callback).catch(catchError),
   getTasks: (callback, catchError) => instance.get(`tasks`).then(callback).catch(catchError),
+  getTask: (callback, catchError, id) => instance.get(`tasks/${id}`).then(callback).catch(catchError),
   addCategory: (callback, catchError, data) => instance.post(`/category`, data).then(callback).catch(catchError),
   deletCategory: (callback, catchError, id) => instance.delete(`/category/${id}`).then(callback).catch(catchError),
   getCategories: (callback, catchError) => instance.get(`/category`).then(callback).catch(catchError),

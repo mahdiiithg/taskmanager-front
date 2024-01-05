@@ -2,6 +2,8 @@ import { useRoutes } from 'react-router-dom';
 import Main from '../pages/Index';
 import Today from '../pages/Today';
 import MainLayout from '../layout/MainLayout';
+import Scheduled from '../pages/Scheduled';
+import AddTask from '../pages/AddTask';
 
 
 
@@ -13,6 +15,9 @@ export default function Router() {
       children: [
         { path: '/', element: <Main /> },
         { path: '/today', element: <Today /> },
+        { path: '/scheduled', element: <Scheduled /> },
+        { path: '/add-task/:id', element: <AddTask /> },
+        { path: '/add-task', element: <AddTask /> },
         
       ],
     },

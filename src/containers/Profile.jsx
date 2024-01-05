@@ -1,4 +1,6 @@
-const Profile = () => {
+const Profile = ({user}) => {
+  
+
   return (
     <div className=" flex flex-col items-center capitalize py-2 px-2">
       <img
@@ -6,8 +8,8 @@ const Profile = () => {
         alt="profile pic"
         className="h-20 w-20 rounded-full border border-black/20"
       />
-      <div>user name</div>
-      <div className="text-sm text-black/50">programmer</div>
+      <div className=" font-semibold">{user.name} - {user.age}</div>
+      <div className="text-sm text-white/80">{user.email}</div>
     </div>
   );
 };

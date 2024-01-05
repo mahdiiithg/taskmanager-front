@@ -1,18 +1,22 @@
-import { AiTwotoneStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const QuickTasks = (props) => {
-  const {title} = props
+  const { title, to, icon } = props;
   return (
-    <div className="flex gap-x-2 items-center">
-      <AiTwotoneStar size={32} />
-      <div className="flex flex-col gap-y-0">
-        <span>{title}</span>
-        <div className="flex items-start gap-x-2 text-sm text-black/50">
-          <div>12 Completed</div>
-          <div>4 Not yet</div>
+    <>
+      <Link to={to}>
+        <div className="flex gap-x-2 items-center">
+          { icon }
+          <div className="flex flex-col gap-y-0">
+            <span>{title}</span>
+            <div className="flex items-start gap-x-2 text-sm text-white/80">
+              <div>12 Completed</div>
+              <div>4 Not yet</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </Link>
+    </>
   );
 };
 export default QuickTasks;

@@ -1,9 +1,17 @@
 import { Progress } from "antd";
 
-const CategoryCart = () => {
+const CategoryCart = ({data, tasks}) => {
+  const {name} = data
+  
+  const countCompletedTasks = tasks.filter(task => task.status === true).length;
+  const totalTasks = tasks.length;
+  const percentageCompleted = totalTasks > 0 ? (countCompletedTasks / totalTasks) * 100 : 0;
+
+  
+
   return (
     <div
-      className="max-w-sm min-h-[240px] h-[240px]
+      className="max-w-sm min-h-[240px] h-[240px] capitalize
     rounded-2xl
     text-[#1A2421]
     backdrop-blur-lg
@@ -13,10 +21,17 @@ const CategoryCart = () => {
     [ shadow-black/10 shadow-xl ]"
     >
       <div className="flex flex-col justify-between items-start h-full">
-      <Progress strokeColor={""} type="circle" percent={75} />
+      <Progress
+        // strokeColor={{
+        //   '0%': '#108ee9',
+        //   '100%': '#87d068',
+        // }}
+        type="circle"
+        percent={totalTasks === 0 ? 100 : percentageCompleted.toFixed(0)}
+      />
         <div>
-          <div>Sport</div>
-          <div>2 tasks for today</div>
+          <div>{name}</div>
+          <div>contain {tasks.length} tasks</div>
         </div>
       </div>
     </div>

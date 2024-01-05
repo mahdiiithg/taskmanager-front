@@ -1,10 +1,14 @@
 import { Outlet } from "react-router-dom";
+import LoginModal from "../containers/LoginModal";
 
 const MainLayout = () => {
   return (
-    <div className="p-2 space-y-5 py-10 max-w-lg mx-auto">
+    <>
+    <div className="max-w-lg mx-auto">
       <Outlet />
     </div>
+    <LoginModal />
+    </>
   );
 };
 export default MainLayout;
