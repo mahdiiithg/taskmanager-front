@@ -65,7 +65,6 @@ const LoginModal = () => {
     <>
       <Modal
         open={open}
-        title="Title"
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
@@ -81,9 +80,9 @@ const LoginModal = () => {
         ]}
       >
         <h1 className="text-3xl">Welcome</h1>
-        <h1 className="text-xl text-black/60 py-2 ">
+        <h2 className="text-xl text-black/60 py-2 ">
           please login to use the app
-        </h1>
+        </h2>
         {!isLogining && (
           <>
             <div className="space-y-2">

@@ -1,5 +1,6 @@
 import { ColorPicker, DatePicker, Input, TimePicker } from "antd";
 import dayjs from "dayjs";
+import { IoIosAdd } from "react-icons/io";
 import React, { useState , useEffect} from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { https } from "../api/http";
@@ -182,7 +183,30 @@ const AddTask = () => {
       </div>
       <div className="px-4 space-y-10">
         <div className="space-y-2">
+          <div className=" flex items-center justify-between w-full">
           <label>select a category</label>
+          <button
+          onClick={() => console.log('object')}
+          className="
+            text-lg
+            flex
+            items-center
+            capitalize
+            bg-blue-500
+            text-white
+            pr-1
+            pl-2
+            py-1
+            rounded-3xl
+            hover:bg-blue-500/90
+            active:scale-95
+            transition-all
+            duration-75
+          "
+        >
+          <span>add</span> <IoIosAdd size={23} />
+        </button>
+          </div>
           <div className="flex flex-wrap gap-4">
             {categories.map((data) => {
               return (
