@@ -1,6 +1,22 @@
 import React from "react";
+import { RxExit } from "react-icons/rx";
+import { https } from "../api/http";
+import Cookies from "js-cookie";
 
-const Profile = ({user}) => {
+const Profile = ({ user }) => {
+  
+  const logout = () => {
+    const response = () => {
+      Cookies.remove("userToken")
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000);
+    };
+    const error = () => {};
+
+    https.logout(response, error);
+  };
+
   return (
     <div className=" flex flex-col items-center capitalize py-2 px-2">
       <img
@@ -8,8 +24,16 @@ const Profile = ({user}) => {
         alt="profile pic"
         className="h-20 w-20 rounded-full border border-black/20"
       />
-      <div className=" font-semibold">{user.name} - {user.age}</div>
-      <div className="text-sm text-white/80">{user.email}</div>
+      <div className=" font-semibold">
+        {user.name} - {user.age}
+      </div>
+      <div className="text-sm text-black/80">{user.email}</div>
+      <button
+        className="px-1 py-1 text-sm absolute top-3 right-3"
+        onClick={logout}
+      >
+        <RxExit size={26} />
+      </button>
     </div>
   );
 };

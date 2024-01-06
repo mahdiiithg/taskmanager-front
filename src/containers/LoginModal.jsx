@@ -34,13 +34,9 @@ const LoginModal = () => {
   const register = () => {
     // event.preventDefault();
     setLoading(true);
-    const response = (res) => {
-      Cookies.set("userToken", res.data.token);
-      setTimeout(() => {
-        setLoading(false);
-        setOpen(false);
-        window.location.reload();
-      }, 1500);
+    const response = () => {
+      setIsLogining(true)
+      setLoading(false);
     };
 
     const error = (error) => {
@@ -61,6 +57,7 @@ const LoginModal = () => {
   };
 
   const handleInputChange = (e) => {
+    setLoading(false)
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
@@ -72,11 +69,9 @@ const LoginModal = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          <Button key="back" onClick={handleCancel}>
-            Return
-          </Button>,
           <Button
             key="submit"
+            className="w-full mt-3"
             // type="primary"
             loading={loading}
             onClick={handleOk}

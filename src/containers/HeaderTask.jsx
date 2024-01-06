@@ -5,14 +5,13 @@ import { CiCalendar } from "react-icons/ci";
 import { SlHome } from "react-icons/sl";
 import { CgCloseO } from "react-icons/cg";
 
-const HeaderTask = ({ selectedDate, onClose, shouldClose }) => {
+const HeaderTask = ({ selectedDate, title, onClose, shouldClose }) => {
   return (
-    <div className=" flex w-full justify-between items-center capitalize">
+    <div className=" flex flex-wrap gap-y-2 w-full justify-between items-center capitalize">
       <h2 className=" text-xl font-bold">
-        {dayjs(selectedDate).format("dd MMMM")}
+        {selectedDate ? dayjs(selectedDate).format("dd MMMM") : title} 
       </h2>
-
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center gap-x-2 self-end">
         <Link className=" bg-blue-500
               text-white
               p-2 rounded-full" to="/">

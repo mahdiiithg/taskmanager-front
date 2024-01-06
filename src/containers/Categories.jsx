@@ -1,14 +1,13 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import CategoryCart from "../components/CategoryCart";
 import { https } from "../api/http";
-import _ from 'lodash';
-
+import _ from "lodash";
 
 const Categories = () => {
   // const [selectedTime, setSelectedTime] = useState(dayjs());
   const [categories, setCategories] = useState([]);
   const [tasks, setTasks] = useState([]);
-  const categorizedTasks = _.groupBy(tasks, 'category');
+  const categorizedTasks = _.groupBy(tasks, "category");
 
   useEffect(() => {
     getCategories();
@@ -37,8 +36,14 @@ const Categories = () => {
 
   return (
     <div className="grid grid-cols-2 gap-4">
-      {categories.map((data) => (
-        <CategoryCart key={data._id} data={data} tasks={categorizedTasks[data._id] || []}   />
+      {categories.map((data, index) => (
+        <CategoryCart
+          to={`categorized/${data._id}`}
+          key={data._id}
+          data={data}
+          index={index}
+          tasks={categorizedTasks[data._id] || []}
+        />
       ))}
     </div>
   );
