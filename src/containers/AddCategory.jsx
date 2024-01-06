@@ -1,22 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Input, Modal } from "antd";
-import Cookies from "js-cookie";
 import { https } from "../api/http";
-const AddCategoryModal = () => {
+import ModalContext from "../context/ModalContext";
+const AddCategoryModal = ( ) => {
+  const { isModalOpen, setIsModalOpen } = useContext(ModalContext);
+
   const [data, setData] = useState({
     name: "",
     description: "",
   });
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(true);
+  // const [open, setOpen] = useState(true);
 
-  const addCategory = (open) => {
+  const addCategory = () => {
     // event.preventDefault();
     setLoading(true);
     const response = (res) => {
       setTimeout(() => {
         setLoading(false);
-        setOpen(false);
+        setIsModalOpen(false);
         window.location.reload();
       }, 1500);
     };
@@ -34,7 +36,7 @@ const AddCategoryModal = () => {
     addCategory();
   };
   const handleCancel = () => {
-    setOpen(false);
+    setIsModalOpen(false);
   };
 
   const handleInputChange = (e) => {
@@ -45,9 +47,9 @@ const AddCategoryModal = () => {
   return (
     <>
       <Modal
-        open={open}
         onOk={handleOk}
         onCancel={handleCancel}
+        open={isModalOpen}
         footer={[
           <Button
             key="submit"

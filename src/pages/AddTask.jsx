@@ -1,17 +1,18 @@
 import { ColorPicker, DatePicker, Input, TimePicker } from "antd";
 import dayjs from "dayjs";
 import { IoIosAdd } from "react-icons/io";
-import React, { useState , useEffect} from "react";
+import React, { useState , useEffect, useContext} from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { https } from "../api/http";
 import { useNavigate, useParams } from "react-router-dom";
 import { GoTrash } from "react-icons/go";
-
+import ModalContext from "../context/ModalContext";
 
 const AddTask = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-
+  const { setIsModalOpen } = useContext(ModalContext);
+  
   // const [selectedTime, setSelectedTime] = useState(dayjs());
   const [categories, setCategories] = useState([]);
   const [selectedDate, setSelectedDate] = useState(dayjs());
@@ -183,12 +184,12 @@ const AddTask = () => {
       </div>
       <div className="px-4 space-y-10">
         <div className="space-y-2">
-          <div className=" flex items-center justify-between w-full">
+          <div className=" flex items-center justify-between w-full pt-2 pb-4">
           <label>select a category</label>
           <button
-          onClick={() => console.log('object')}
+          onClick={() => setIsModalOpen(true)}
           className="
-            text-lg
+            text-sm
             flex
             items-center
             capitalize
@@ -215,7 +216,7 @@ const AddTask = () => {
                   className={`${
                     taskData?.category === data._id
                       ? "bg-red-600"
-                      : "bg-green-500"
+                      : "bg-cyan-700"
                   }  px-2 py-1 rounded-md text-white`}
                   key={data._id}
                 >

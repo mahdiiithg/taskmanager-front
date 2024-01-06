@@ -4,6 +4,7 @@ import { CgRadioChecked, CgRadioCheck } from "react-icons/cg";
 
 import { https } from "../api/http";
 import { Link } from "react-router-dom";
+import { gradientBorderColors } from "../utils/colors";
 
 const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
   const formattedDate = selectedDate.format("YYYY-MM-DD");
@@ -72,7 +73,7 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
         {i}:00
         <ul className="flex flex-col gap-y-2 w-full ">
           {tasksForHour.length > 0 ? (
-            tasksForHour.map((task) => {
+            tasksForHour.map((task, index) => {
               return (
                 <li
                   style={{
@@ -82,7 +83,7 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
                   className={`
                     border-l-8 w-full justify-between 
                     rounded-l-none
-                    bg-[${task.color}]/10
+                    ${!task.color && gradientBorderColors[i]}
                     ${task.status && "line-through"}
                     py-1
                     px-2
@@ -98,9 +99,9 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
                     onClick={() => toggleTaskStatus(task._id, !task.status)}
                   >
                     {task.status ? (
-                      <CgRadioChecked size={20} className="text-blue-700" />
+                      <CgRadioChecked size={20} className={"text-blue-700"} />
                     ) : (
-                      <CgRadioCheck size={20} className="text-blue-700" />
+                      <CgRadioCheck size={20} className={"text-blue-700"} />
                     )}
                   </span>
                 </li>

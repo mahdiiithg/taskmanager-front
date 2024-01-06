@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { IoIosAdd } from "react-icons/io";
 import CategoryCart from "../components/CategoryCart";
 import { https } from "../api/http";
 import _ from "lodash";
+import ModalContext from "../context/ModalContext";
 
 const Categories = () => {
-  // const [selectedTime, setSelectedTime] = useState(dayjs());
+  const { setIsModalOpen } = useContext(ModalContext);
   const [categories, setCategories] = useState([]);
   const [tasks, setTasks] = useState([]);
   const categorizedTasks = _.groupBy(tasks, "category");
@@ -40,7 +41,7 @@ const Categories = () => {
       <div className="pb-4 flex justify-between w-full items-center">
         <h2 className="text-2xl capitalize font-bold">categories</h2>
         <button
-          onClick={() => console.log('object')}
+          onClick={() => setIsModalOpen(true)}
           className="
             text-lg
             flex
