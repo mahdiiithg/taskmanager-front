@@ -4,6 +4,7 @@ import _ from "lodash";
 import { Link, useParams } from "react-router-dom";
 import HeaderTask from "../containers/HeaderTask";
 import { CgRadioCheck, CgRadioChecked } from "react-icons/cg";
+import Cookies from "js-cookie";
 
 const CategorizedTasks = () => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const CategorizedTasks = () => {
   useEffect(() => {
     if (id) getTaskByCategory();
     getCategories();
+    Cookies.set("selectedCat", id);
   }, [id]);
 
   const getCategories = () => {
@@ -36,8 +38,7 @@ const CategorizedTasks = () => {
   };
 
   const toggleTaskStatus = (id, status) => {
-    const response = () => {
-    };
+    const response = () => {};
 
     const error = () => {};
 
@@ -47,12 +48,15 @@ const CategorizedTasks = () => {
   return (
     <div className="relative">
       <div className="absolute w-full h-full top-0 right-0 bg-white z-20 p-4 py-8">
-        <HeaderTask title={_.find(categories, {_id: id})?.name || ''} />
-        <div className=" flex items-start gap-x-4 w-full overflow-x-scroll py-2 mt-8">
+        <HeaderTask title={_.find(categories, { _id: id })?.name || ""} />
+        <div className=" flex items-start gap-x-4 w-full overflow-x-scroll py-2 mb-2 mt-8">
           {categories.map((category) => (
             <button
               key={category._id}
-              onClick={() => window.location.replace(`/categorized/${category._id}`)}
+              onClick={() => [
+                window.location.replace(`/categorized/${category._id}`),
+                Cookies.set("selectedCat", category._id),
+              ]}
               className={`min-w-fit px-2 py-4 rounded-md shadow-md border border-black/10 ${
                 id === category._id && "bg-blue-500 text-white"
               }`}
@@ -83,9 +87,7 @@ const CategorizedTasks = () => {
               <Link className="flex-1" to={`/add-task/${task._id}`}>
                 <span>{task?.name || task.description}</span>
               </Link>
-              <span
-              onClick={() => toggleTaskStatus(task._id, !task.status)}
-              >
+              <span onClick={() => toggleTaskStatus(task._id, !task.status)}>
                 {task.status ? (
                   <CgRadioChecked size={20} className="text-blue-700" />
                 ) : (

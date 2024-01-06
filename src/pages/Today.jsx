@@ -4,10 +4,11 @@ import dayjs from "dayjs";
 import DateScroll from "../containers/ScrollDate";
 import DayDetailView from "../containers/DayDetailView";
 import HeaderTask from "../containers/HeaderTask";
+import Cookies from "js-cookie";
 
 const Today = () => {
   const [tasks, setTasks] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(dayjs());
+  const [selectedDate, setSelectedDate] = useState(dayjs(Cookies.get('selectedDate')) || dayjs());
   const onSelect = (value) => {
     setSelectedDate(value);
   };

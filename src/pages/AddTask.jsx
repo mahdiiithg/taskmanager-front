@@ -7,6 +7,7 @@ import { https } from "../api/http";
 import { useNavigate, useParams } from "react-router-dom";
 import { GoTrash } from "react-icons/go";
 import ModalContext from "../context/ModalContext";
+import Cookies from "js-cookie";
 
 const AddTask = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const AddTask = () => {
     name: "",
     description: "",
     dueDate: null,
-    category: null,
+    category: !id && Cookies.get("selectedCat") ? Cookies.get("selectedCat") : null ,
     color: "",
   });
 
@@ -71,6 +72,7 @@ const AddTask = () => {
   };
 
   const handleCategoryChange = (categoryId) => {
+    Cookies.set("selectedCat", categoryId)
     setTaskData({ ...taskData, category: categoryId });
   };
 
@@ -108,7 +110,7 @@ const AddTask = () => {
   const getTask = () => {
     const response = (res) => {
       setTaskData(res.data);
-      setSelectedDate(dayjs(res.data.dueDate))
+      setSelectedDate(dayjs(res.data.dueDate || res.data.createdAt))
     };
 
     const error = () => {};

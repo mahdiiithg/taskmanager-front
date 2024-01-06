@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 
 const getWeekDates = (date = new Date()) => {
@@ -47,6 +48,7 @@ const DateScroll = ({ onSelect, selectedDate }) => {
     const selectedDate = dayjs(new Date(year, month, dateObj.date));
     // Call the passed onSelect function with the dayjs object
     onSelect(selectedDate);
+    Cookies.set('selectedDate', selectedDate)
   };
   return (
     <div className="flex overflow-x-auto whitespace-nowrap space-x-4 py-4 w-full justify-between">
