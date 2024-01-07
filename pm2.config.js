@@ -3,6 +3,6 @@ module.exports = {
     name: 'taskmanager-front',
     script: './build',
     port: 3001,
-    instances: 4
+    instances: 1
   }],
 };
