@@ -28,7 +28,10 @@ const LoginModal = () => {
       alert(error);
     };
 
-    https.login(response, error, data);
+    https.login(response, error, {
+      email: data.email,
+      password: data.password
+    });
   };
 
   const register = () => {
