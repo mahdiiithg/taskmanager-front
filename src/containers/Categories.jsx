@@ -37,8 +37,7 @@ const Categories = () => {
   };
 
   return (
-    <div
-  >
+    <div>
       <div className="pb-4 flex justify-between w-full items-center">
         <h2 className="text-2xl capitalize font-bold">categories</h2>
         <button
