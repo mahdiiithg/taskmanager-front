@@ -4,10 +4,21 @@ import QuickTasks from "../components/QuickTasks";
 import { IoTimerSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
 import { BsCalendar2CheckFill } from "react-icons/bs";
+import {motion} from 'framer-motion'
+
+
+const variants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+  }
+};
 
 const QuickTaskList = () => {
   return (
-    <div className="flex flex-col space-y-3">
+    <motion.div variants={variants} className="flex flex-col space-y-3">
       <QuickTasks
         icon={
           <div className="bg-red-600/30 text-red-600 rounded-full p-1">
@@ -35,7 +46,7 @@ const QuickTaskList = () => {
         to="/today"
         title="Today"
       />
-    </div>
+    </motion.div>
   );
 };
 export default QuickTaskList;

@@ -37,7 +37,15 @@ const Categories = () => {
   };
 
   return (
-    <div>
+    <div
+    initial={{ scale: 0 }}
+    animate={{ rotate: 180, scale: 1 }}
+    transition={{
+      type: "spring",
+      stiffness: 260,
+      damping: 20
+    }}
+  >
       <div className="pb-4 flex justify-between w-full items-center">
         <h2 className="text-2xl capitalize font-bold">categories</h2>
         <button

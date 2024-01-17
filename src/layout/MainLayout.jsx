@@ -6,7 +6,6 @@ import AddCategoryModal from "../containers/AddCategory";
 import ModalContext from "../context/ModalContext";
 
 const MainLayout = () => {
-  // const { isModalOpen, setIsModalOpen } = useContext(ModalContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const value = { isModalOpen, setIsModalOpen };
 
