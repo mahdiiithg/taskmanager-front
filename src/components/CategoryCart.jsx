@@ -21,9 +21,9 @@ const CategoryCart = ({ data, tasks, to, index }) => {
       transition={{
         type: "spring",
         stiffness: 260,
-        damping: 15 * (index + 2),
+        damping: 5 * (index + 2),
       }}
-      whileHover={{ rotate: 5 }} 
+      whileTap={{ rotate: 2, scale: 0.9 }}
     >
       <Link to={to}>
         <div
