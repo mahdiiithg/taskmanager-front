@@ -27,8 +27,8 @@ const QuickTasks = (props) => {
   const controls = useAnimation();
 
   const floatingAnimation = {
-    initial: { y: 0, opacity: 1, scale: 1 },
-    animate: { y: -20, opacity: 1, scale: 1 },
+    initial: { y: 0 },
+    animate: { y: -10 },
     transition: {
       duration: 2,
       yoyo: Infinity,

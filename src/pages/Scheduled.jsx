@@ -42,10 +42,10 @@ const Scheduled = () => {
       <ul>
         {tasksForDate.map((task) => (
           <li
-            className="border border-black/10 bg-black/10 rounded-md p-1 text-sm"
+            className="border border-black/20 rounded-md px-1 text-sm mb-1"
             key={task._id}
           >
-            {task.description}
+            {task?.name?.substring(0,8) || task.description?.substring(0,8)}...
           </li>
         ))}
       </ul>

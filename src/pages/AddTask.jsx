@@ -17,7 +17,7 @@ const AddTask = () => {
   // const [selectedTime, setSelectedTime] = useState(dayjs());
   const [categories, setCategories] = useState([]);
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const [selectedTime, setSelectedTime] = useState(dayjs());
+  const [selectedTime, setSelectedTime] = useState();
 
   const [taskData, setTaskData] = useState({
     name: "",
@@ -100,7 +100,7 @@ const AddTask = () => {
         // ...taskData
         name: taskData.name,
         description: taskData.description,
-        dueDate: taskData.dueDate,
+        dueDate: combinedDueDate,
         category: taskData.category,
         color: taskData.color,
       });
@@ -111,6 +111,7 @@ const AddTask = () => {
     const response = (res) => {
       setTaskData(res.data);
       setSelectedDate(dayjs(res.data.dueDate || res.data.createdAt))
+      setSelectedTime(dayjs(res.data.dueDate || res.data.createdAt))
     };
 
     const error = () => {};
