@@ -5,8 +5,9 @@ import Cookies from 'js-cookie';
 const userToken = Cookies.get('userToken')
 // Axios instance
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/',
+  // baseURL: 'http://localhost:3000/',
   // baseURL: 'http://116.203.241.176:3000/',
+  baseURL: 'http://api.mahditahavorgar.com/',
   timeout: 100000,
   headers: {
     'content-type': 'application/json',
