@@ -40,7 +40,7 @@ const Scheduled = () => {
     // Render tasks for this date
     return (
       <ul>
-        {tasksForDate.map((task) => (
+        {tasksForDate?.map((task) => (
           <li
             className="border border-black/20 rounded-md px-1 text-sm mb-1"
             key={task._id}

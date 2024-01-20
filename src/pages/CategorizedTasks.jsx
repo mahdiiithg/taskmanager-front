@@ -65,7 +65,7 @@ const CategorizedTasks = () => {
       <div className="absolute w-full h-full top-0 right-0 bg-white z-20 p-4 py-8">
         <HeaderTask title={_.find(categories, { _id: id })?.name || ""} />
         <div className=" flex items-start gap-x-4 w-full overflow-x-scroll py-2 mb-2 mt-8">
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <div
               className={`min-w-fit relative h-full rounded-md shadow-md border border-black/10 z-0 ${
                 id === category._id && "bg-blue-500 text-white"
@@ -110,7 +110,7 @@ const CategorizedTasks = () => {
           ))}
         </div>
         <ul className=" space-y-4 pt-10">
-          {tasks.map((task) => (
+          {tasks?.map((task) => (
             <li
               style={{
                 borderLeft: `8px solid ${task.color}`,

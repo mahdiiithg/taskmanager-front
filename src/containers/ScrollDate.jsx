@@ -52,7 +52,7 @@ const DateScroll = ({ onSelect, selectedDate }) => {
   };
   return (
     <div className="flex overflow-x-auto whitespace-nowrap space-x-4 py-4 w-full justify-between">
-      {weekDates.map((dateObj, index) => {
+      {weekDates?.map((dateObj, index) => {
         // Check if the dateObj corresponds to the selectedDate
         const isSelectedDate = selectedDate?.isSame(
           new Date(selectedDate?.year(), selectedDate?.month(), dateObj?.date),

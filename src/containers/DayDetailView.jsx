@@ -73,7 +73,7 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
         {i}:00
         <ul className="flex flex-col gap-y-2 w-full ">
           {tasksForHour.length > 0 ? (
-            tasksForHour.map((task, index) => {
+            tasksForHour?.map((task, index) => {
               return (
                 <li
                   style={{

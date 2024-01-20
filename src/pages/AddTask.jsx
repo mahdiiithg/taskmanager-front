@@ -212,7 +212,7 @@ const AddTask = () => {
         </button>
           </div>
           <div className="flex flex-wrap gap-4">
-            {categories.map((data) => {
+            {categories?.map((data) => {
               return (
                 <button
                   onClick={() => handleCategoryChange(data._id)}
