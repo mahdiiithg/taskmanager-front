@@ -63,7 +63,7 @@ const Categories = () => {
         </button>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        {/* {categories?.map((data, index) => (
+        {categories?.map((data, index) => (
           <CategoryCart
             to={`categorized/${data._id}`}
             key={data._id}
@@ -71,7 +71,7 @@ const Categories = () => {
             index={index}
             tasks={categorizedTasks[data._id] || []}
           />
-        ))} */}
+        ))}
       </div>
     </div>
   );
