@@ -22,9 +22,9 @@
      the abbreviated format.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="m176_a3001.s241.d203.a116.twa"
-    android:versionCode="2"
-    android:versionName="2" >
+    package="com.mahditahavorgar.twa"
+    android:versionCode="1"
+    android:versionName="1" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -50,7 +50,7 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:name="m176_a3001.s241.d203.a116.twa.Application"
+        android:name="com.mahditahavorgar.twa.Application"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -74,7 +74,7 @@
                 android:value="@string/launchUrl" />
         </activity>
         <activity
-            android:name="m176_a3001.s241.d203.a116.twa.LauncherActivity"
+            android:name="com.mahditahavorgar.twa.LauncherActivity"
             android:alwaysRetainTaskState="true"
             android:exported="true"
             android:label="@string/launcherName" >
@@ -156,7 +156,7 @@
         </provider>
 
         <service
-            android:name="m176_a3001.s241.d203.a116.twa.DelegationService"
+            android:name="com.mahditahavorgar.twa.DelegationService"
             android:enabled="@bool/enableNotification"
             android:exported="@bool/enableNotification" >
             <meta-data

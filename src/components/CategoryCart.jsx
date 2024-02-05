@@ -16,14 +16,13 @@ const CategoryCart = ({ data, tasks, to, index }) => {
 
   return (
     <motion.div
-      initial={{ scale: 0, rotate: 180 }}
-      animate={{ rotate: 0, scale: 1 }}
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
       transition={{
-        type: "spring",
         stiffness: 260,
-        damping: 15 * (index + 2),
+        damping: 5 * (index + 2) || 20,
       }}
-      whileHover={{ rotate: 5 }} 
+      whileTap={{ rotate: 2, scale: 0.9 }}
     >
       <Link to={to}>
         <div

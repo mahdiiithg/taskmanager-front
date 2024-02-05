@@ -22,9 +22,9 @@
 22     the abbreviated format.
 23-->
 24<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-25    package="m176_a3001.s241.d203.a116.twa"
-26    android:versionCode="2"
-27    android:versionName="2" >
+25    package="com.mahditahavorgar.twa"
+26    android:versionCode="1"
+27    android:versionName="1" >
 28
 29    <uses-sdk
 30        android:minSdkVersion="19"
@@ -72,7 +72,7 @@
 51
 52    <application
 52-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:35:5-215:19
-53        android:name="m176_a3001.s241.d203.a116.twa.Application"
+53        android:name="com.mahditahavorgar.twa.Application"
 53-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:36:9-35
 54        android:allowBackup="true"
 54-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:37:9-35
@@ -119,7 +119,7 @@
 75        </activity>
 76        <activity
 76-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:72:9-148:20
-77            android:name="m176_a3001.s241.d203.a116.twa.LauncherActivity"
+77            android:name="com.mahditahavorgar.twa.LauncherActivity"
 77-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:72:19-50
 78            android:alwaysRetainTaskState="true"
 78-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:73:13-49
@@ -280,7 +280,7 @@
 157
 158        <service
 158-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:165:9-180:19
-159            android:name="m176_a3001.s241.d203.a116.twa.DelegationService"
+159            android:name="com.mahditahavorgar.twa.DelegationService"
 159-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:166:13-46
 160            android:enabled="@bool/enableNotification"
 160-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:167:13-55

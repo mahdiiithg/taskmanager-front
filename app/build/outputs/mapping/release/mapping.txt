@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 2.1.86
 # min_api: 19
-# pg_map_id: 3099a67
+# pg_map_id: b24512d
 # common_typos_disable
 android.support.customtabs.ICustomTabsCallback -> a.a.a.a:
     android.os.Bundle extraCallbackWithResult(java.lang.String,android.os.Bundle) -> D
@@ -6229,7 +6229,7 @@ com.google.androidbrowserhelper.trusted.splashscreens.SystemBarColorPredictor$1 
 com.google.androidbrowserhelper.trusted.splashscreens.SystemBarColorPredictor$SupportedFeatures -> com.google.androidbrowserhelper.trusted.z.f$b:
     boolean navbarColorCustomization -> a
     boolean colorSchemeCustomization -> b
-m176_a3001.s241.d203.a116.twa.LauncherActivity -> m176_a3001.s241.d203.a116.twa.LauncherActivity:
+com.mahditahavorgar.twa.LauncherActivity -> com.mahditahavorgar.twa.LauncherActivity:
     android.net.Uri getLaunchingUrl() -> g
 org.chromium.IsReadyToPayService -> d.a.a:
     void isReadyToPay(org.chromium.IsReadyToPayServiceCallback) -> q

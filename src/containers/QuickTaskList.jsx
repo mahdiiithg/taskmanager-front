@@ -1,11 +1,6 @@
 import React from "react";
-
-import QuickTasks from "../components/QuickTasks";
-import { IoTimerSharp } from "react-icons/io5";
-import { FaStar } from "react-icons/fa6";
-import { BsCalendar2CheckFill } from "react-icons/bs";
+import QuickTasksCard from "../components/QuickTasksCard";
 import {motion} from 'framer-motion'
-
 
 const variants = {
   open: {
@@ -18,17 +13,36 @@ const variants = {
 
 const QuickTaskList = () => {
   return (
-    <motion.div variants={variants} className="flex flex-col space-y-3">
-      <QuickTasks
-        icon={
-          <div className="bg-red-600/30 text-red-600 rounded-full p-1">
-            <FaStar size={22} />
-          </div>
-        }
-        to="/importatns"
-        title="High Priorities"
+    <motion.div variants={variants} className="grid grid-cols-2 gap-3 justify-center">
+      <QuickTasksCard
+        src="/images/blueCalendar.png"
+        to="/scheduled"
+        title="In scheduled"
       />
-      <QuickTasks
+      <QuickTasksCard
+      direction={'flex-row flex-row'}
+      src="/images/3d-note-icon-png.png"
+      isRow
+      subtitle
+        to="/today"
+        title="today"
+      />
+      <QuickTasksCard
+        direction={'flex-row flex-row-reverse'}
+        isRow
+        src="/images/write3d.webp"
+        to="/add-task"
+        title="add new task"
+        subtitle="write and add"
+      />
+      <QuickTasksCard
+        src="/images/folder-icon.png"
+        direction={'flex-col-reverse'}
+        to={`/categorized/1`}
+        title="categorized"
+        subtitle="base on categories"
+      />
+      {/* <QuickTasks
         icon={
           <div className="bg-blue-600/30 text-blue-600 rounded-full p-2">
             <BsCalendar2CheckFill size={19} />
@@ -36,8 +50,8 @@ const QuickTaskList = () => {
         }
         to="/scheduled"
         title="In Schedule"
-      />
-      <QuickTasks
+      /> */}
+      {/* <QuickTasks
         icon={
           <div className="bg-yellow-600/30 text-yellow-600 rounded-full p-1">
             <IoTimerSharp size={25} />
@@ -45,7 +59,7 @@ const QuickTaskList = () => {
         }
         to="/today"
         title="Today"
-      />
+      /> */}
     </motion.div>
   );
 };

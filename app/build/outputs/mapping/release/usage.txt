@@ -94,7 +94,6 @@ androidx.core.graphics.TypefaceCompatUtil
 com.google.android.gms.internal.location.zzbj
 androidx.browser.customtabs.CustomTabsSessionToken$MockCallback
 com.google.android.gms.common.sqlite.CursorWrapper
-m176_a3001.s241.d203.a116.twa.R$string
 androidx.viewpager.R$integer
 com.google.android.gms.internal.play_billing.zzfg:
     static void <clinit>()
@@ -116,7 +115,6 @@ com.google.android.gms.common.internal.GmsClientSupervisor:
     public void unbindService(java.lang.String,android.content.ServiceConnection,java.lang.String)
     public boolean bindService(android.content.ComponentName,android.content.ServiceConnection,java.lang.String)
     public boolean bindService(java.lang.String,android.content.ServiceConnection,java.lang.String)
-m176_a3001.s241.d203.a116.twa.R$dimen
 com.google.androidbrowserhelper.playbilling.R$id
 com.google.android.gms.location.zzaa
 androidx.core.view.accessibility.AccessibilityEventCompat
@@ -184,6 +182,7 @@ com.google.android.gms.internal.location.zzci
 androidx.lifecycle.MediatorLiveData$Source
 androidx.swiperefreshlayout.widget.SwipeRefreshLayout$1
 androidx.core.graphics.PathParser
+com.mahditahavorgar.twa.R$color
 androidx.core.graphics.TypefaceCompatBaseImpl$2
 com.google.android.gms.common.api.internal.zadc:
     static void <clinit>()
@@ -201,6 +200,7 @@ com.google.android.gms.internal.common.zzv
 com.google.android.gms.common.images.zaf
 com.google.android.gms.common.api.internal.zaao
 androidx.core.provider.SelfDestructiveThread$ReplyCallback
+com.mahditahavorgar.twa.R$attr
 androidx.legacy.coreui.R$color
 androidx.customview.R$color
 com.google.android.gms.location.SettingsApi:
@@ -215,7 +215,6 @@ com.google.android.gms.location.LocationServices:
 androidx.fragment.app.FragmentTabHost$TabInfo
 com.google.android.gms.internal.location.zzcz
 com.android.billingclient.api.InAppMessageParams
-m176_a3001.s241.d203.a116.twa.R$bool
 androidx.core.app.NotificationCompatSideChannelService
 androidx.core.view.DragStartHelper$OnDragStartListener
 androidx.core.view.NestedScrollingChild
@@ -271,7 +270,6 @@ androidx.versionedparcelable.VersionedParcelParcel:
     private static final boolean DEBUG
     private static final java.lang.String TAG
 com.google.android.gms.internal.location.zzdh
-m176_a3001.s241.d203.a116.twa.R
 androidx.customview.widget.ViewDragHelper$2
 com.google.android.gms.location.Geofence$Builder
 com.google.android.gms.common.R
@@ -293,7 +291,6 @@ com.android.billingclient.api.SkuDetails:
     public java.lang.String getPrice()
 androidx.drawerlayout.R$styleable
 androidx.asynclayoutinflater.R$color
-m176_a3001.s241.d203.a116.twa.R$layout
 com.google.android.gms.tasks.zzp
 com.google.androidbrowserhelper.R$drawable:
     private void <init>()
@@ -429,7 +426,6 @@ androidx.core.app.NotificationCompat$Style:
     public void buildIntoRemoteViews(android.widget.RemoteViews,android.widget.RemoteViews)
 androidx.viewpager.widget.ViewPager$LayoutParams
 androidx.core.content.pm.ShortcutInfoCompatSaver
-m176_a3001.s241.d203.a116.twa.R$id
 com.android.billingclient.api.BillingFlowParams$SubscriptionUpdateParams:
     private void <init>()
 com.google.android.gms.common.moduleinstall.internal.zal
@@ -735,7 +731,6 @@ androidx.fragment.app.Fragment:
 com.google.android.gms.internal.location.zzbb
 androidx.browser.trusted.ConnectionHolder$WrapperFactory
 androidx.core.widget.NestedScrollView
-m176_a3001.s241.d203.a116.twa.R$integer
 com.google.android.gms.tasks.zzk
 com.google.android.gms.common.GoogleSourceStampsResult
 com.google.android.gms.location.ActivityRecognition
@@ -1307,6 +1302,7 @@ androidx.arch.core.executor.ArchTaskExecutor:
     public static java.util.concurrent.Executor getIOThreadExecutor()
     public void setDelegate(androidx.arch.core.executor.TaskExecutor)
 com.google.android.gms.common.server.converter.zaa
+m176_a3001.s241.d203.a116.twa.LauncherActivity
 androidx.annotation.InspectableProperty
 androidx.core.app.ShareCompat
 androidx.core.content.SharedPreferencesCompat$EditorCompat
@@ -1347,7 +1343,6 @@ com.google.android.gms.common.api.GoogleApi$Settings$Builder:
     public com.google.android.gms.common.api.GoogleApi$Settings$Builder setLooper(android.os.Looper)
     public com.google.android.gms.common.api.GoogleApi$Settings$Builder setMapper(com.google.android.gms.common.api.internal.StatusExceptionMapper)
 com.google.android.gms.common.internal.zzae
-m176_a3001.s241.d203.a116.twa.R$mipmap
 androidx.browser.trusted.sharing.ShareTarget$EncodingType
 com.google.android.gms.location.LocationSettingsResult
 androidx.core.app.ComponentActivity$ExtraData
@@ -1510,6 +1505,7 @@ com.google.android.gms.common.GooglePlayServicesManifestException:
 com.google.android.gms.common.api.ApiException:
     public int getStatusCode()
     public java.lang.String getStatusMessage()
+com.mahditahavorgar.twa.BuildConfig
 com.android.billingclient.api.QueryProductDetailsParams$Product
 com.google.android.gms.internal.play_billing.zzan:
     void <init>()
@@ -1546,7 +1542,6 @@ com.google.android.gms.common.zzr
 androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat
 com.google.android.gms.common.api.internal.zabh
 com.google.android.gms.internal.common.zzag
-m176_a3001.s241.d203.a116.twa.R$color
 androidx.viewpager.widget.ViewPager$3
 androidx.core.app.FrameMetricsAggregator$FrameMetricsBaseImpl
 com.google.android.gms.internal.location.zzba
@@ -1657,6 +1652,7 @@ com.google.android.gms.common.internal.zag:
     public static com.google.android.gms.common.internal.zag zac(androidx.fragment.app.Fragment,android.content.Intent,int)
 com.google.android.gms.common.moduleinstall.internal.zaq
 com.google.android.gms.location.GeofencingRequest
+com.mahditahavorgar.twa.R$xml
 androidx.swiperefreshlayout.widget.SwipeRefreshLayout$8
 androidx.slidingpanelayout.widget.SlidingPaneLayout$DragHelperCallback
 androidx.core.text.PrecomputedTextCompat$Params
@@ -1694,6 +1690,7 @@ com.google.android.gms.location.ActivityTransitionEvent
 androidx.legacy.coreui.R$integer
 androidx.core.provider.FontsContractCompat$5
 androidx.core.view.ViewCompat$1
+com.mahditahavorgar.twa.R$integer
 com.android.billingclient.api.BillingFlowParams$ProductDetailsParams:
     public static com.android.billingclient.api.BillingFlowParams$ProductDetailsParams$Builder newBuilder()
     synthetic void <init>(com.android.billingclient.api.BillingFlowParams$ProductDetailsParams$Builder,com.android.billingclient.api.zzaw)
@@ -1714,6 +1711,7 @@ com.google.android.gms.internal.location.zzt
 com.google.android.gms.common.api.internal.zaby
 androidx.core.content.res.ColorStateListInflaterCompat
 com.google.android.gms.common.internal.zzad
+com.mahditahavorgar.twa.R$styleable
 com.android.billingclient.api.zzbo
 com.google.androidbrowserhelper.trusted.TwaSharedPreferencesManager:
     private static final java.lang.String PREFS_NAME
@@ -2231,6 +2229,7 @@ com.google.android.gms.common.wrappers.PackageManagerWrapper:
     public androidx.core.util.Pair getApplicationLabelAndIcon(java.lang.String)
     public boolean isCallerInstantApp()
     public final boolean zza(int,java.lang.String)
+com.mahditahavorgar.twa.R$mipmap
 androidx.coordinatorlayout.widget.CoordinatorLayout$HierarchyChangeListener
 com.google.android.gms.common.api.internal.zaam
 com.google.android.gms.dynamic.IFragmentWrapper$Stub
@@ -2386,7 +2385,6 @@ com.android.billingclient.api.ProxyBillingActivity:
     private static final int REQUEST_CODE_FIRST_PARTY_PURCHASE_FLOW
     private static final java.lang.String KEY_SEND_CANCELLED_BROADCAST_IF_FINISHED
 androidx.core.view.ViewPropertyAnimatorCompat$ViewPropertyAnimatorListenerApi14
-m176_a3001.s241.d203.a116.twa.R$xml
 androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub
 com.google.android.gms.common.util.HttpUtils
 com.google.android.gms.common.api.internal.zaaz
@@ -2400,6 +2398,7 @@ com.google.android.gms.common.api.internal.RegisterListenerMethod:
     protected void <init>(com.google.android.gms.common.api.internal.ListenerHolder,com.google.android.gms.common.Feature[],boolean)
 com.google.android.gms.common.util.AndroidUtilsLight
 com.google.android.gms.common.internal.ServiceSpecificExtraArgs$GamesExtraArgs
+com.mahditahavorgar.twa.R
 com.google.android.gms.common.internal.zzaf
 androidx.drawerlayout.R$integer
 com.google.android.gms.internal.location.zzcg
@@ -2635,6 +2634,7 @@ com.google.android.gms.common.util.WorkSourceUtil:
     public static java.util.List getNames(android.os.WorkSource)
     private void <init>()
     public static boolean hasWorkSourcePermission(android.content.Context)
+com.mahditahavorgar.twa.R$dimen
 androidx.core.app.NotificationCompat$Action$Builder
 com.google.android.gms.internal.location.zzdw
 com.google.android.gms.internal.location.zzbd
@@ -2753,6 +2753,7 @@ com.android.billingclient.api.AcknowledgePurchaseParams:
 androidx.lifecycle.Transformations$2$1
 com.google.android.gms.common.internal.MethodInvocation:
     public void <init>(int,int,int,long,long,java.lang.String,java.lang.String,int)
+com.mahditahavorgar.twa.R$drawable
 androidx.viewpager.widget.PagerTitleStrip$PageListener
 com.google.android.gms.common.api.internal.zaau
 com.google.androidbrowserhelper.trusted.NotificationUtils:
@@ -2789,6 +2790,7 @@ com.google.android.gms.base.R$string:
 androidx.core.os.ParcelCompat
 androidx.core.view.ViewPropertyAnimatorUpdateListener
 androidx.swiperefreshlayout.R$integer
+m176_a3001.s241.d203.a116.twa.Application
 com.google.android.gms.common.server.response.zac
 com.google.android.gms.internal.location.zzdb:
     public static com.google.android.gms.internal.location.zzdb zza(android.app.PendingIntent,java.lang.String,java.lang.String)
@@ -2887,7 +2889,6 @@ com.google.android.gms.tasks.TaskExecutors:
     private void <init>()
 com.google.android.gms.location.zza
 com.google.android.gms.common.SignInButton$ColorScheme
-m176_a3001.s241.d203.a116.twa.BuildConfig
 com.google.android.gms.common.moduleinstall.internal.ApiFeatureRequest
 androidx.slidingpanelayout.widget.SlidingPaneLayout$PanelSlideListener
 com.google.android.gms.dynamite.zzj
@@ -3086,6 +3087,7 @@ androidx.browser.customtabs.CustomTabsIntent:
     public static final int TOOLBAR_ACTION_BUTTON_ID
     private static final int MAX_TOOLBAR_ITEMS
 androidx.coordinatorlayout.widget.CoordinatorLayout$OnPreDrawListener
+m176_a3001.s241.d203.a116.twa.DelegationService
 androidx.core.view.ViewCompat$FocusDirection
 com.google.androidbrowserhelper.playbilling.R$drawable
 com.google.android.gms.common.moduleinstall.internal.zaab
@@ -3423,6 +3425,7 @@ com.google.android.gms.common.util.DefaultClock:
 androidx.core.graphics.BlendModeUtils
 com.google.android.gms.internal.location.zzbx
 com.google.android.gms.internal.base.zal
+com.mahditahavorgar.twa.R$bool
 com.google.android.gms.common.moduleinstall.internal.zag
 androidx.browser.browseractions.BrowserServiceFileProvider$FileSaveTask
 androidx.core.app.NotificationManagerCompat$NotifyTask
@@ -3490,7 +3493,6 @@ com.google.android.gms.location.LocationRequest$Builder:
     public static final long IMPLICIT_MAX_UPDATE_AGE
 com.google.android.gms.common.internal.DowngradeableSafeParcel
 androidx.core.view.NestedScrollingParent
-m176_a3001.s241.d203.a116.twa.R$drawable
 com.android.billingclient.api.BillingClient$BillingResponseCode
 androidx.core.app.NotificationCompat$Extender
 androidx.fragment.app.ListFragment
@@ -3687,6 +3689,7 @@ androidx.browser.trusted.sharing.ShareTarget:
 com.google.android.gms.common.util.MurmurHash3
 androidx.core.internal.view.SupportMenu
 com.google.android.gms.dynamic.SupportFragmentWrapper
+com.mahditahavorgar.twa.R$layout
 androidx.browser.R$color
 com.google.android.gms.common.moduleinstall.internal.zak
 androidx.core.view.WindowInsetsCompat
@@ -4078,6 +4081,7 @@ androidx.browser.browseractions.BrowserActionsFallbackMenuDialog$1
 com.google.androidbrowserhelper.playbilling.R$dimen
 com.google.android.gms.common.internal.zaz
 androidx.legacy.app.ActionBarDrawerToggle$DelegateProvider
+com.mahditahavorgar.twa.R$style
 androidx.loader.app.LoaderManagerImpl:
     private androidx.loader.content.Loader createAndInstallLoader(int,android.os.Bundle,androidx.loader.app.LoaderManager$LoaderCallbacks,androidx.loader.content.Loader)
     public androidx.loader.content.Loader initLoader(int,android.os.Bundle,androidx.loader.app.LoaderManager$LoaderCallbacks)
@@ -4097,6 +4101,8 @@ androidx.loader.app.LoaderManager:
 com.google.androidbrowserhelper.R$style
 androidx.core.provider.SelfDestructiveThread$2
 com.google.android.gms.common.data.Freezable
+com.mahditahavorgar.twa.R$raw
+com.mahditahavorgar.twa.R$id
 androidx.loader.R$integer
 androidx.core.graphics.TypefaceCompatApi26Impl
 androidx.core.view.DragStartHelper$2
@@ -4129,8 +4135,8 @@ androidx.arch.core.util.Function
 com.google.android.gms.dynamic.DeferredLifecycleHelper
 android.support.v4.app.INotificationSideChannel$Stub$Proxy
 com.google.android.gms.common.internal.Asserts
-m176_a3001.s241.d203.a116.twa.R$styleable
 androidx.lifecycle.MediatorLiveData
+com.mahditahavorgar.twa.R$string
 androidx.annotation.RequiresPermission$Write
 androidx.core.graphics.drawable.IconCompat:
     public static androidx.core.graphics.drawable.IconCompat createWithResource(android.content.Context,int)
@@ -4172,7 +4178,6 @@ androidx.core.graphics.drawable.IconCompat:
     private static final java.lang.String EXTRA_TINT_MODE
 androidx.core.content.res.GradientColorInflaterCompat
 androidx.coordinatorlayout.widget.CoordinatorLayout$DefaultBehavior
-m176_a3001.s241.d203.a116.twa.R$raw
 com.google.android.gms.internal.location.zzbp:
     private final com.google.android.gms.tasks.Task zzb(com.google.android.gms.location.LocationRequest,com.google.android.gms.common.api.internal.ListenerHolder)
     public void <init>(android.app.Activity)
@@ -4190,7 +4195,6 @@ com.google.android.gms.internal.location.zzbp:
     public final com.google.android.gms.tasks.Task setMockLocation(android.location.Location)
     public final com.google.android.gms.tasks.Task setMockMode(boolean)
 androidx.core.view.accessibility.AccessibilityViewCommand$MoveAtGranularityArguments
-m176_a3001.s241.d203.a116.twa.R$attr
 com.google.android.gms.location.ActivityRecognitionApi
 com.google.android.gms.common.server.response.zad
 androidx.core.view.inputmethod.InputConnectionCompat$OnCommitContentListener
@@ -4461,7 +4465,6 @@ com.google.android.gms.dynamite.zzk
 androidx.browser.trusted.FutureUtils
 androidx.coordinatorlayout.widget.CoordinatorLayout$DispatchChangeEvent
 com.google.android.gms.common.api.internal.zabb
-m176_a3001.s241.d203.a116.twa.R$style
 com.google.android.gms.internal.location.zzda:
     public final com.google.android.gms.location.LocationAvailability zzp()
     public final void zzq(com.google.android.gms.location.GeofencingRequest,android.app.PendingIntent,com.google.android.gms.tasks.TaskCompletionSource)

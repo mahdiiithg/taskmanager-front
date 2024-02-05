@@ -4,7 +4,7 @@
     <!-- Automatically generated file. DO NOT MODIFY -->
 
     <!-- Value from default config. -->
-    <string name="appName" translatable="false">taskmanager</string>
+    <string name="appName" translatable="false">personal-planner</string>
     <!-- Value from default config. -->
     <color name="backgroundColor">#FFFFFF</color>
     <!-- Value from default config. -->
@@ -18,15 +18,15 @@
     <!-- Value from default config. -->
     <string name="fallbackType" translatable="false">customtabs</string>
     <!-- Value from default config. -->
-    <string name="fullScopeUrl" translatable="false">http://116.203.241.176:3001/</string>
+    <string name="fullScopeUrl" translatable="false">https://mahditahavorgar.com/</string>
     <!-- Value from default config. -->
     <string name="generatorApp" translatable="false">bubblewrap-cli</string>
     <!-- Value from default config. -->
-    <string name="hostName" translatable="false">http://116.203.241.176:3001/</string>
+    <string name="hostName" translatable="false">mahditahavorgar.com</string>
     <!-- Value from default config. -->
-    <string name="launchUrl" translatable="false">https://http://116.203.241.176:3001//</string>
+    <string name="launchUrl" translatable="false">https://mahditahavorgar.com/</string>
     <!-- Value from default config. -->
-    <string name="launcherName" translatable="false">taskmanager</string>
+    <string name="launcherName" translatable="false">planner</string>
     <!-- Value from default config. -->
     <color name="navigationColor">#000000</color>
     <!-- Value from default config. -->
@@ -38,10 +38,10 @@
     <!-- Value from default config. -->
     <string name="orientation" translatable="false">default</string>
     <!-- Value from default config. -->
-    <string name="providerAuthority" translatable="false">m176_a3001.s241.d203.a116.twa.fileprovider</string>
+    <string name="providerAuthority" translatable="false">com.mahditahavorgar.twa.fileprovider</string>
     <!-- Value from default config. -->
     <integer name="splashScreenFadeOutDuration">300</integer>
     <!-- Value from default config. -->
-    <string name="webManifestUrl" translatable="false">http://116.203.241.176:3001/manifest.json</string>
+    <string name="webManifestUrl" translatable="false">https://mahditahavorgar.com/manifest.json</string>
 
 </resources>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { https } from "../api/http";
 import _ from "lodash";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import HeaderTask from "../containers/HeaderTask";
 import { CgRadioCheck, CgRadioChecked, CgTrash } from "react-icons/cg";
 import Cookies from "js-cookie";
@@ -9,6 +9,7 @@ import { Popconfirm } from "antd";
 
 const CategorizedTasks = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [categories, setCategories] = useState([]);
 
@@ -17,6 +18,14 @@ const CategorizedTasks = () => {
     getCategories();
     Cookies.set("selectedCat", id);
   }, [id]);
+
+  useEffect(() => {
+    const newID = categories[0]?._id;
+    if ((id.length < 2 || id === "undefined") && newID) {
+      navigate(`/categorized/${newID}`);
+      Cookies.set("selectedCat", newID);
+    }
+  }, [id, categories, navigate]);
 
   const getCategories = () => {
     const response = (res) => {
@@ -64,14 +73,14 @@ const CategorizedTasks = () => {
       <div className="absolute w-full h-full top-0 right-0 bg-white z-20 p-4 py-8">
         <HeaderTask title={_.find(categories, { _id: id })?.name || ""} />
         <div className=" flex items-start gap-x-4 w-full overflow-x-scroll py-2 mb-2 mt-8">
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <div
-              className={`min-w-fit relative px-2 py-4 rounded-md shadow-md border border-black/10 z-0 ${
+              className={`min-w-fit relative h-full rounded-md shadow-md border border-black/10 z-0 ${
                 id === category._id && "bg-blue-500 text-white"
               }`}
             >
               <Popconfirm
-                className=" absolute -top-2 -right-3 z-10"
+                className=" absolute -top-2 -right-3 z-10 bg-red-500 h-6 w-6 rounded-full p-1"
                 description={
                   <div className="font-semibold pb-5">
                     <h1>Are you sure to delete this category?</h1>
@@ -90,17 +99,15 @@ const CategorizedTasks = () => {
                 okText="Yes"
                 cancelText="No"
               >
-                <CgTrash className=" text-red-700" size={22} />
+                <CgTrash className="text-white" size={18} />
               </Popconfirm>
               <button
+                className="h-full px-2 py-4 "
                 key={category._id}
                 onClick={() => [
-                  window.location.replace(`/categorized/${category._id}`),
+                  navigate(`/categorized/${category._id}`),
                   Cookies.set("selectedCat", category._id),
                 ]}
-                // className={`min-w-fit relative px-2 py-4 rounded-md shadow-md border border-black/10 z-0 ${
-                //   id === category._id && "bg-blue-500 text-white"
-                // }`}
               >
                 {category.name}
               </button>
@@ -108,7 +115,7 @@ const CategorizedTasks = () => {
           ))}
         </div>
         <ul className=" space-y-4 pt-10">
-          {tasks.map((task) => (
+          {tasks?.map((task) => (
             <li
               style={{
                 borderLeft: `8px solid ${task.color}`,

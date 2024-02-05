@@ -6,7 +6,7 @@ import _ from "lodash";
 import ModalContext from "../context/ModalContext";
 
 const Categories = () => {
-  const { setIsModalOpen } = useContext(ModalContext);
+  const { setIsModalOpen, shouldGetCategory } = useContext(ModalContext);
   const [categories, setCategories] = useState([]);
   const [tasks, setTasks] = useState([]);
   const categorizedTasks = _.groupBy(tasks, "category");
@@ -15,6 +15,10 @@ const Categories = () => {
     getCategories();
     getTasks();
   }, []);
+  
+  useEffect(() => {
+    getCategories();
+  }, [shouldGetCategory]);
 
   const getCategories = () => {
     const response = (res) => {
@@ -63,7 +67,7 @@ const Categories = () => {
         </button>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        {categories.map((data, index) => (
+        {categories?.map((data, index) => (
           <CategoryCart
             to={`categorized/${data._id}`}
             key={data._id}

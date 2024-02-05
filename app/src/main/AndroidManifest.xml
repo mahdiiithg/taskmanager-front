@@ -20,7 +20,7 @@
      application, the package attribute will need to reflect the correct path in order to use
      the abbreviated format. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="m176_a3001.s241.d203.a116.twa">
+    package="com.mahditahavorgar.twa">
 
     
         <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>

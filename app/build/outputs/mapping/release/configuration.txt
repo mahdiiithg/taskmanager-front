@@ -123,9 +123,9 @@
 -keep class com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.NotificationPermissionRequestActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.WebViewFallbackActivity { <init>(); }
--keep class m176_a3001.s241.d203.a116.twa.Application { <init>(); }
--keep class m176_a3001.s241.d203.a116.twa.DelegationService { <init>(); }
--keep class m176_a3001.s241.d203.a116.twa.LauncherActivity { <init>(); }
+-keep class com.mahditahavorgar.twa.Application { <init>(); }
+-keep class com.mahditahavorgar.twa.DelegationService { <init>(); }
+-keep class com.mahditahavorgar.twa.LauncherActivity { <init>(); }
 -keep class androidx.browser.browseractions.BrowserActionsFallbackMenuView { <init>(android.content.Context, android.util.AttributeSet); }
 
 

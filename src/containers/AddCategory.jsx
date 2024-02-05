@@ -2,24 +2,25 @@ import React, { useContext, useState } from "react";
 import { Button, Input, Modal } from "antd";
 import { https } from "../api/http";
 import ModalContext from "../context/ModalContext";
-const AddCategoryModal = ( ) => {
-  const { isModalOpen, setIsModalOpen } = useContext(ModalContext);
 
+const AddCategoryModal = ( ) => {
+  const { isModalOpen, setIsModalOpen, shouldGetCategory, setShouldGetCategory } = useContext(ModalContext);
+  
   const [data, setData] = useState({
     name: "",
     description: "",
   });
   const [loading, setLoading] = useState(false);
-  // const [open, setOpen] = useState(true);
 
   const addCategory = () => {
     // event.preventDefault();
     setLoading(true);
     const response = (res) => {
+      setShouldGetCategory(!shouldGetCategory)
       setTimeout(() => {
         setLoading(false);
         setIsModalOpen(false);
-        window.location.reload();
+        // window.location.reload();
       }, 1500);
     };
 
