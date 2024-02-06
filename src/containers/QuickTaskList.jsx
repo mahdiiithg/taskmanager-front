@@ -1,6 +1,7 @@
 import React from "react";
 import QuickTasksCard from "../components/QuickTasksCard";
 import {motion} from 'framer-motion'
+import { useTranslation } from "react-i18next";
 
 const variants = {
   open: {
@@ -12,12 +13,14 @@ const variants = {
 };
 
 const QuickTaskList = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.div variants={variants} className="grid grid-cols-2 gap-3 justify-center">
       <QuickTasksCard
         src="/images/blueCalendar.png"
         to="/scheduled"
-        title="In scheduled"
+        title={(t("In scheduled"))}
       />
       <QuickTasksCard
       direction={'flex-row flex-row'}
@@ -25,41 +28,23 @@ const QuickTaskList = () => {
       isRow
       subtitle
         to="/today"
-        title="today"
+        title={(t("today"))}
       />
       <QuickTasksCard
         direction={'flex-row flex-row-reverse'}
         isRow
         src="/images/write3d.webp"
         to="/add-task"
-        title="add new task"
-        subtitle="write and add"
+        title={(t("add new task"))}
+        subtitle={(t("write and add"))}
       />
       <QuickTasksCard
         src="/images/folder-icon.png"
         direction={'flex-col-reverse'}
         to={`/categorized/1`}
-        title="categorized"
-        subtitle="base on categories"
+        title={(t("categorized"))}
+        subtitle={(t("base on categories"))}
       />
-      {/* <QuickTasks
-        icon={
-          <div className="bg-blue-600/30 text-blue-600 rounded-full p-2">
-            <BsCalendar2CheckFill size={19} />
-          </div>
-        }
-        to="/scheduled"
-        title="In Schedule"
-      /> */}
-      {/* <QuickTasks
-        icon={
-          <div className="bg-yellow-600/30 text-yellow-600 rounded-full p-1">
-            <IoTimerSharp size={25} />
-          </div>
-        }
-        to="/today"
-        title="Today"
-      /> */}
     </motion.div>
   );
 };
