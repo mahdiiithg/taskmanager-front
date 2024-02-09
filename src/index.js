@@ -7,9 +7,14 @@ import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter} from 'react-router-dom';
 import { ConfigProvider } from "antd";
+// import i18n (needs to be bundled ;)) 
+import './i18n';
 
+// m176_a3001.s241.d203.a116.twa
 // Create a client
 const queryClient = new QueryClient();
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

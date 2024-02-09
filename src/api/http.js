@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 const userToken = Cookies.get('userToken')
 // Axios instance
 const instance = axios.create({
-  // baseURL: 'http://localhost:3000/',
+  // baseURL: 'http://localhost:8080/api',
   // baseURL: 'https://116.203.241.176:8080/',
   baseURL: 'https://mahditahavorgar.com/api',
   timeout: 100000,
@@ -34,6 +34,7 @@ export const https = {
   login: (callback, catchError, data) => instance.post('users/login', data).then(callback).catch(catchError),
   register: (callback, catchError, data) => instance.post('users', data).then(callback).catch(catchError),
   getUser: (callback, catchError) => instance.get('users/me').then(callback).catch(catchError),
+  updateUser: (callback, catchError, data) => instance.patch('users/me', data).then(callback).catch(catchError),
   logout: (callback, catchError, data) => instance.post('users/logout').then(callback).catch(catchError),
   addTasks: (callback, catchError, data) => instance.post(`tasks`, data).then(callback).catch(catchError),
   getTasks: (callback, catchError) => instance.get(`tasks`).then(callback).catch(catchError),

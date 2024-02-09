@@ -2,26 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 
-const variants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -100 },
-    },
-  },
-  closed: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 },
-    },
-  },
-};
-
-
-
-
 const QuickTasks = (props) => {
   const { title, to, icon } = props;
   const controls = useAnimation();

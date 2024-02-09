@@ -19,6 +19,14 @@ const CategorizedTasks = () => {
     Cookies.set("selectedCat", id);
   }, [id]);
 
+  useEffect(() => {
+    const newID = categories[0]?._id;
+    if ((id.length < 2 || id === "undefined") && newID) {
+      navigate(`/categorized/${newID}`);
+      Cookies.set("selectedCat", newID);
+    }
+  }, [id, categories, navigate]);
+
   const getCategories = () => {
     const response = (res) => {
       setCategories(res.data);
@@ -100,9 +108,6 @@ const CategorizedTasks = () => {
                   navigate(`/categorized/${category._id}`),
                   Cookies.set("selectedCat", category._id),
                 ]}
-                // className={`min-w-fit relative px-2 py-4 rounded-md shadow-md border border-black/10 z-0 ${
-                //   id === category._id && "bg-blue-500 text-white"
-                // }`}
               >
                 {category.name}
               </button>

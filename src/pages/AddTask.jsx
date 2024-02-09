@@ -1,4 +1,5 @@
-import { ColorPicker, DatePicker, Input, TimePicker } from "antd";
+import { ColorPicker, DatePicker, Input, TimePicker, notification } from "antd";
+
 import dayjs from "dayjs";
 import { IoIosAdd } from "react-icons/io";
 import React, { useState , useEffect, useContext} from "react";
@@ -8,12 +9,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import { GoTrash } from "react-icons/go";
 import ModalContext from "../context/ModalContext";
 import Cookies from "js-cookie";
+import { Colors } from "../utils/colors";
 
 const AddTask = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { setIsModalOpen } = useContext(ModalContext);
-  
+  const { setIsModalOpen, shouldGetCategory } = useContext(ModalContext);
   // const [selectedTime, setSelectedTime] = useState(dayjs());
   const [categories, setCategories] = useState([]);
   const [selectedDate, setSelectedDate] = useState(dayjs());
@@ -31,6 +32,10 @@ const AddTask = () => {
     getCategories();
     if (id) getTask();
   }, []);
+  
+  useEffect(() => {
+    getCategories();
+  }, [shouldGetCategory]);
 
   const getCategories = () => {
     const response = (res) => {
@@ -89,7 +94,10 @@ const AddTask = () => {
     };
 
     const response = () => {
-      navigate(-1);
+      openNotification('action was success full')
+      setTimeout(() => {
+        navigate(-1);
+      }, 1000);
       // getTasks();
     };
 
@@ -129,8 +137,19 @@ const AddTask = () => {
     https.deleteTasks(response, error, id);
   };
 
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = (message) => {
+    api.info({
+      message: `Message`,
+      description: <ModalContext.Consumer>{({ isModalOpen }) => `${message || isModalOpen}!`}</ModalContext.Consumer>,
+      placement: 'topLeft',
+    });
+  };
+
   return (
     <div className="space-y-10 capitalize pb-10">
+      {contextHolder}
       <div className=" bg-gradient-to-br from-cyan-900 via-cyan-900 to-cyan-700  text-white space-y-4 px-4 py-10">
         <button onClick={() => navigate(-1)}>
           <IoIosArrowBack size={34} />
@@ -212,15 +231,15 @@ const AddTask = () => {
         </button>
           </div>
           <div className="flex flex-wrap gap-4">
-            {categories?.map((data) => {
+            {categories?.map((data, index) => {
               return (
                 <button
                   onClick={() => handleCategoryChange(data._id)}
-                  className={`${
+                  className={` capitalize ${
                     taskData?.category === data._id
                       ? "bg-red-600"
-                      : "bg-cyan-700"
-                  }  px-2 py-1 rounded-md text-white`}
+                      : Colors[index]
+                  }  px-3 py-1 rounded-md text-white`}
                   key={data._id}
                 >
                   {data.name}

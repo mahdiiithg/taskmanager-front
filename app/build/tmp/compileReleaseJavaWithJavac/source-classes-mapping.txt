@@ -1,0 +1,14 @@
+m176_a3001/s241/d203/a116/twa/Application.java
+ m176_a3001.s241.d203.a116.twa.Application
+com/mahditahavorgar/twa/LauncherActivity.java
+ com.mahditahavorgar.twa.LauncherActivity
+m176_a3001/s241/d203/a116/twa/DelegationService.java
+ m176_a3001.s241.d203.a116.twa.DelegationService
+com/mahditahavorgar/twa/BuildConfig.java
+ com.mahditahavorgar.twa.BuildConfig
+com/mahditahavorgar/twa/DelegationService.java
+ com.mahditahavorgar.twa.DelegationService
+m176_a3001/s241/d203/a116/twa/LauncherActivity.java
+ m176_a3001.s241.d203.a116.twa.LauncherActivity
+com/mahditahavorgar/twa/Application.java
+ com.mahditahavorgar.twa.Application

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Input, Modal } from "antd";
 import Cookies from "js-cookie";
 import { https } from "../api/http";
+import ModalContext from "../context/ModalContext";
 const LoginModal = () => {
+
+  const { isModalLoginOpen, setIsModalLoginOpen } = useContext(ModalContext);
+
   const [isLogining, setIsLogining] = useState(true);
   const [data, setData] = useState({
     email: "",
@@ -19,6 +23,7 @@ const LoginModal = () => {
       setTimeout(() => {
         setLoading(false);
         setOpen(false);
+        setIsModalLoginOpen(false);
         window.location.reload();
       }, 1500);
     };
@@ -30,7 +35,7 @@ const LoginModal = () => {
 
     https.login(response, error, {
       email: data.email,
-      password: data.password
+      password: data.password,
     });
   };
 
@@ -38,7 +43,7 @@ const LoginModal = () => {
     // event.preventDefault();
     setLoading(true);
     const response = () => {
-      setIsLogining(true)
+      setIsLogining(true);
       setLoading(false);
     };
 
@@ -52,22 +57,23 @@ const LoginModal = () => {
 
   const handleOk = () => {
     setLoading(true);
-    if(!isLogining) return register()
+    if (!isLogining) return register();
     login();
   };
   const handleCancel = () => {
     setOpen(false);
+    setIsModalLoginOpen(false)
   };
 
   const handleInputChange = (e) => {
-    setLoading(false)
+    setLoading(false);
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   return (
     <>
       <Modal
-        open={open}
+        open={open || isModalLoginOpen}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
@@ -132,7 +138,27 @@ const LoginModal = () => {
             onChange={handleInputChange}
           />
         </div>
-        <p>Don't have account? <button onClick={() => setIsLogining(false)} className=" text-blue-800 underline">resgister</button></p>
+        {isLogining ? (
+          <p>
+            Don't have account?{" "}
+            <button
+              onClick={() => setIsLogining(false)}
+              className=" text-blue-800 underline"
+            >
+              resgister
+            </button>
+          </p>
+        ) : (
+          <p>
+            have an account?
+            <button
+              onClick={() => setIsLogining(true)}
+              className=" text-blue-800 underline"
+            >
+              Login
+            </button>
+          </p>
+        )}
       </Modal>
     </>
   );

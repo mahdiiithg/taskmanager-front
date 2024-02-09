@@ -1,43 +1,12 @@
 import dayjs from "dayjs";
-import React, { useState } from "react";
+import React from "react";
 import { CgRadioChecked, CgRadioCheck } from "react-icons/cg";
 
 import { https } from "../api/http";
 import { Link } from "react-router-dom";
-import { gradientBorderColors } from "../utils/colors";
 
 const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
   const formattedDate = selectedDate.format("YYYY-MM-DD");
-  // State for border and background color
-  const baseColors = [
-    "red",
-    "green",
-    "blue",
-    "yellow",
-    "purple",
-    "pink",
-    "indigo",
-    "gray",
-    "teal",
-    "orange",
-    "lime",
-    "emerald",
-  ];
-
-  // State for base color
-  const [baseColor, setBaseColor] = useState("");
-
-  // Function to get a random base color
-  const getRandomBaseColor = () => {
-    const randomIndex = Math.floor(Math.random() * baseColors.length);
-    return baseColors[randomIndex];
-  };
-
-  // Update base color randomly
-  // useEffect(() => {
-  //   setBaseColor(getRandomBaseColor());
-  //   // You can also set an interval here if you want to change colors periodically
-  // }, [tasks]);
 
   const hours = Array.from({ length: 24 }, (_, i) => {
     const hourFormattedStart = `${formattedDate}T${i
@@ -74,18 +43,20 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
         <ul className="flex flex-col gap-y-2 w-full ">
           {tasksForHour.length > 0 ? (
             tasksForHour?.map((task, index) => {
+              const colorCode = task.color
               return (
                 <li
                   style={{
-                    borderLeft: `8px solid ${task.color}`,
-                    // backgroundColor: `${baseColor}`
+                    borderLeft: `8px solid ${colorCode}`,
+                    // backgroundColor: `${task.color}`
                   }}
                   className={`
                     border-l-8 w-full justify-between 
                     rounded-l-none
-                    ${!task.color && gradientBorderColors[i]}
+                    bg-[${colorCode}]
+                    bg-opacity-30
                     ${task.status && "line-through"}
-                    py-1
+                    py-2
                     px-2
                     rounded-md
                     flex

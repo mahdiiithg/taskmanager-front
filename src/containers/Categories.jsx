@@ -6,7 +6,7 @@ import _ from "lodash";
 import ModalContext from "../context/ModalContext";
 
 const Categories = () => {
-  const { setIsModalOpen } = useContext(ModalContext);
+  const { setIsModalOpen, shouldGetCategory } = useContext(ModalContext);
   const [categories, setCategories] = useState([]);
   const [tasks, setTasks] = useState([]);
   const categorizedTasks = _.groupBy(tasks, "category");
@@ -15,6 +15,10 @@ const Categories = () => {
     getCategories();
     getTasks();
   }, []);
+  
+  useEffect(() => {
+    getCategories();
+  }, [shouldGetCategory]);
 
   const getCategories = () => {
     const response = (res) => {

@@ -1,41 +1,51 @@
 import React from "react";
+import QuickTasksCard from "../components/QuickTasksCard";
+import {motion} from 'framer-motion'
+import { useTranslation } from "react-i18next";
 
-import QuickTasks from "../components/QuickTasks";
-import { IoTimerSharp } from "react-icons/io5";
-import { FaStar } from "react-icons/fa6";
-import { BsCalendar2CheckFill } from "react-icons/bs";
+const variants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+  }
+};
 
 const QuickTaskList = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className="flex flex-col space-y-3">
-      <QuickTasks
-        icon={
-          <div className="bg-red-600/30 text-red-600 rounded-full p-1">
-            <FaStar size={22} />
-          </div>
-        }
-        to="/importatns"
-        title="High Priorities"
-      />
-      <QuickTasks
-        icon={
-          <div className="bg-blue-600/30 text-blue-600 rounded-full p-2">
-            <BsCalendar2CheckFill size={19} />
-          </div>
-        }
+    <motion.div variants={variants} className="grid grid-cols-2 gap-3 justify-center">
+      <QuickTasksCard
+        src="/images/blueCalendar.png"
         to="/scheduled"
-        title="In Schedule"
+        title={(t("In scheduled"))}
       />
-      <QuickTasks
-        icon={
-          <div className="bg-yellow-600/30 text-yellow-600 rounded-full p-1">
-            <IoTimerSharp size={25} />
-          </div>
-        }
+      <QuickTasksCard
+      direction={'flex-row flex-row'}
+      src="/images/3d-note-icon-png.png"
+      isRow
+      subtitle
         to="/today"
-        title="Today"
+        title={(t("today"))}
       />
-    </div>
+      <QuickTasksCard
+        direction={'flex-row flex-row-reverse'}
+        isRow
+        src="/images/write3d.webp"
+        to="/add-task"
+        title={(t("add new task"))}
+        subtitle={(t("write and add"))}
+      />
+      <QuickTasksCard
+        src="/images/folder-icon.png"
+        direction={'flex-col-reverse'}
+        to={`/categorized/1`}
+        title={(t("categorized"))}
+        subtitle={(t("base on categories"))}
+      />
+    </motion.div>
   );
 };
 export default QuickTaskList;

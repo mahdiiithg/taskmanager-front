@@ -1,0 +1,388 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3    Copyright 2019 Google Inc. All Rights Reserved.
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8
+9         http://www.apache.org/licenses/LICENSE-2.0
+10
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<!--
+18 The "package" attribute is rewritten by the Gradle build with the value of applicationId.
+19     It is still required here, as it is used to derive paths, for instance when referring
+20     to an Activity by ".MyActivity" instead of the full name. If more Activities are added to the
+21     application, the package attribute will need to reflect the correct path in order to use
+22     the abbreviated format.
+23-->
+24<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+25    package="com.mahditahavorgar.twa"
+26    android:versionCode="1"
+27    android:versionName="1" >
+28
+29    <uses-sdk
+30        android:minSdkVersion="19"
+30-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
+31        android:targetSdkVersion="33" />
+31-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
+32
+33    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+33-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:26:9-80
+33-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:26:26-78
+34    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+34-->[com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:11:5-79
+34-->[com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:11:22-76
+35    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+35-->[com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:12:5-81
+35-->[com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:12:22-78
+36
+37    <queries>
+37-->[com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/816850808f9de9e670a4838cd1f96218/androidbrowserhelper-2.5.0/AndroidManifest.xml:26:5-34:15
+38        <intent>
+38-->[com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/816850808f9de9e670a4838cd1f96218/androidbrowserhelper-2.5.0/AndroidManifest.xml:27:9-33:18
+39            <action android:name="android.intent.action.VIEW" />
+39-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:17-68
+39-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:25-66
+40
+41            <category android:name="android.intent.category.BROWSABLE" />
+41-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:142:17-77
+41-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:142:27-75
+42
+43            <data android:scheme="https" />
+43-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:143:17-144:54
+43-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:143:23-45
+44        </intent>
+45        <intent>
+45-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:17:9-19:18
+46            <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
+46-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:18:13-91
+46-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:18:21-88
+47        </intent>
+48    </queries>
+49
+50    <uses-permission android:name="com.android.vending.BILLING" />
+50-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:10:5-67
+50-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:10:22-64
+51
+52    <application
+52-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:35:5-215:19
+53        android:name="com.mahditahavorgar.twa.Application"
+53-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:36:9-35
+54        android:allowBackup="true"
+54-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:37:9-35
+55        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+55-->[androidx.core:core:1.2.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/d97de8d4da2daf41cae9a34bc8c4933b/core-1.2.0/AndroidManifest.xml:24:18-86
+56        android:icon="@mipmap/ic_launcher"
+56-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:38:9-43
+57        android:label="@string/appName"
+57-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:39:9-40
+58        android:manageSpaceActivity="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity"
+58-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:41:9-105
+59        android:supportsRtl="true"
+59-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:43:9-35
+60        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+60-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:44:9-68
+61        <meta-data
+61-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:46:9-48:58
+62            android:name="asset_statements"
+62-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:47:13-44
+63            android:resource="@string/assetStatements" />
+63-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:48:13-55
+64        <meta-data
+64-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:51:13-53:58
+65            android:name="web_manifest_url"
+65-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:52:17-48
+66            android:value="@string/webManifestUrl" />
+66-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:53:17-55
+67        <meta-data
+67-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:56:9-58:52
+68            android:name="twa_generator"
+68-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:57:13-41
+69            android:value="@string/generatorApp" />
+69-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:58:13-49
+70
+71        <activity android:name="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity" >
+71-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:65:13-69:24
+71-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:65:23-104
+72            <meta-data
+72-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:66:13-68:53
+73                android:name="android.support.customtabs.trusted.MANAGE_SPACE_URL"
+73-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:67:17-83
+74                android:value="@string/launchUrl" />
+74-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:68:17-50
+75        </activity>
+76        <activity
+76-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:72:9-148:20
+77            android:name="com.mahditahavorgar.twa.LauncherActivity"
+77-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:72:19-50
+78            android:alwaysRetainTaskState="true"
+78-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:73:13-49
+79            android:exported="true"
+79-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:75:13-36
+80            android:label="@string/launcherName" >
+80-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:74:13-49
+81            <meta-data
+81-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:76:13-77:53
+82                android:name="android.support.customtabs.trusted.DEFAULT_URL"
+82-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:76:24-85
+83                android:value="@string/launchUrl" />
+83-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:77:17-50
+84            <meta-data
+84-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:79:13-81:58
+85                android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
+85-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:80:17-83
+86                android:resource="@color/colorPrimary" />
+86-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:81:17-55
+87            <meta-data
+87-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:83:13-85:62
+88                android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR_DARK"
+88-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:84:17-88
+89                android:resource="@color/colorPrimaryDark" />
+89-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:85:17-59
+90            <meta-data
+90-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:87:13-89:61
+91                android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR"
+91-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:88:17-87
+92                android:resource="@color/navigationColor" />
+92-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:89:17-58
+93            <meta-data
+93-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:91:13-93:65
+94                android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR_DARK"
+94-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:92:17-92
+95                android:resource="@color/navigationColorDark" />
+95-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:93:17-62
+96            <meta-data
+96-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:95:13-97:68
+97                android:name="androix.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR"
+97-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:96:17-84
+98                android:resource="@color/navigationDividerColor" />
+98-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:97:17-65
+99            <meta-data
+99-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:99:13-101:72
+100                android:name="androix.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR_DARK"
+100-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:100:17-89
+101                android:resource="@color/navigationDividerColorDark" />
+101-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:101:17-69
+102            <meta-data
+102-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:103:13-104:54
+103                android:name="android.support.customtabs.trusted.SPLASH_IMAGE_DRAWABLE"
+103-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:103:24-95
+104                android:resource="@drawable/splash" />
+104-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:104:17-52
+105            <meta-data
+105-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:106:13-107:60
+106                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_BACKGROUND_COLOR"
+106-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:106:24-104
+107                android:resource="@color/backgroundColor" />
+107-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:107:17-58
+108            <meta-data
+108-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:109:13-110:71
+109                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_FADE_OUT_DURATION"
+109-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:109:24-105
+110                android:value="@integer/splashScreenFadeOutDuration" />
+110-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:110:17-69
+111            <meta-data
+111-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:112:13-113:60
+112                android:name="android.support.customtabs.trusted.FILE_PROVIDER_AUTHORITY"
+112-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:112:24-97
+113                android:value="@string/providerAuthority" />
+113-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:113:17-58
+114            <meta-data
+114-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:115:13-97
+115                android:name="android.app.shortcuts"
+115-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:115:24-60
+116                android:resource="@xml/shortcuts" />
+116-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:115:61-94
+117            <meta-data
+117-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:117:13-118:56
+118                android:name="android.support.customtabs.trusted.FALLBACK_STRATEGY"
+118-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:117:24-91
+119                android:value="@string/fallbackType" />
+119-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:118:17-53
+120            <meta-data
+120-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:123:13-124:45
+121                android:name="android.support.customtabs.trusted.DISPLAY_MODE"
+121-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:123:24-86
+122                android:value="immersive" />
+122-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:124:17-42
+123            <meta-data
+123-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:127:13-128:54
+124                android:name="android.support.customtabs.trusted.SCREEN_ORIENTATION"
+124-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:127:24-92
+125                android:value="@string/orientation" />
+125-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:128:17-52
+126
+127            <intent-filter>
+127-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:134:13-137:29
+128                <action android:name="android.intent.action.MAIN" />
+128-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:135:17-69
+128-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:135:25-66
+129
+130                <category android:name="android.intent.category.LAUNCHER" />
+130-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:136:17-77
+130-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:136:27-74
+131            </intent-filter>
+132            <intent-filter android:autoVerify="true" >
+132-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:139:13-145:29
+132-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:139:28-53
+133                <action android:name="android.intent.action.VIEW" />
+133-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:17-68
+133-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:25-66
+134
+135                <category android:name="android.intent.category.DEFAULT" />
+135-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:141:17-76
+135-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:141:27-73
+136                <category android:name="android.intent.category.BROWSABLE" />
+136-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:142:17-77
+136-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:142:27-75
+137
+138                <data
+138-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:143:17-144:54
+139                    android:host="@string/hostName"
+139-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:144:21-52
+140                    android:scheme="https" />
+140-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:143:23-45
+141            </intent-filter>
+142        </activity>
+143        <activity android:name="com.google.androidbrowserhelper.trusted.FocusActivity" />
+143-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:150:9-90
+143-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:150:19-87
+144        <activity
+144-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:152:9-153:62
+145            android:name="com.google.androidbrowserhelper.trusted.WebViewFallbackActivity"
+145-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:152:19-97
+146            android:configChanges="orientation|screenSize" />
+146-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:153:13-59
+147
+148        <provider
+148-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:155:9-163:20
+149            android:name="androidx.core.content.FileProvider"
+149-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:156:13-62
+150            android:authorities="@string/providerAuthority"
+150-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:157:13-60
+151            android:exported="false"
+151-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:159:13-37
+152            android:grantUriPermissions="true" >
+152-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:158:13-47
+153            <meta-data
+153-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:160:13-162:53
+154                android:name="android.support.FILE_PROVIDER_PATHS"
+154-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:161:17-67
+155                android:resource="@xml/filepaths" />
+155-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:162:17-50
+156        </provider>
+157
+158        <service
+158-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:165:9-180:19
+159            android:name="com.mahditahavorgar.twa.DelegationService"
+159-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:166:13-46
+160            android:enabled="@bool/enableNotification"
+160-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:167:13-55
+161            android:exported="@bool/enableNotification" >
+161-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:168:13-56
+162            <meta-data
+162-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:171:17-173:73
+163                android:name="android.support.customtabs.trusted.SMALL_ICON"
+163-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:172:21-81
+164                android:resource="@drawable/ic_notification_icon" />
+164-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:173:21-70
+165
+166            <intent-filter>
+166-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:176:13-179:29
+167                <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE" />
+167-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:177:17-105
+167-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:177:25-103
+168
+169                <category android:name="android.intent.category.DEFAULT" />
+169-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:141:17-76
+169-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:141:27-73
+170            </intent-filter>
+171        </service>
+172
+173        <activity android:name="com.google.androidbrowserhelper.trusted.NotificationPermissionRequestActivity" />
+173-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:183:13-118
+173-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:183:23-115
+174        <activity android:name="com.google.androidbrowserhelper.locationdelegation.PermissionRequestActivity" />
+174-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:187:13-188:89
+174-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:187:23-123
+175        <activity
+175-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:191:9-204:20
+176            android:name="com.google.androidbrowserhelper.playbilling.provider.PaymentActivity"
+176-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:192:13-96
+177            android:configChanges="keyboardHidden|keyboard|orientation|screenLayout|screenSize"
+177-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:194:13-96
+178            android:exported="true"
+178-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:195:13-36
+179            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+179-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:193:13-72
+180            <intent-filter>
+180-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:197:13-199:29
+181                <action android:name="org.chromium.intent.action.PAY" />
+181-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:198:17-73
+181-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:198:25-70
+182            </intent-filter>
+183
+184            <meta-data
+184-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:201:13-203:67
+185                android:name="org.chromium.default_payment_method_name"
+185-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:202:17-72
+186                android:value="https://play.google.com/billing" />
+186-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:203:17-64
+187        </activity>
+188
+189        <!-- This service checks who calls it at runtime. -->
+190        <service
+190-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:207:9-213:19
+191            android:name="com.google.androidbrowserhelper.playbilling.provider.PaymentService"
+191-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:208:13-95
+192            android:exported="true" >
+192-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:209:13-36
+193            <intent-filter>
+193-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:210:13-212:29
+194                <action android:name="org.chromium.intent.action.IS_READY_TO_PAY" />
+194-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:211:17-85
+194-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:211:25-82
+195            </intent-filter>
+196        </service>
+197
+198        <meta-data
+198-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:23:9-25:37
+199            android:name="com.google.android.play.billingclient.version"
+199-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:24:13-73
+200            android:value="5.2.1" />
+200-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:25:13-34
+201
+202        <activity
+202-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:27:9-31:75
+203            android:name="com.android.billingclient.api.ProxyBillingActivity"
+203-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:28:13-78
+204            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+204-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:29:13-96
+205            android:exported="false"
+205-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:30:13-37
+206            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+206-->[com.android.billingclient:billing:5.2.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/b38f969dab5c30614ce3735f3d491e2a/billing-5.2.1/AndroidManifest.xml:31:13-72
+207        <activity
+207-->[com.google.android.gms:play-services-base:18.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/501a68e49df848b4e0aecf464c7f9d57/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+208            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+208-->[com.google.android.gms:play-services-base:18.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/501a68e49df848b4e0aecf464c7f9d57/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+209            android:exported="false"
+209-->[com.google.android.gms:play-services-base:18.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/501a68e49df848b4e0aecf464c7f9d57/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+210            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+210-->[com.google.android.gms:play-services-base:18.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/501a68e49df848b4e0aecf464c7f9d57/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+211
+212        <meta-data
+212-->[com.google.android.gms:play-services-basement:18.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/105cd2d91c9d2b79e2e91d2652fd8232/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+213            android:name="com.google.android.gms.version"
+213-->[com.google.android.gms:play-services-basement:18.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/105cd2d91c9d2b79e2e91d2652fd8232/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+214            android:value="@integer/google_play_services_version" />
+214-->[com.google.android.gms:play-services-basement:18.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/105cd2d91c9d2b79e2e91d2652fd8232/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+215    </application>
+216
+217</manifest>
