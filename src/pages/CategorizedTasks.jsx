@@ -1,20 +1,32 @@
 import { useEffect, useState } from "react";
 import { https } from "../api/http";
-import _ from "lodash";
+import _, { groupBy } from "lodash"; // Ensure groupBy is imported
 import { Link, useNavigate, useParams } from "react-router-dom";
 import HeaderTask from "../containers/HeaderTask";
-import { CgRadioCheck, CgRadioChecked, CgTrash } from "react-icons/cg";
+import { useTranslation } from "react-i18next";
+import { CgTrash } from "react-icons/cg";
 import Cookies from "js-cookie";
-import { Popconfirm } from "antd";
+import { Empty, Popconfirm } from "antd";
+import jalaliday from 'jalaliday';
+import dayjs from "dayjs";
+
+dayjs.extend(jalaliday);
+
 
 const CategorizedTasks = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const localDetector = Cookies.get("language") === "en" ? "en-US" : "fa-IR";
   const [tasks, setTasks] = useState([]);
+  const [pageId, setPageId] = useState(null);
+  const [hasAuthenticated, setHasAuthenticated] = useState(false);
   const [categories, setCategories] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
-    if (id) getTaskByCategory();
+    if (id && id !== "all") getTaskByCategory();
+    if (id === "all") getTasks();
+    setPageId(id)
     getCategories();
     Cookies.set("selectedCat", id);
   }, [id]);
@@ -32,24 +44,46 @@ const CategorizedTasks = () => {
       setCategories(res.data);
     };
 
-    const error = () => {};
+    const error = (error) => {
+      setHasAuthenticated(error.response.status === 401);
+    };
 
     https.getCategories(response, error);
   };
 
   const getTaskByCategory = () => {
     const response = (res) => {
-      setTasks(res.data);
+      const groupedTasks = groupBy(
+        res.data,
+        (task) => task.createdAt.split("T")[0]
+      ); // Assuming createdAt is in ISO format
+      setTasks(groupedTasks);
+      // setTasks(res.data);
     };
 
     const error = () => {};
 
     https.getTaskByCategory(response, error, id);
   };
+  const getTasks = () => {
+    const response = (res) => {
+      const groupedTasks = groupBy(
+        res.data,
+        (task) => task.createdAt.split("T")[0]
+      ); // Assuming createdAt is in ISO format
+      setTasks(groupedTasks);
+      // setTasks(res.data);
+    };
 
-  const toggleTaskStatus = (id, status) => {
+    const error = () => {};
+
+    https.getTasks(response, error);
+  };
+
+  const toggleTaskStatus = (id, status, pageId) => {
     const response = () => {
-      getTaskByCategory();
+      if(pageId !== 'all') getTaskByCategory();
+      if(pageId === 'all') getTasks()
     };
 
     const error = () => {};
@@ -72,7 +106,18 @@ const CategorizedTasks = () => {
     <div className="relative">
       <div className="absolute w-full h-full top-0 right-0 bg-white z-20 p-4 py-8">
         <HeaderTask title={_.find(categories, { _id: id })?.name || ""} />
-        <div className=" flex items-start gap-x-4 w-full overflow-x-scroll py-2 mb-2 mt-8">
+        <div className=" flex items-start gap-x-4 w-full overflow-x-scroll py-2 px-4 mb-2 mt-8">
+          <button
+            className={`h-full px-4 py-4 min-w-fit relative rounded-md shadow-md border border-black/10 z-0 ${
+              id === "all" && "bg-blue-500 text-white"
+            }`}
+            onClick={() => [
+              navigate(`/categorized/all`),
+              Cookies.set("selectedCat", "all"),
+            ]}
+          >
+            All
+          </button>
           {categories?.map((category) => (
             <div
               className={`min-w-fit relative h-full rounded-md shadow-md border border-black/10 z-0 ${
@@ -80,13 +125,14 @@ const CategorizedTasks = () => {
               }`}
             >
               <Popconfirm
-                className=" absolute -top-2 -right-3 z-10 bg-red-500 h-6 w-6 rounded-full p-1"
+                className=" absolute -top-2 -right-3 z-10 bg-red-500 h-6 w-6 rounded-md p-1"
                 description={
                   <div className="font-semibold pb-5">
-                    <h1>Are you sure to delete this category?</h1>
+                    <h1>{t("Are you sure to delete this category?")}</h1>
                     <p>
-                      by deleting this category all tasks related to this
-                      category will be deleted
+                      {t(
+                        "by deleting this category all tasks related to this category will be deleted"
+                      )}
                     </p>
                   </div>
                 }
@@ -95,7 +141,6 @@ const CategorizedTasks = () => {
                   type: "primary",
                   danger: true,
                 }}
-                // onCancel={cancel}
                 okText="Yes"
                 cancelText="No"
               >
@@ -114,38 +159,75 @@ const CategorizedTasks = () => {
             </div>
           ))}
         </div>
-        <ul className=" space-y-4 pt-10">
-          {tasks?.map((task) => (
-            <li
-              style={{
-                borderLeft: `8px solid ${task.color}`,
-                // backgroundColor: `${baseColor}`
-              }}
-              className={`
-              border-l-8 w-full justify-between 
-              rounded-l-none
-              bg-[${task.color}]/10
-              ${task.status && "line-through"}
-              py-1
-              px-2
-              rounded-md
-              flex
-              `}
-              key={task._id}
-            >
-              <Link className="flex-1" to={`/add-task/${task._id}`}>
-                <span>{task?.name || task.description}</span>
-              </Link>
-              <span onClick={() => toggleTaskStatus(task._id, !task.status)}>
-                {task.status ? (
-                  <CgRadioChecked size={20} className="text-blue-700" />
-                ) : (
-                  <CgRadioCheck size={20} className="text-blue-700" />
-                )}
-              </span>
-            </li>
-          ))}
-        </ul>
+        {hasAuthenticated && (
+          <div className=" text-black text-center w-full flex flex-col items-center justify-center">
+            <Empty
+              imageStyle={{ height: 180 }}
+              description={
+                <div className=" font-semibold text-xl">
+                  {t("please first login to see the list")}
+                </div>
+              }
+            />
+          </div>
+        )}
+        {Object.entries(tasks).map(([date, tasksForDate]) => (
+          <div key={date}>
+            <h3 className="py-4 font-bold">{dayjs(date).format("MMMM-DD")}</h3> {/* Display the date */}
+            <ul>
+              {tasksForDate.map((task) => (
+                <li
+                  className={`
+                w-full
+                bg-[${task.color}]/10
+                ${task.status && "line-through"}
+                py-1
+                px-2
+                flex
+                pb-4
+                border-b
+                mb-1
+                `}
+                  key={task._id}
+                >
+                  <div className="flex-1 flex items-start">
+                    <button
+                      type="button"
+                      className="px-2"
+                      onClick={() => toggleTaskStatus(task._id, !task.status, pageId)}
+                    >
+                      <div
+                        className="
+                        h-5
+                        w-5
+                        rounded-full
+                        border-2
+                        flex
+                        flex-col
+                        justify-center
+                        items-center
+                      "
+                      >
+                        {task.status && (
+                          <div
+                            // style={{ backgroundColor: task.color || "#000" }}
+                            className="h-3 w-3 rounded-full border-1 bg-gray-500"
+                          />
+                        )}
+                      </div>
+                    </button>
+                    <Link to={`/add-task/${task._id}`}>
+                      <div>{task?.name}</div>
+                      <div className=" text-xs">
+                        {task.description || "task.description"}
+                      </div>
+                    </Link>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );

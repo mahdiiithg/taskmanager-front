@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Button, Input, Modal } from "antd";
+import { useTranslation } from "react-i18next";
 import { https } from "../api/http";
 import ModalContext from "../context/ModalContext";
 
 const AddCategoryModal = ( ) => {
   const { isModalOpen, setIsModalOpen, shouldGetCategory, setShouldGetCategory } = useContext(ModalContext);
-  
+  const { t } = useTranslation();
   const [data, setData] = useState({
     name: "",
     description: "",
@@ -17,11 +18,15 @@ const AddCategoryModal = ( ) => {
     setLoading(true);
     const response = (res) => {
       setShouldGetCategory(!shouldGetCategory)
+      setData({
+        name: "",
+        description: "",
+      })
       setTimeout(() => {
         setLoading(false);
         setIsModalOpen(false);
         // window.location.reload();
-      }, 1500);
+      }, 500);
     };
 
     const error = (error) => {
@@ -59,28 +64,28 @@ const AddCategoryModal = ( ) => {
             loading={loading}
             onClick={handleOk}
           >
-            Submit
+            {t("add a task")}
           </Button>,
         ]}
       >
-        <h1 className="text-3xl pb-3">Add a category</h1>
+        <h1 className="text-3xl pb-3">{t("add")}</h1>
         <div className="space-y-2">
-          <label htmlFor="Task">name</label>
+          <label htmlFor="Task">{t("name")}</label>
           <Input
             id="Task"
             name="name"
-            placeholder="name"
+            placeholder={t("name")}
             value={data.name}
             onChange={handleInputChange}
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="Task">description</label>
+          <label htmlFor="Task">{t("description")}</label>
           <Input
             id="Task"
-            name="description"
+            name='description'
             type="text"
-            placeholder="description"
+            placeholder={t("description")}
             value={data.description}
             onChange={handleInputChange}
           />

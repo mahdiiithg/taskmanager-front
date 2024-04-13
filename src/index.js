@@ -5,23 +5,25 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider } from "antd";
-// import i18n (needs to be bundled ;)) 
-import './i18n';
+import faIR from "antd/locale/fa_IR";
+import enUSA from "antd/locale/en_US";
+// import i18n (needs to be bundled ;))
+import "./i18n";
+import Cookies from "js-cookie";
+import { JalaliLocaleListener } from "antd-jalali";
 
-// m176_a3001.s241.d203.a116.twa
-// Create a client
 const queryClient = new QueryClient();
-
-
+const getLang = Cookies.get("language") === "en" ? enUSA : faIR;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter >
-      <ConfigProvider >
+    <BrowserRouter>
+      <ConfigProvider locale={getLang}>
         <QueryClientProvider client={queryClient}>
+          <JalaliLocaleListener />
           <App />
         </QueryClientProvider>
       </ConfigProvider>

@@ -3,10 +3,13 @@ import { Button, Input, Modal } from "antd";
 import Cookies from "js-cookie";
 import { https } from "../api/http";
 import ModalContext from "../context/ModalContext";
-const LoginModal = () => {
+import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
+
+const LoginModal = ({language}) => {
   const { isModalLoginOpen, setIsModalLoginOpen } = useContext(ModalContext);
-
+  const { t } = useTranslation();
   const [isLogining, setIsLogining] = useState(true);
   const [data, setData] = useState({
     email: "",
@@ -20,6 +23,7 @@ const LoginModal = () => {
     setLoading(true);
     const response = (res) => {
       Cookies.set("userToken", res.data.token);
+      toast.success(t(`login was successful`));
       setTimeout(() => {
         setLoading(false);
         setOpen(false);
@@ -30,7 +34,7 @@ const LoginModal = () => {
 
     const error = (error) => {
       setLoading(false);
-      alert(error);
+      toast.error(`error: ${error?.response?.data || "some thing went wrong"}`);
     };
 
     https.login(response, error, {
@@ -45,11 +49,12 @@ const LoginModal = () => {
     const response = () => {
       setIsLogining(true);
       setLoading(false);
+      toast.success(`register was successful`);
     };
 
     const error = (error) => {
       setLoading(false);
-      alert(error);
+      toast.error(`error: ${error?.response?.data}`);
     };
 
     https.register(response, error, data);
@@ -62,7 +67,7 @@ const LoginModal = () => {
   };
   const handleCancel = () => {
     setOpen(false);
-    setIsModalLoginOpen(false)
+    setIsModalLoginOpen(false);
   };
 
   const handleInputChange = (e) => {
@@ -76,6 +81,7 @@ const LoginModal = () => {
         open={open || isModalLoginOpen}
         onOk={handleOk}
         onCancel={handleCancel}
+        className={`${language === 'fa' ? 'text-right' : 'text-left' }`}
         footer={[
           <Button
             key="submit"
@@ -84,18 +90,18 @@ const LoginModal = () => {
             loading={loading}
             onClick={handleOk}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       >
-        <h1 className="text-3xl">Welcome</h1>
+        <h1 className="text-3xl">{t("Welcome")}</h1>
         <h2 className="text-xl text-black/60 py-2 ">
-          please login to use the app
+          {t("please login to use the app")}
         </h2>
         {!isLogining && (
           <>
             <div className="space-y-2">
-              <label htmlFor="Task">name</label>
+              <label htmlFor="Task">{t("name")}</label>
               <Input
                 id="Task"
                 name="name"
@@ -105,7 +111,7 @@ const LoginModal = () => {
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="Task">age</label>
+              <label htmlFor="Task">{t("age")}</label>
               <Input
                 id="Task"
                 name="age"
@@ -118,7 +124,7 @@ const LoginModal = () => {
           </>
         )}
         <div className="space-y-2">
-          <label htmlFor="Task">email</label>
+          <label htmlFor="Task">{t("email")}</label>
           <Input
             id="Task"
             name="email"
@@ -128,7 +134,7 @@ const LoginModal = () => {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="Task">password</label>
+          <label htmlFor="Task">{t("password")}</label>
           <Input
             id="Task"
             name="password"
@@ -140,22 +146,22 @@ const LoginModal = () => {
         </div>
         {isLogining ? (
           <p>
-            Don't have account?{" "}
+            {t("Don't have account?")}{" "}
             <button
               onClick={() => setIsLogining(false)}
               className=" text-blue-800 underline"
             >
-              resgister
+              {t("resgister")}
             </button>
           </p>
         ) : (
           <p>
-            have an account?
+            {t("have an account?")}
             <button
               onClick={() => setIsLogining(true)}
               className=" text-blue-800 underline"
             >
-              Login
+              {t("Login")}
             </button>
           </p>
         )}

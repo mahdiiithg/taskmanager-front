@@ -1,9 +1,12 @@
 import dayjs from "dayjs";
 import { useTranslation } from 'react-i18next';
+import ModalContext from "../context/ModalContext";
+import { useContext } from "react";
 
 
-const Coverheader = ({lng}) => {
+const Coverheader = () => {
   const { t } = useTranslation();
+  const { language } = useContext(ModalContext);
 
   const covers = [
     {src: '/images/weeks/0.webp'},
@@ -26,8 +29,8 @@ const Coverheader = ({lng}) => {
         {t('sentence1')}
       </p>
       <img
-        className={`h-52 sm:h-72 absolute -top-16 ${lng === 'en' ? 'right-0' : 'left-0'}`}
-        src={covers[dayOfWeek - 1].src || "/images/weeks/0.webp"}
+        className={`h-52 sm:h-72 absolute -top-16 ${language === 'en' ? 'right-0' : 'left-0'}`}
+        src={covers?.[dayOfWeek - 1]?.src || "/images/weeks/0.webp"}
         alt=""
       />
     </div>

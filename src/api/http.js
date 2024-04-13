@@ -6,9 +6,9 @@ const userToken = Cookies.get('userToken')
 // Axios instance
 const instance = axios.create({
   // baseURL: 'http://localhost:8080/api',
-  // baseURL: 'https://116.203.241.176:8080/',
-  baseURL: 'https://mahditahavorgar.com/api',
-  timeout: 100000,
+  baseURL: 'https://128.140.34.190:8080/',
+  // baseURL: 'https://mahditahavorgar.com/api',
+  // timeout: 100000,
   headers: {
     'content-type': 'application/json',
     Authorization: userToken ? `Bearer ${userToken}` : '',

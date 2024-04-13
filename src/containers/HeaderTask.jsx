@@ -1,62 +1,66 @@
 import dayjs from "dayjs";
 import React from "react";
 import { Link } from "react-router-dom";
-import { CiCalendar } from "react-icons/ci";
-import { SlHome } from "react-icons/sl";
-import { CgCloseO } from "react-icons/cg";
-
+import { useTranslation } from "react-i18next";
+  
 const HeaderTask = ({ selectedDate, title, onClose, shouldClose }) => {
+
+  const { t } = useTranslation();
   return (
-    <div className=" flex flex-wrap gap-y-2 w-full justify-between items-center capitalize">
+    <div className=" flex flex-wrap gap-y-2 w-full justify-between items-center capitalize pb-4">
       <h2 className=" text-xl font-bold">
-        {selectedDate ? dayjs(selectedDate).format("dd MMMM") : title} 
+        {selectedDate ? dayjs(selectedDate).format("MMMM - dddd") : title}
       </h2>
-      <div className="flex items-center gap-x-2 self-end">
-        <Link className=" bg-blue-500
-              text-white
-              p-2 rounded-full" to="/">
-          <SlHome size={20} />
+      <div className="flex items-center gap-x-4 self-end">
+        <Link
+          className=" 
+              rounded-full"
+          to="/"
+        >
+          <img className="h-10 hover:scale-90 transition-all duration-75 " src="/images/home.webp" alt="blueCalendar" />
         </Link>
+
+        {shouldClose ? (
+          <button
+            className="rounded-full bg-red-600 text-white"
+            onClick={onClose}
+          >
+            <img src="/images/closered.webp" className="h-10 hover:scale-90 transition-all duration-75 " alt="close red" />
+          </button>
+        ) : (
+          <Link
+            to="/scheduled"
+            className="
+              rounded-full
+              active:scale-90
+              transition-all
+              duration-75
+              "
+          >
+            <img
+              className="h-10 hover:scale-90 transition-all duration-75 "
+              src="/images/blueCalendar.png"
+              alt="blueCalendar"
+            />
+          </Link>
+        )}
         <Link
           to="/add-task"
-          className=" text-sm
+          className=" text-sm flex items-center gap-x-2
               bg-blue-500
               text-white
               px-2
               py-1
               rounded-full
               hover:bg-blue-500/90
-              active:scale-95
+              active:scale-90
               transition-all
-              duration-75
+              duration-75 font-semibold
             "
         >
-          Add Task <span className="text-lg">+</span>
+          <span>{t("add a task")}</span>
+          <img className="h-8 hover:scale-90 transition-all duration-75"  src="/images/plus.webp" alt="blueCalendar" />
         </Link>
-        {shouldClose ? (
-          <button
-            className="rounded-full bg-red-600 text-white"
-            onClick={onClose}
-          >
-            <CgCloseO size={30} />
-          </button>
-        ) : (
-          <Link
-            to="/scheduled"
-            className="
-              bg-blue-500
-              text-white
-              rounded-full
-              p-2
-              hover:bg-blue-500/90
-              active:scale-95
-              transition-all
-              duration-75
-              "
-          >
-            <CiCalendar size={22} />
-          </Link>
-        )}
       </div>
     </div>
   );

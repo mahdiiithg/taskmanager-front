@@ -2,40 +2,55 @@ import { ColorPicker, DatePicker, Input, TimePicker, notification } from "antd";
 
 import dayjs from "dayjs";
 import { IoIosAdd } from "react-icons/io";
-import React, { useState , useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 import { https } from "../api/http";
 import { useNavigate, useParams } from "react-router-dom";
 import { GoTrash } from "react-icons/go";
 import ModalContext from "../context/ModalContext";
 import Cookies from "js-cookie";
 import { Colors } from "../utils/colors";
+import { toast } from "react-toastify";
 
 const AddTask = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { t } = useTranslation();
   const { setIsModalOpen, shouldGetCategory } = useContext(ModalContext);
   // const [selectedTime, setSelectedTime] = useState(dayjs());
   const [categories, setCategories] = useState([]);
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [selectedTime, setSelectedTime] = useState();
+  const { setIsModalLoginOpen, setUpdateApi } = useContext(ModalContext)
 
   const [taskData, setTaskData] = useState({
     name: "",
     description: "",
     dueDate: null,
-    category: !id && Cookies.get("selectedCat") ? Cookies.get("selectedCat") : null ,
+    category:
+      !id && Cookies.get("selectedCat") ? Cookies.get("selectedCat") : null,
     color: "",
   });
 
   useEffect(() => {
     getCategories();
     if (id) getTask();
+    if (!selectedDate) {
+      const now = dayjs(); // Use dayjs to get current time
+      setSelectedDate(now);
+    }
   }, []);
-  
+
   useEffect(() => {
     getCategories();
   }, [shouldGetCategory]);
+
+  useEffect(() => {
+    const parsedDate = Cookies.get("selectedDate") ? dayjs(JSON.parse(Cookies.get("selectedDate"))) : dayjs() ;
+    setSelectedDate(parsedDate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Cookies.get("selectedDate")]);
 
   const getCategories = () => {
     const response = (res) => {
@@ -53,7 +68,7 @@ const AddTask = () => {
   };
 
   const handleDateChange = (date) => {
-    setSelectedDate(date)
+    setSelectedDate(date);
     setTaskData({ ...taskData, dueDate: date });
   };
 
@@ -77,16 +92,17 @@ const AddTask = () => {
   };
 
   const handleCategoryChange = (categoryId) => {
-    Cookies.set("selectedCat", categoryId)
+    Cookies.set("selectedCat", categoryId);
     setTaskData({ ...taskData, category: categoryId });
   };
 
   const onAddTask = () => {
+    if(!selectedTime) return toast.info(t("please select the time"))
     const combinedDueDate = taskData.dueDate
       ? dayjs(taskData.dueDate)
-          .hour(selectedTime.hour())
-          .minute(selectedTime.minute())
-      : dayjs().hour(selectedTime.hour()).minute(selectedTime.minute());
+          ?.hour(selectedTime.hour())
+          ?.minute(selectedTime.minute())
+      : dayjs()?.hour(selectedTime?.hour()).minute(selectedTime.minute());
 
     const taskSubmissionData = {
       ...taskData,
@@ -94,14 +110,21 @@ const AddTask = () => {
     };
 
     const response = () => {
-      openNotification('action was success full')
+      toast.success(t("action was successful"))
       setTimeout(() => {
         navigate(-1);
       }, 1000);
       // getTasks();
     };
 
-    const error = () => {};
+    const error = (error) => {
+      if(error?.response.status === 401) {
+        setIsModalLoginOpen(true)
+        toast.info(t(error?.response?.data.error))
+        return
+      }
+      toast.error(t(error?.response?.data.error || "something went wrong make sure all fields are correctly fill"))
+    };
 
     if (id)
       return https.updateTask(response, error, id, {
@@ -118,8 +141,8 @@ const AddTask = () => {
   const getTask = () => {
     const response = (res) => {
       setTaskData(res.data);
-      setSelectedDate(dayjs(res.data.dueDate || res.data.createdAt))
-      setSelectedTime(dayjs(res.data.dueDate || res.data.createdAt))
+      setSelectedDate(dayjs(res.data.dueDate || res.data.createdAt));
+      setSelectedTime(dayjs(res.data.dueDate || res.data.createdAt));
     };
 
     const error = () => {};
@@ -139,63 +162,74 @@ const AddTask = () => {
 
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = (message) => {
-    api.info({
-      message: `Message`,
-      description: <ModalContext.Consumer>{({ isModalOpen }) => `${message || isModalOpen}!`}</ModalContext.Consumer>,
-      placement: 'topLeft',
-    });
-  };
 
   return (
     <div className="space-y-10 capitalize pb-10">
       {contextHolder}
-      <div className=" bg-gradient-to-br from-cyan-900 via-cyan-900 to-cyan-700  text-white space-y-4 px-4 py-10">
+      <div
+        style={{
+          // background: 'url("images/white-clipboard.avif")',
+          objectFit: "contain",
+          backgroundSize: "contain",
+        }}
+        className=" text-black space-y-4 px-4 relative z-10 "
+      >
         <button onClick={() => navigate(-1)}>
           <IoIosArrowBack size={34} />
         </button>
-        <h1 className=" text-3xl">Create New Task</h1>
+        <h1 className=" text-3xl">{t("write and add")}</h1>
         <div className="space-y-2">
-          <label htmlFor="Task">Task</label>
+          <label htmlFor="Task">{t("name")}</label>
           <Input
             id="Task"
             name="name"
-            placeholder="name"
+            required
+            placeholder={t("name")}
             value={taskData.name}
             onChange={handleInputChange}
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="data">date</label>
           <div className="flex items-start gap-x-4">
-            <DatePicker
-              id="date"
-              name="dueDate"
-              className="flex-1"
-              value={selectedDate}
-              onChange={handleDateChange}
-            />
-            <TimePicker
-              className="flex-1"
-              onChange={handleTimeChange}
-              value={selectedTime || ''}
-            />
+            <div className=" w-full flex flex-col gap-y-1">
+              <label htmlFor="data">{t("select date")}</label>
+              <DatePicker
+                id="date"
+                name="dueDate"
+                className="flex-1"
+                value={selectedDate}
+                required
+                placeholder={t("Date")}
+                onChange={handleDateChange}
+              />
+            </div>
+            <div className=" w-full flex flex-col gap-y-1">
+              <label htmlFor="data">{t("select time")}</label>
+              <TimePicker
+                className="flex-1"
+                onChange={handleTimeChange}
+                required
+                placeholder={t("select time")}
+                value={selectedTime || ""}
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className="space-y-4 px-4  bg-white">
         <div className="space-y-2">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">{t("description")}</label>
           <Input
             id="description"
             name="description"
-            placeholder="description"
+            required
+            placeholder={t("description")}
             value={taskData.description}
             onChange={handleInputChange}
           />
         </div>
         <div className="space-y-2 flex flex-col">
-          <label htmlFor="color">color</label>
+          <label htmlFor="color">{t("Pick a color")}</label>
           <ColorPicker
             value={taskData.color}
             size="large"
@@ -207,10 +241,10 @@ const AddTask = () => {
       <div className="px-4 space-y-10">
         <div className="space-y-2">
           <div className=" flex items-center justify-between w-full pt-2 pb-4">
-          <label>select a category</label>
-          <button
-          onClick={() => setIsModalOpen(true)}
-          className="
+            <label>{t("Select A Category")}</label>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="
             text-sm
             flex
             items-center
@@ -226,22 +260,29 @@ const AddTask = () => {
             transition-all
             duration-75
           "
-        >
-          <span>add</span> <IoIosAdd size={23} />
-        </button>
+            >
+              <span>{t("add")}</span> <IoIosAdd size={23} />
+            </button>
           </div>
           <div className="flex flex-wrap gap-4">
             {categories?.map((data, index) => {
               return (
                 <button
                   onClick={() => handleCategoryChange(data._id)}
-                  className={` capitalize ${
+                  className={` capitalize relative ${
                     taskData?.category === data._id
-                      ? "bg-red-600"
+                      ? "bg-green-600"
                       : Colors[index]
                   }  px-3 py-1 rounded-md text-white`}
                   key={data._id}
                 >
+                  {taskData?.category === data._id && (
+                    <img
+                      src="/images/checked.webp"
+                      className="h-6 absolute -top-3 -right-3"
+                      alt="checked"
+                    />
+                  )}
                   {data.name}
                 </button>
               );
@@ -266,7 +307,7 @@ const AddTask = () => {
               w-full
             "
           >
-            {id ? "update task" : "create task"}
+            {id ? "update task" : t("Create task")}
           </button>
           {id && (
             <button

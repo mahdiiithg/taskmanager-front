@@ -5,9 +5,13 @@ const ModalContext = React.createContext({
   isModalOpen: false,
   isModalLoginOpen: false,
   shouldGetCategory: false,
+  updateApi: false,
+  language: "fa",
   setIsModalLoginOpen: () => {},
   setIsModalOpen: () => {},
-  setShouldGetCategory: () => {}
+  setShouldGetCategory: () => {},
+  setUpdateApi: () => {},
+  setLanguage: () => {},
 });
 
 export default ModalContext;

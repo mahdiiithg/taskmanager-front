@@ -3,7 +3,9 @@ import Profile from "../containers/Profile";
 import QuickTaskList from "../containers/QuickTaskList";
 import Coverheader from "../containers/Coverheader";
 import { https } from "../api/http";
+// import {WebRTC} from '../containers/webRtc/WebRTC'
 import i18n from 'i18next';
+import Cookies from "js-cookie";
 
 const Index = () => {
 
@@ -18,6 +20,7 @@ const Index = () => {
     const response = (res) => {
       setUser(res.data);
       i18n.changeLanguage(res.data.language)
+      Cookies.set("language", res.data.language)
     };
 
     const error = () => {};
@@ -27,14 +30,11 @@ const Index = () => {
 
 
   return (
-    <div className=" min-h-screen h-full" dir={user?.language === 'en' ? "ltr" : 'rtl'}>
+    <div className=" min-h-screen h-full">
       <div className="p-4 py-5 space-y-8">
         <Profile user={user} getUser={() => setChanged(!changed)} />
-        {/* <h1 className=" text-2xl font-semibold leading-[0]">My Task</h1>
-        <p className=" leading-[0] text-black/50">Ongoing tasks</p> */}
-        <Coverheader lng={user?.language} />
+        <Coverheader />
         <QuickTaskList />
-        {/* <Categories /> */}
       </div>
     </div>
   );

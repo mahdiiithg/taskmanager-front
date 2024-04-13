@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Cookies from "js-cookie";
 import ModalContext from "../context/ModalContext";
 import i18n from "i18next";
+import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const containerMotion = {
   hidden: { opacity: 0, scale: 0 },
@@ -19,29 +21,36 @@ const containerMotion = {
 };
 
 const Profile = ({ user, getUser }) => {
+  const { t } = useTranslation();
   const [hasLoggedIn, setHasLoggedIn] = useState(user.name || null);
-  const { setIsModalLoginOpen } = useContext(ModalContext);
+  const { setIsModalLoginOpen, setUpdateApi } = useContext(ModalContext);
 
   useEffect(() => {
     setHasLoggedIn(user.name || null);
   }, [user]);
 
   const logout = () => {
-    const response = () => {
+    const response = (res) => {
       Cookies.remove("userToken");
+      toast.success(t(res.data))
       setTimeout(() => {
         window.location.reload();
       }, 1000);
     };
-    const error = () => {};
+    const error = (error) => {
+      toast.error(error?.response?.data)
+    };
 
     https.logout(response, error);
   };
 
   const updateUserLng = () => {
     const language = user.language === "en" ? "fa" : "en";
+
     const response = (res) => {
-      getUser(language);
+      setUpdateApi(language)
+      getUser(language)
+      Cookies.set("language", language)
       i18n.changeLanguage(language);
     };
     const error = () => {};
