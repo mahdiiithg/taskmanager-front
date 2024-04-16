@@ -1,7 +1,7 @@
 {
   "appVersion": "1",
   "manifestVersion": 2,
-  "startUrl": "http://116.203.241.176:3001/",
+  "startUrl": "http://128.140.34.190/",
   "display": "standalone",
   "orientation": "default",
   "themeColor": "#ffffff",
@@ -11,7 +11,7 @@
   "backgroundColor": "#ffffff",
   "description": "task managment app",
   "categories": ["personal help", "todo", "planner"],
-  "webManifestUrl": "http://116.203.241.176:3001/manifest.json",
+  "webManifestUrl": "http://128.140.34.190/manifest.json",
   "launcherName": "task manager",
   "enableNotifications": true,
   "fileHandlers": {
@@ -21,5 +21,13 @@
   "scope": "/",
   "splashScreenFadeOutDuration": 300,
   "signingKeyPath": "path/to/your/signing-key.keystore",
-  "publicKeyPath": "path/to/your/public-key.der"
+  "publicKeyPath": "path/to/your/public-key.der",
+  "icons": [
+    {
+      "src": "http://128.140.34.190/splash.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }

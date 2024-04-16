@@ -1,11 +1,11 @@
 {
   "target": {
     "name": "taskmanager",
-    "url": "http://116.203.241.176:3001/",
+    "url": "http://128.140.34.190/",
     "platform": ["android", "ios"]
   },
   "expiry": null,
   "updates": {
-    "publicUrl": "http://116.203.241.176:3001/"
+    "publicUrl": "http://128.140.34.190/"
   }
 }
