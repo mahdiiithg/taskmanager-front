@@ -3,7 +3,6 @@ import Profile from "../containers/Profile";
 import QuickTaskList from "../containers/QuickTaskList";
 import Coverheader from "../containers/Coverheader";
 import { https } from "../api/http";
-// import {WebRTC} from '../containers/webRtc/WebRTC'
 import i18n from 'i18next';
 import Cookies from "js-cookie";
 

@@ -26,7 +26,7 @@ const Coverheader = () => {
     <div className="relative flex items-center w-full bg-gray-100 rounded-md h-36 md:h-52 p-8 shadow-md" >
       <p className="w-1/2 md:text-lg">
         {/* {goodFeelingSentences[dayOfWeek - 1].english} */}
-        {t('sentence1')}
+        {t(`sentence${[dayOfWeek - 1]}`)}
       </p>
       <img
         className={`h-52 sm:h-72 absolute -top-16 ${language === 'en' ? 'right-0' : 'left-0'}`}

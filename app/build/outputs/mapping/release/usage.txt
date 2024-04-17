@@ -4102,8 +4102,8 @@ com.google.androidbrowserhelper.R$style
 androidx.core.provider.SelfDestructiveThread$2
 com.google.android.gms.common.data.Freezable
 com.mahditahavorgar.twa.R$raw
-com.mahditahavorgar.twa.R$id
 androidx.loader.R$integer
+com.mahditahavorgar.twa.R$id
 androidx.core.graphics.TypefaceCompatApi26Impl
 androidx.core.view.DragStartHelper$2
 android.support.v4.os.IResultReceiver$Stub
