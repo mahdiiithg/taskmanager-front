@@ -1,27 +1,51 @@
 {
-  "appVersion": "1",
-  "manifestVersion": 2,
-  "startUrl": "https://mahditahavorgar.com/",
-  "display": "standalone",
-  "orientation": "default",
-  "themeColor": "#ffffff",
+  "packageId": "com.mahditahavorgar.twa",
+  "host": "mahditahavorgar.com",
+  "name": "personal-planner",
+  "launcherName": "planner",
+  "display": "fullscreen",
+  "themeColor": "#000000",
+  "themeColorDark": "#000000",
   "navigationColor": "#000000",
-  "name": "task manager",
-  "shortName": "taskmng",
-  "backgroundColor": "#ffffff",
-  "description": "task managment app",
-  "categories": ["personal help", "todo", "planner"],
-  "webManifestUrl": "https://mahditahavorgar.com/manifest.json",
-  "launcherName": "task manager",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#FFFFFF",
   "enableNotifications": true,
-  "fileHandlers": {
-    "supported": false,
-    "allowlistedOrigins": []
-  },
-  "scope": "/",
+  "startUrl": "/",
+  "iconUrl": "https://mahditahavorgar.com/logo512.png",
   "splashScreenFadeOutDuration": 300,
-  "signingKeyPath": "path/to/your/signing-key.keystore",
-  "publicKeyPath": "path/to/your/public-key.der",
+  "signingKey": {
+    "path": "/Users/mahdithg/Desktop/projects/learnings/task-manager-front/android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://mahditahavorgar.com/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "playBilling": {
+      "enabled": true
+    },
+    "locationDelegation": {
+      "enabled": true
+    }
+  },
+  "alphaDependencies": {
+    "enabled": true
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://mahditahavorgar.com/",
+  "minSdkVersion": 19,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "appVersion": "1",
   "icons": [
     {
       "src": "https://mahditahavorgar.com/splash.png",
