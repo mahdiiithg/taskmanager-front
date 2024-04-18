@@ -1,11 +1,11 @@
 {
   "target": {
     "name": "taskmanager",
-    "url": "http://128.140.34.190/",
+    "url": "https://mahditahavorgar.com/",
     "platform": ["android", "ios"]
   },
   "expiry": null,
   "updates": {
-    "publicUrl": "http://128.140.34.190/"
+    "publicUrl": "https://mahditahavorgar.com/"
   }
 }

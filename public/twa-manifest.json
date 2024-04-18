@@ -1,7 +1,7 @@
 {
   "appVersion": "1",
   "manifestVersion": 2,
-  "startUrl": "http://128.140.34.190/",
+  "startUrl": "https://mahditahavorgar.com/",
   "display": "standalone",
   "orientation": "default",
   "themeColor": "#ffffff",
@@ -11,7 +11,7 @@
   "backgroundColor": "#ffffff",
   "description": "task managment app",
   "categories": ["personal help", "todo", "planner"],
-  "webManifestUrl": "http://128.140.34.190/manifest.json",
+  "webManifestUrl": "https://mahditahavorgar.com/manifest.json",
   "launcherName": "task manager",
   "enableNotifications": true,
   "fileHandlers": {
@@ -24,7 +24,7 @@
   "publicKeyPath": "path/to/your/public-key.der",
   "icons": [
     {
-      "src": "http://128.140.34.190/splash.png",
+      "src": "https://mahditahavorgar.com/splash.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
