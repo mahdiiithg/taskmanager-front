@@ -19,8 +19,8 @@
     "path": "/Users/mahdithg/Desktop/projects/learnings/task-manager-front/android.keystore",
     "alias": "android"
   },
-  "appVersionName": "1",
-  "appVersionCode": 1,
+  "appVersionName": "2",
+  "appVersionCode": 2,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://mahditahavorgar.com/manifest.json",
@@ -45,13 +45,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "1",
-  "icons": [
-    {
-      "src": "https://mahditahavorgar.com/splash.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
+  "appVersion": "2"
 }

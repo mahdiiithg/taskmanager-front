@@ -1,0 +1,8 @@
+com/mahditahavorgar/twa/LauncherActivity.java
+ com.mahditahavorgar.twa.LauncherActivity
+com/mahditahavorgar/twa/BuildConfig.java
+ com.mahditahavorgar.twa.BuildConfig
+com/mahditahavorgar/twa/DelegationService.java
+ com.mahditahavorgar.twa.DelegationService
+com/mahditahavorgar/twa/Application.java
+ com.mahditahavorgar.twa.Application
