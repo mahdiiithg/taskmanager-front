@@ -183,7 +183,7 @@ const AddTask = () => {
   const deletTask = () => {
     const response = (res) => {
       closeAddingDrawer();
-      getTasks()
+      getTasks();
     };
 
     const error = () => {};
@@ -196,17 +196,15 @@ const AddTask = () => {
   };
 
   return (
-    <div
-      className="space-y-2 capitalize p-2 bg-white z-50"
-    >
+    <div className="space-y-2 capitalize p-2 bg-white z-50 ">
       <div className=" flex items-center justify-between w-full">
         {/* <h1 className=" text-3xl">{t("write and add")}</h1> */}
-        <h1 className="p-0 m-0 text-lg">
+        {/* <h1 className="p-0 m-0 text-lg">
           {selectedDate ? dayjs(selectedDate).format("DD MMMM - dddd") : ""}
-        </h1>
-        <button onClick={closeAddingDrawer}>
+        </h1> */}
+        {/* <button onClick={closeAddingDrawer}>
           <IoCloseSharp size={34} />
-        </button>
+        </button> */}
       </div>
       <div
         style={{
@@ -218,7 +216,8 @@ const AddTask = () => {
       >
         {/* <label htmlFor="Task">{t("name")}</label> */}
         <Input
-          className="border rounded border-black/5"
+          className="border-none text-xl"
+          size="large"
           id="Task"
           name="name"
           required
@@ -227,7 +226,7 @@ const AddTask = () => {
           onChange={handleInputChange}
         />
         <TextArea
-          className="border rounded border-black/5"
+          className="border-none"
           id="description"
           name="description"
           maxLength={150}
@@ -237,7 +236,7 @@ const AddTask = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div className="w-full flex gap-1 overflow-x-auto">
+      <div className="w-full flex flex-wrap gap-1 overflow-x-auto">
         {/* <label htmlFor="data">{t("select time")}</label> */}
         <DatePicker
           id="date"
@@ -267,7 +266,7 @@ const AddTask = () => {
           onChange={handleColortChange}
         />
         <Select
-          className="min-w-[120px]"
+          className="min-w-[120px] justify-self-end"
           value={taskData.categorySelcted}
           placeholder={t("label")}
           dropdownRender={(menu) => (
@@ -320,49 +319,26 @@ const AddTask = () => {
           )}
         />
       </div>
-      <div className="flex gap-4 border-t pt-4">
-        <button
-          onClick={onAddTask}
-          className="
-              capitalize
-              min-w-[90px]
-              bg-green-500
-              text-white
-              px-2
-              py-1
-              rounded
-              hover:bg-green-400
-              active:scale-95
-              transition-all
-              duration-75
-              w-fit
-            "
-        >
-          {isEditingTask ? t("update") : t("Create task")}
-        </button>
-        <button
-          onClick={onCancel}
-          className="
-              capitalize
-              min-w-[90px]
-              bg-yellow-500
-              text-white
-              px-2
-              py-1
-              rounded
-              hover:bg-yellow-400
-              active:scale-95
-              transition-all
-              duration-75
-              w-fit
-            "
-        >
-          {t("cancel")}
-        </button>
-        {isEditingTask && (
-          <button
-            onClick={deletTask}
-            className=" capitalize flex items-center justify-center gap-x-1
+      <div className="flex gap-2 border-t pt-4 w-full justify-between">
+        <div className="flex gap-x-2">
+          <button onClick={onAddTask}>
+            {isEditingTask ? (
+              <img className=" h-10" src="/images/close.webp" alt="close" />
+            ) : (
+              <img
+                alt="arrow up"
+                src="/images/arrowUp.webp"
+                className=" h-12"
+              />
+            )}
+          </button>
+          <button onClick={onCancel}>
+            <img className=" h-10" src="/images/close.webp" alt="close" />
+          </button>
+          {isEditingTask && (
+            <button
+              onClick={deletTask}
+              className=" capitalize flex items-center justify-center gap-x-1
             min-w-[90px]
             bg-red-500
             text-white
@@ -375,10 +351,14 @@ const AddTask = () => {
             duration-75
             w-fit
             "
-          >
-            <span>{t("delete")}</span> <GoTrash />
-          </button>
-        )}
+            >
+              <span>{t("delete")}</span> <GoTrash />
+            </button>
+          )}
+        </div>
+        <div className="p-0 m-0 text-lg">
+          {selectedDate ? dayjs(selectedDate).format("DD MMMM - dddd") : ""}
+        </div>
       </div>
     </div>
   );

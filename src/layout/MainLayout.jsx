@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import LoginModal from "../containers/LoginModal";
 import AddCategoryModal from "../containers/AddCategory";
@@ -29,6 +29,23 @@ const MainLayout = () => {
   };
 
   const isAddingTask = useAddingTask((state) => state.isAddingTask);
+  const closeIsAddingTask = useAddingTask((state) => state.closeIsAddingTask);
+  const addingTaskRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (addingTaskRef.current && !addingTaskRef.current.contains(event.target)) {
+        closeIsAddingTask(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
 
   useEffect(() => {
     getUser();
@@ -56,10 +73,11 @@ const MainLayout = () => {
         >
           <Outlet />
           <div
+            
             style={{
-              boxShadow: "0px -5px 15px -1px rgba(0,0,0,0.4)",
+              boxShadow: "0px -5px 15px -1px rgba(0,0,0,0.1)",
             }}
-            className={`fixed bottom-0 z-50 shadow-lg w-full ${
+            className={`fixed bottom-0 z-50 shadow-lg w-full rounded-2xl max-w-lg mx-auto overflow-hidden ${
               isAddingTask ? "h-[270px]" : "h-[0px]"
             } bg-white border-t transition-all ease-in-out`}
           >

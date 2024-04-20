@@ -26,10 +26,12 @@ const Scheduled = () => {
     const cellDate = value.format("YYYY-MM-DD");
 
     // Filter tasks for this specific date
-    const tasksForDate = tasks.filter(
-      (task) =>
+    const tasksForDate = tasks.filter((task) => {
+      if (task.status) return "";
+      return (
         dayjs(task.dueDate || task.createdAt).format("YYYY-MM-DD") === cellDate
-    );
+      );
+    });
 
     // Render tasks for this date
     return (
@@ -53,11 +55,7 @@ const Scheduled = () => {
         onClose={() => setSelectedDate(null)}
       />
       <div className="relative">
-        <Calendar 
-          mode="month"
-          onSelect={onSelect}
-          cellRender={cellRender}
-        />
+        <Calendar mode="month" onSelect={onSelect} cellRender={cellRender} />
         {selectedDate && (
           <div className="absolute w-full h-full top-0 right-0 bg-white z-20">
             <DayDetailView

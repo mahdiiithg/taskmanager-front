@@ -51,6 +51,10 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
 
     // Filter tasks that start within this hour
     const tasksForHour = tasks.filter((task) => {
+      if (task.status) {
+        return false; // Ignore tasks with false status
+      }
+      
       const taskTime = task.dueDate
         ? dayjs(task.dueDate)
         : dayjs(task.createdAt);
@@ -82,12 +86,12 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
               const colorCode = task.color;
               return (
                 <li
-                  style={{
-                    borderLeft: `8px solid ${colorCode}`,
-                    // backgroundColor: `${task.color}`
-                  }}
+                  // style={{
+                  //   borderLeft: `8px solid ${colorCode}`,
+                  //   // backgroundColor: `${task.color}`
+                  // }}
                   className={`
-                    border-l-8 w-full justify-between 
+                    w-full justify-between 
                     rounded-l-none
                     bg-[${colorCode}]
                     bg-opacity-30
@@ -106,9 +110,9 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
                     onClick={() => toggleTaskStatus(task._id, !task.status)}
                   >
                     {task.status ? (
-                      <CgRadioChecked size={20} className={"text-blue-700"} />
+                      <CgRadioChecked size={20} style={{ color: `${task.color}`}} />
                     ) : (
-                      <CgRadioCheck size={20} className={"text-blue-700"} />
+                      <CgRadioCheck size={20} style={{ color: `${task.color}`}} />
                     )}
                   </span>
                 </li>
