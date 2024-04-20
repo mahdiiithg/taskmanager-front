@@ -2,6 +2,7 @@ import React from "react";
 import QuickTasksCard from "../components/QuickTasksCard";
 import {motion} from 'framer-motion'
 import { useTranslation } from "react-i18next";
+import { useAddingTask } from "../state/StateManger";
 
 const variants = {
   open: {
@@ -14,6 +15,7 @@ const variants = {
 
 const QuickTaskList = () => {
   const { t } = useTranslation();
+  const toggleIsAddingTask = useAddingTask((state) => state.toggleAddingTask)
 
   return (
     <motion.div variants={variants} className="grid grid-cols-2 gap-3 justify-center">
@@ -34,7 +36,8 @@ const QuickTaskList = () => {
         direction={'flex-row flex-row-reverse'}
         isRow
         src="/images/write3d.webp"
-        to="/add-task"
+        // to="/add-task"
+        onClick={toggleIsAddingTask}
         title={(t("add new task"))}
         subtitle={(t("write and add"))}
       />

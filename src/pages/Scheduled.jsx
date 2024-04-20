@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Calendar } from "antd-jalali";
-import { https } from "../api/http";
 import dayjs from "dayjs";
 import DayDetailView from "../containers/DayDetailView";
 import HeaderTask from "../containers/HeaderTask";
 import Cookies from "js-cookie";
+import { useAddingTask } from "../state/StateManger";
 
 const Scheduled = () => {
-  const [tasks, setTasks] = useState([]);
+  // const [tasks, setTasks] = useState([]);
+  const { tasks, getTasks } = useAddingTask();
   const [selectedDate, setSelectedDate] = useState(null);
   const onSelect = (value, info) => {
     if (info?.source === "date") {
@@ -19,16 +20,6 @@ const Scheduled = () => {
   useEffect(() => {
     getTasks();
   }, []);
-
-  const getTasks = () => {
-    const response = (res) => {
-      setTasks(res.data);
-    };
-
-    const error = () => {};
-
-    https.getTasks(response, error);
-  };
 
   const cellRender = (value) => {
     // Convert the cell's dayjs value to a comparable string format

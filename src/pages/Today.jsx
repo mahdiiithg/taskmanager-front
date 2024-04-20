@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { https } from "../api/http";
 import dayjs from "dayjs";
 import DateScroll from "../containers/ScrollDate";
 import DayDetailView from "../containers/DayDetailView";
 import HeaderTask from "../containers/HeaderTask";
+import { useAddingTask } from "../state/StateManger";
 
 const Today = () => {
-  const [tasks, setTasks] = useState([]);
+  const { tasks, getTasks } = useAddingTask();
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const onSelect = (value) => {
     setSelectedDate(value);
@@ -16,15 +16,6 @@ const Today = () => {
     getTasks();
   }, []);
 
-  const getTasks = () => {
-    const response = (res) => {
-      setTasks(res.data);
-    };
-
-    const error = () => {};
-
-    https.getTasks(response, error);
-  };
 
   return (
     <div className="p-4 space-y-4">

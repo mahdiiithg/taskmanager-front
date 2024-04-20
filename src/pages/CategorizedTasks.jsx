@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 import { Empty, Popconfirm } from "antd";
 import jalaliday from 'jalaliday';
 import dayjs from "dayjs";
+import { useAddingTask } from "../state/StateManger";
 
 dayjs.extend(jalaliday);
 
@@ -16,8 +17,12 @@ dayjs.extend(jalaliday);
 const CategorizedTasks = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const toggleAddingTask = useAddingTask((state) => state.toggleAddingTask);
+  const {setEditingTask} = useAddingTask();
+
   const localDetector = Cookies.get("language") === "en" ? "en-US" : "fa-IR";
-  const [tasks, setTasks] = useState([]);
+  const [tasksList, setTasks] = useState([]);
+  const { tasks } = useAddingTask();
   const [pageId, setPageId] = useState(null);
   const [hasAuthenticated, setHasAuthenticated] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -29,7 +34,7 @@ const CategorizedTasks = () => {
     setPageId(id)
     getCategories();
     Cookies.set("selectedCat", id);
-  }, [id]);
+  }, [id, tasks]);
 
   useEffect(() => {
     const newID = categories[0]?._id;
@@ -102,6 +107,11 @@ const CategorizedTasks = () => {
     https.deletCategory(response, error, id);
   };
 
+  const handleEditClick = (taskId) => {
+    toggleAddingTask()
+    setEditingTask(taskId, true)
+  };
+
   return (
     <div className="relative">
       <div className="absolute w-full h-full top-0 right-0 bg-white z-20 p-4 py-8">
@@ -171,7 +181,7 @@ const CategorizedTasks = () => {
             />
           </div>
         )}
-        {Object.entries(tasks).map(([date, tasksForDate]) => (
+        {Object.entries(tasksList).map(([date, tasksForDate]) => (
           <div key={date}>
             <h3 className="py-4 font-bold">{dayjs(date).format("MMMM-DD")}</h3> {/* Display the date */}
             <ul>
@@ -216,12 +226,12 @@ const CategorizedTasks = () => {
                         )}
                       </div>
                     </button>
-                    <Link to={`/add-task/${task._id}`}>
+                    <button onClick={() => handleEditClick(task._id)}>
                       <div>{task?.name}</div>
                       <div className=" text-xs">
                         {task.description || "task.description"}
                       </div>
-                    </Link>
+                    </button>
                   </div>
                 </li>
               ))}

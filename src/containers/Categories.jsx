@@ -4,18 +4,19 @@ import CategoryCart from "../components/CategoryCart";
 import { https } from "../api/http";
 import _ from "lodash";
 import ModalContext from "../context/ModalContext";
+import { useAddingTask } from "../state/StateManger";
 
 const Categories = () => {
   const { setIsModalOpen, shouldGetCategory } = useContext(ModalContext);
   const [categories, setCategories] = useState([]);
-  const [tasks, setTasks] = useState([]);
+  const { tasks, getTasks } = useAddingTask();
   const categorizedTasks = _.groupBy(tasks, "category");
 
   useEffect(() => {
     getCategories();
     getTasks();
   }, []);
-  
+
   useEffect(() => {
     getCategories();
   }, [shouldGetCategory]);
@@ -28,16 +29,6 @@ const Categories = () => {
     const error = () => {};
 
     https.getCategories(response, error);
-  };
-
-  const getTasks = () => {
-    const response = (res) => {
-      setTasks(res.data);
-    };
-
-    const error = () => {};
-
-    https.getTasks(response, error);
   };
 
   return (

@@ -23,6 +23,7 @@ const QuickTasksCard = ({
   direction,
   isRow,
   subtitle,
+  onClick
 }) => {
   const { t } = useTranslation();
 
@@ -33,8 +34,9 @@ const QuickTasksCard = ({
       animate="visible"
       className=" self-center w-fit mx-auto min-w-[150px] sm:min-w-full sm:w-full"
     >
-      <Link to={to}>
+      <Link to={to || "#"}>
         <div
+          onClick={onClick}
           className={`flex gap-y-2 justify-center items-center bg-gray-100 p-4 rounded-lg shadow capitalize ${
             direction || "flex-col"
           }`}

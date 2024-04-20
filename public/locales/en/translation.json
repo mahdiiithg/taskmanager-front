@@ -43,5 +43,7 @@
   "resgister": "resgister",
   "login": "login",
   "Submit": "Submit",
+  "cancel": "cancel",
+  "label": "label",
   "something went wrong make sure all fields are correctly fill": "something went wrong make sure all fields are correctly fill"
 }

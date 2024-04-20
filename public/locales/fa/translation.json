@@ -28,7 +28,7 @@
   "select time": "زمان رو انتخاب کن",
   "please select the time": "زمان رو انتخاب کن",
   "select date": "تاریخ رو انتخاب کن",
-  "add": "اضافه کردن دسته بندی",
+  "add": "افضودن",
   "login was successful": "ورود با موفقیت انجام شد",
   "logout was successful": "خروج با موفقیت انجام شد",
   "please first login to see the list": "برای مشاهده لیست ابتدا وارد شوید",
@@ -44,6 +44,11 @@
   "resgister": "ثبت نام",
   "login": "وارد شوید",
   "Submit": "تایید",
+  "cancel": "لغو",
+  "label": "برچسب",
+  "delete": "حذف",
+  "update": "به روز رسانی",
+  "add label": "ایجاد برچسب",
   "something went wrong make sure all fields are correctly fill": "مشکلی پیش آمد مطمئن شوید که همه فیلدها به درستی پر شده اند",
   "action was successful": "اقدام موفقیت آمیز بود"
 }

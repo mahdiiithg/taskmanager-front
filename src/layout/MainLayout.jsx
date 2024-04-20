@@ -3,18 +3,17 @@ import { Outlet } from "react-router-dom";
 import LoginModal from "../containers/LoginModal";
 import AddCategoryModal from "../containers/AddCategory";
 import ModalContext from "../context/ModalContext";
-import Cookies from "js-cookie";
-import i18n from 'i18next';
+import i18n from "i18next";
 import { https } from "../api/http";
-import Profile from "../containers/Profile";
+import AddTask from "../pages/AddTask";
+import { useAddingTask } from "../state/StateManger";
 
 const MainLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updateApi, setUpdateApi] = useState(false);
-  const [user, setUser] = useState({})
-  const [language, setLanguage] = useState('fa');
+  const [user, setUser] = useState({});
+  const [language, setLanguage] = useState("fa");
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false);
-  const [changed, setChanged] = useState(true)
   const [shouldGetCategory, setShouldGetCategory] = useState(false);
   const value = {
     isModalOpen,
@@ -26,18 +25,20 @@ const MainLayout = () => {
     setLanguage,
     language,
     setUpdateApi,
-    updateApi
+    updateApi,
   };
 
+  const isAddingTask = useAddingTask((state) => state.isAddingTask);
+
   useEffect(() => {
-    getUser()
-  },[updateApi])
+    getUser();
+  }, [updateApi]);
 
   const getUser = () => {
     const response = (res) => {
       setUser(res.data);
-      i18n.changeLanguage(res.data.language)
-      setLanguage(res.data.language)
+      i18n.changeLanguage(res.data.language);
+      setLanguage(res.data.language);
     };
 
     const error = () => {};
@@ -45,13 +46,25 @@ const MainLayout = () => {
     https.getUser(response, error);
   };
 
-  console.log("language", language);
   return (
     <>
       <ModalContext.Provider value={value}>
-      {/* <Profile user={user} getUser={() => setChanged(!changed)} /> */}
-        <div className="max-w-lg mx-auto" dir={language === 'en' ? "ltr" : 'rtl'} >
+        {/* <Profile user={user} getUser={() => setChanged(!changed)} /> */}
+        <div
+          className="max-w-lg mx-auto"
+          dir={language === "en" ? "ltr" : "rtl"}
+        >
           <Outlet />
+          <div
+            style={{
+              boxShadow: "0px -5px 15px -1px rgba(0,0,0,0.4)",
+            }}
+            className={`fixed bottom-0 z-50 shadow-lg ${
+              isAddingTask ? "h-[270px]" : "h-[0px]"
+            } bg-white border-t transition-all ease-in-out`}
+          >
+            <AddTask />
+          </div>
         </div>
         <LoginModal language={language} isModalLoginOpen={isModalLoginOpen} />
         <AddCategoryModal isModalOpen={isModalOpen} />

@@ -1,28 +1,31 @@
-import { ColorPicker, DatePicker, Input, TimePicker, notification } from "antd";
+import { ColorPicker, DatePicker, Input, Select, TimePicker } from "antd";
 
 import dayjs from "dayjs";
 import { IoIosAdd } from "react-icons/io";
 import React, { useState, useEffect, useContext } from "react";
-import { IoIosArrowBack } from "react-icons/io";
+import _ from "lodash"; // Ensure groupBy is imported
+import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { https } from "../api/http";
-import { useNavigate, useParams } from "react-router-dom";
 import { GoTrash } from "react-icons/go";
 import ModalContext from "../context/ModalContext";
 import Cookies from "js-cookie";
-import { Colors } from "../utils/colors";
 import { toast } from "react-toastify";
+import { useAddingTask } from "../state/StateManger";
+
+const { TextArea } = Input;
 
 const AddTask = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
   const { t } = useTranslation();
   const { setIsModalOpen, shouldGetCategory } = useContext(ModalContext);
-  // const [selectedTime, setSelectedTime] = useState(dayjs());
+  const closeIsAddingTask = useAddingTask((state) => state.closeIsAddingTask);
+  const { taskId, isEditingTask, getTasks, setEditingTask } = useAddingTask();
+  const id = taskId;
+
   const [categories, setCategories] = useState([]);
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [selectedTime, setSelectedTime] = useState();
-  const { setIsModalLoginOpen, setUpdateApi } = useContext(ModalContext)
+  const { setIsModalLoginOpen } = useContext(ModalContext);
 
   const [taskData, setTaskData] = useState({
     name: "",
@@ -40,17 +43,31 @@ const AddTask = () => {
       const now = dayjs(); // Use dayjs to get current time
       setSelectedDate(now);
     }
-  }, []);
+  }, [isEditingTask, id]);
 
   useEffect(() => {
     getCategories();
   }, [shouldGetCategory]);
 
   useEffect(() => {
-    const parsedDate = Cookies.get("selectedDate") ? dayjs(JSON.parse(Cookies.get("selectedDate"))) : dayjs() ;
+    const parsedDate = Cookies.get("selectedDate")
+      ? dayjs(JSON.parse(Cookies.get("selectedDate")))
+      : dayjs();
     setSelectedDate(parsedDate);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Cookies.get("selectedDate")]);
+
+  const closeAddingDrawer = () => {
+    setEditingTask(null, false);
+    closeIsAddingTask();
+    setTaskData({
+      name: "",
+      description: "",
+      dueDate: null,
+      category: null,
+      color: "",
+    });
+  };
 
   const getCategories = () => {
     const response = (res) => {
@@ -93,11 +110,18 @@ const AddTask = () => {
 
   const handleCategoryChange = (categoryId) => {
     Cookies.set("selectedCat", categoryId);
-    setTaskData({ ...taskData, category: categoryId });
+    setTaskData({
+      ...taskData,
+      category: categoryId,
+      categorySelcted: {
+        label: _.find(categories, { _id: categoryId })?.name,
+        value: _.find(categories, { _id: categoryId })?.name,
+      },
+    });
   };
 
   const onAddTask = () => {
-    if(!selectedTime) return toast.info(t("please select the time"))
+    if (!selectedTime) return toast.info(t("please select the time"));
     const combinedDueDate = taskData.dueDate
       ? dayjs(taskData.dueDate)
           ?.hour(selectedTime.hour())
@@ -110,23 +134,29 @@ const AddTask = () => {
     };
 
     const response = () => {
-      toast.success(t("action was successful"))
+      toast.success(t("action was successful"));
+      getTasks();
       setTimeout(() => {
-        navigate(-1);
+        closeAddingDrawer();
       }, 1000);
-      // getTasks();
     };
 
     const error = (error) => {
-      if(error?.response.status === 401) {
-        setIsModalLoginOpen(true)
-        toast.info(t(error?.response?.data.error))
-        return
+      if (error?.response.status === 401) {
+        setIsModalLoginOpen(true);
+        toast.info(t(error?.response?.data.error));
+
+        return;
       }
-      toast.error(t(error?.response?.data.error || "something went wrong make sure all fields are correctly fill"))
+      toast.error(
+        t(
+          error?.response?.data.error ||
+            "something went wrong make sure all fields are correctly fill"
+        )
+      );
     };
 
-    if (id)
+    if (isEditingTask)
       return https.updateTask(response, error, id, {
         // ...taskData
         name: taskData.name,
@@ -152,7 +182,7 @@ const AddTask = () => {
 
   const deletTask = () => {
     const response = (res) => {
-      navigate(-1);
+      closeAddingDrawer();
     };
 
     const error = () => {};
@@ -160,177 +190,192 @@ const AddTask = () => {
     https.deleteTasks(response, error, id);
   };
 
-  const [api, contextHolder] = notification.useNotification();
-
+  const onCancel = () => {
+    closeAddingDrawer();
+  };
 
   return (
-    <div className="space-y-10 capitalize pb-10">
-      {contextHolder}
+    <div
+      className="space-y-2 capitalize p-2 bg-white z-50"
+    >
+      <div className=" flex items-center justify-between w-full">
+        {/* <h1 className=" text-3xl">{t("write and add")}</h1> */}
+        <h1 className="p-0 m-0 text-lg">
+          {selectedDate ? dayjs(selectedDate).format("DD MMMM - dddd") : ""}
+        </h1>
+        <button onClick={closeAddingDrawer}>
+          <IoCloseSharp size={34} />
+        </button>
+      </div>
       <div
         style={{
           // background: 'url("images/white-clipboard.avif")',
           objectFit: "contain",
           backgroundSize: "contain",
         }}
-        className=" text-black space-y-4 px-4 relative z-10 "
+        className=" text-black space-y-2 relative z-10"
       >
-        <button onClick={() => navigate(-1)}>
-          <IoIosArrowBack size={34} />
+        {/* <label htmlFor="Task">{t("name")}</label> */}
+        <Input
+          className="border rounded border-black/5"
+          id="Task"
+          name="name"
+          required
+          placeholder={t("name")}
+          value={taskData.name}
+          onChange={handleInputChange}
+        />
+        <TextArea
+          className="border rounded border-black/5"
+          id="description"
+          name="description"
+          maxLength={150}
+          required
+          placeholder={t("description")}
+          value={taskData.description}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="w-full flex gap-1">
+        {/* <label htmlFor="data">{t("select time")}</label> */}
+        <DatePicker
+          id="date"
+          name="dueDate"
+          className="flex-1 rounded"
+          value={selectedDate}
+          required
+          placeholder={t("Date")}
+          onChange={handleDateChange}
+        />
+        <TimePicker
+          className="flex-1 rounded"
+          onChange={handleTimeChange}
+          required
+          placeholder={t("select time")}
+          value={selectedTime || ""}
+        />
+        <ColorPicker
+          value={taskData.color}
+          size="middle"
+          className="flex-1 rounded"
+          showText
+          onChange={handleColortChange}
+        />
+        <Select
+          style={{
+            width: 120,
+          }}
+          value={taskData.categorySelcted}
+          placeholder={t("label")}
+          dropdownRender={(menu) => (
+            <React.Fragment>
+              {/* {menu} */}
+              <button
+                onClick={() => setIsModalOpen(true)}
+                style={{
+                  width: 110,
+                }}
+                className="
+                mb-1
+                text-sm
+                flex
+                items-center
+                justify-end
+                capitalize
+                bg-blue-500
+                text-white
+                p-1
+                rounded
+                hover:bg-blue-500/90
+                active:scale-95
+                transition-all
+                duration-75
+              "
+              >
+                <span>{t("add label")}</span> <IoIosAdd size={23} />
+              </button>
+              {categories.map((data) => (
+                <div
+                  key={data._id}
+                  style={{
+                    width: 110,
+                  }}
+                  onClick={() =>
+                    handleCategoryChange(data._id, { key: data._id })
+                  }
+                  className={`capitalize relative border text-black mb-1 ${
+                    taskData?.category === data._id
+                      ? "border-green-600"
+                      : "border-gray-600"
+                  } px-2 py-1 rounded flex items-center justify-end w-full gap-2`}
+                >
+                  <span>{taskData?.category === data._id && " ✅"}</span>
+                  <span>{data.name}</span>
+                </div>
+              ))}
+            </React.Fragment>
+          )}
+        />
+      </div>
+      <div className="flex gap-4 border-t pt-4">
+        <button
+          onClick={onAddTask}
+          className="
+              capitalize
+              min-w-[90px]
+              bg-green-500
+              text-white
+              px-2
+              py-1
+              rounded
+              hover:bg-green-400
+              active:scale-95
+              transition-all
+              duration-75
+              w-fit
+            "
+        >
+          {isEditingTask ? t("update") : t("Create task")}
         </button>
-        <h1 className=" text-3xl">{t("write and add")}</h1>
-        <div className="space-y-2">
-          <label htmlFor="Task">{t("name")}</label>
-          <Input
-            id="Task"
-            name="name"
-            required
-            placeholder={t("name")}
-            value={taskData.name}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="space-y-2">
-          <div className="flex items-start gap-x-4">
-            <div className=" w-full flex flex-col gap-y-1">
-              <label htmlFor="data">{t("select date")}</label>
-              <DatePicker
-                id="date"
-                name="dueDate"
-                className="flex-1"
-                value={selectedDate}
-                required
-                placeholder={t("Date")}
-                onChange={handleDateChange}
-              />
-            </div>
-            <div className=" w-full flex flex-col gap-y-1">
-              <label htmlFor="data">{t("select time")}</label>
-              <TimePicker
-                className="flex-1"
-                onChange={handleTimeChange}
-                required
-                placeholder={t("select time")}
-                value={selectedTime || ""}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="space-y-4 px-4  bg-white">
-        <div className="space-y-2">
-          <label htmlFor="description">{t("description")}</label>
-          <Input
-            id="description"
-            name="description"
-            required
-            placeholder={t("description")}
-            value={taskData.description}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="space-y-2 flex flex-col">
-          <label htmlFor="color">{t("Pick a color")}</label>
-          <ColorPicker
-            value={taskData.color}
-            size="large"
-            showText
-            onChange={handleColortChange}
-          />
-        </div>
-      </div>
-      <div className="px-4 space-y-10">
-        <div className="space-y-2">
-          <div className=" flex items-center justify-between w-full pt-2 pb-4">
-            <label>{t("Select A Category")}</label>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="
-            text-sm
-            flex
-            items-center
-            capitalize
-            bg-blue-500
+        <button
+          onClick={onCancel}
+          className="
+              capitalize
+              min-w-[90px]
+              bg-yellow-500
+              text-white
+              px-2
+              py-1
+              rounded
+              hover:bg-yellow-400
+              active:scale-95
+              transition-all
+              duration-75
+              w-fit
+            "
+        >
+          {t("cancel")}
+        </button>
+        {isEditingTask && (
+          <button
+            onClick={deletTask}
+            className=" capitalize flex items-center justify-center gap-x-1
+            min-w-[90px]
+            bg-red-500
             text-white
-            pr-1
-            pl-2
+            px-2
             py-1
-            rounded-3xl
-            hover:bg-blue-500/90
+            rounded
+            hover:bg-red-400
             active:scale-95
             transition-all
             duration-75
-          "
-            >
-              <span>{t("add")}</span> <IoIosAdd size={23} />
-            </button>
-          </div>
-          <div className="flex flex-wrap gap-4">
-            {categories?.map((data, index) => {
-              return (
-                <button
-                  onClick={() => handleCategoryChange(data._id)}
-                  className={` capitalize relative ${
-                    taskData?.category === data._id
-                      ? "bg-green-600"
-                      : Colors[index]
-                  }  px-3 py-1 rounded-md text-white`}
-                  key={data._id}
-                >
-                  {taskData?.category === data._id && (
-                    <img
-                      src="/images/checked.webp"
-                      className="h-6 absolute -top-3 -right-3"
-                      alt="checked"
-                    />
-                  )}
-                  {data.name}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-        <div className="flex gap-4">
-          <button
-            onClick={onAddTask}
-            className="
-              capitalize
-              font-semibold
-              bg-blue-500
-              text-white
-              px-4
-              py-2
-              rounded-full
-              hover:bg-blue-500/90
-              active:scale-95
-              transition-all
-              duration-75
-              w-full
+            w-fit
             "
           >
-            {id ? "update task" : t("Create task")}
+            <span>{t("delete")}</span> <GoTrash />
           </button>
-          {id && (
-            <button
-              onClick={deletTask}
-              className=" flex justify-center items-center gap-x-2
-              capitalize
-              font-semibold
-              bg-red-500
-              text-white
-              px-4
-              py-2
-              rounded-full
-              hover:bg-red-500/90
-              active:scale-95
-              transition-all
-              duration-75
-              w-full
-            "
-            >
-              <span>delete task</span> <GoTrash />
-            </button>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

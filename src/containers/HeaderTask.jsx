@@ -2,10 +2,13 @@ import dayjs from "dayjs";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAddingTask } from "../state/StateManger";
   
 const HeaderTask = ({ selectedDate, title, onClose, shouldClose }) => {
-
+  
+  const toggleIsAddingTask = useAddingTask((state) => state.toggleAddingTask)
   const { t } = useTranslation();
+
   return (
     <div className=" flex flex-wrap gap-y-2 w-full justify-between items-center capitalize pb-4">
       <h2 className=" text-xl font-bold">
@@ -44,8 +47,10 @@ const HeaderTask = ({ selectedDate, title, onClose, shouldClose }) => {
             />
           </Link>
         )}
-        <Link
-          to="/add-task"
+        <button
+          // to="/add-task"
+          type="button"
+          onClick={toggleIsAddingTask}
           className=" text-sm flex items-center gap-x-2
               bg-blue-500
               text-white
@@ -60,7 +65,7 @@ const HeaderTask = ({ selectedDate, title, onClose, shouldClose }) => {
         >
           <span>{t("add a task")}</span>
           <img className="h-8 hover:scale-90 transition-all duration-75"  src="/images/plus.webp" alt="blueCalendar" />
-        </Link>
+        </button>
       </div>
     </div>
   );
