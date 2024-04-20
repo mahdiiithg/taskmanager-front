@@ -5,3 +5,9 @@ body {
 .ant-progress-text {
   color: white !important;
 }
+
+.datepicker-upwards {
+  top: auto !important;
+  bottom: 100%; /* Position the popover below the input */
+  transform: translateY(-10px); /* Adjust vertical offset if needed */
+}

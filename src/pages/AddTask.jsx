@@ -183,6 +183,7 @@ const AddTask = () => {
   const deletTask = () => {
     const response = (res) => {
       closeAddingDrawer();
+      getTasks()
     };
 
     const error = () => {};
@@ -241,6 +242,7 @@ const AddTask = () => {
         <DatePicker
           id="date"
           name="dueDate"
+          popperClassName="datepicker-upwards"
           className="flex-1 rounded min-w-[120px]"
           value={selectedDate}
           required
