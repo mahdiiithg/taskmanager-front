@@ -196,7 +196,7 @@ const AddTask = () => {
 
   return (
     <div
-      className="space-y-2 capitalize p-2 bg-white z-50"
+      className="space-y-2 capitalize p-2 bg-white z-50 w-full max-w-sm"
     >
       <div className=" flex items-center justify-between w-full">
         {/* <h1 className=" text-3xl">{t("write and add")}</h1> */}
@@ -236,19 +236,19 @@ const AddTask = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div className="w-full flex gap-1">
+      <div className="w-full max-w-sm flex gap-1 overflow-x-auto">
         {/* <label htmlFor="data">{t("select time")}</label> */}
         <DatePicker
           id="date"
           name="dueDate"
-          className="flex-1 rounded"
+          className="flex-1 rounded min-w-[120px]"
           value={selectedDate}
           required
           placeholder={t("Date")}
           onChange={handleDateChange}
         />
         <TimePicker
-          className="flex-1 rounded"
+          className="flex-1 rounded min-w-[120px]"
           onChange={handleTimeChange}
           required
           placeholder={t("select time")}
@@ -257,14 +257,15 @@ const AddTask = () => {
         <ColorPicker
           value={taskData.color}
           size="middle"
-          className="flex-1 rounded"
+          style={{
+            width: 225,
+          }}
+          className="flex-1 rounded min-w-[120px]"
           showText
           onChange={handleColortChange}
         />
         <Select
-          style={{
-            width: 120,
-          }}
+          className="min-w-[120px]"
           value={taskData.categorySelcted}
           placeholder={t("label")}
           dropdownRender={(menu) => (
