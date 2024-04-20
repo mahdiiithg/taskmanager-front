@@ -250,7 +250,7 @@ const AddTask = () => {
           onChange={handleDateChange}
         />
         <TimePicker
-          className="flex-1 rounded min-w-[120px]"
+          className="flex-1 rounded min-w-[110px]"
           onChange={handleTimeChange}
           required
           placeholder={t("select time")}

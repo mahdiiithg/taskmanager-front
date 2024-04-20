@@ -30,7 +30,7 @@ const getWeekDates = (date = new Date(), localDetector) => {
 const DateScroll = ({ onSelect, selectedDate }) => {
   const [weekDates, setWeekDates] = useState([]);
   const localDetector = Cookies.get("language") === "en" ? "en-US" : "fa-IR";
-
+console.log("selectedDate", selectedDate);
   useEffect(() => {
     // Check if selectedDate is set, otherwise default to current date
     const dateToUse = selectedDate ? selectedDate.toDate() : new Date();
@@ -51,6 +51,7 @@ const DateScroll = ({ onSelect, selectedDate }) => {
     onSelect(selectedDate);
     Cookies.set('selectedDate', selectedDate)
   };
+
   return (
     <div className="flex overflow-x-auto whitespace-nowrap space-x-4 py-4 w-full justify-between">
       {weekDates?.map((dateObj, index) => {
@@ -59,6 +60,8 @@ const DateScroll = ({ onSelect, selectedDate }) => {
           new Date(selectedDate?.year(), selectedDate?.month(), dateObj?.date),
           "day"
         );
+        console.log("selectedDate.date", selectedDate.day());
+        console.log("dateObj?.date", dateObj);
 
         return (
           <div
@@ -66,7 +69,9 @@ const DateScroll = ({ onSelect, selectedDate }) => {
             className="flex flex-col items-center cursor-pointer"
             onClick={() => handleDateClick(dateObj)}
           >
-            <div className="text-sm font-medium text-gray-800">
+            <div className={`text-sm font-medium ${
+                isSelectedDate ? "text-blue-600" : "text-gray-900"
+              }`}>
               {dateObj.day}
             </div>
             <div

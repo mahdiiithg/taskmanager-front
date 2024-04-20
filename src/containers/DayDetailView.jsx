@@ -3,7 +3,7 @@ import jalaali from 'jalaali-js';
 
 import React from "react";
 import { CgRadioChecked, CgRadioCheck } from "react-icons/cg";
-
+import { useAddingTask } from "../state/StateManger";
 import { https } from "../api/http";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -25,14 +25,18 @@ const convertJalaliToGregorian = (jalaliDateInput) => {
 };
 
 const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
-  
+  const {setEditingTask, toggleAddingTask} = useAddingTask();
+
+  const handleEditClick = (taskId) => {
+    toggleAddingTask()
+    setEditingTask(taskId, true)
+  };
+
   const jalaliDate = selectedDate; // This should be a string
   const gregorianDate = convertJalaliToGregorian(jalaliDate); // Convert to Gregorian
-  console.log("gregorianDate", gregorianDate);
   // Convert the Gregorian date to UTC to match your tasks' timestamp format
   // const formattedDate = dayjs(gregorianDate).utc().format("YYYY-MM-DD");
   const formattedDate = gregorianDate
-  console.log("formattedDate", formattedDate);
   // const formattedDate = selectedDate.format("YYYY-MM-DD");
   Cookies.set("selectedDate", JSON.stringify(selectedDate));
   const localDetector = Cookies.get("language") === "en" ? "en-US" : "fa-IR";
@@ -95,9 +99,9 @@ const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
                     `}
                   key={task._id}
                 >
-                  <Link className="flex-1" to={`/add-task/${task._id}`}>
+                  <button onClick={()=> handleEditClick(task._id)} className="flex-1 flex w-full justify-start" >
                     <span>{task?.name || task.description}</span>
-                  </Link>
+                  </button>
                   <span
                     onClick={() => toggleTaskStatus(task._id, !task.status)}
                   >
