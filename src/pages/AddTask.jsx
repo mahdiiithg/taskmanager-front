@@ -196,7 +196,7 @@ const AddTask = () => {
 
   return (
     <div
-      className="space-y-2 capitalize p-2 bg-white z-50 w-full max-w-sm"
+      className="space-y-2 capitalize p-2 bg-white z-50"
     >
       <div className=" flex items-center justify-between w-full">
         {/* <h1 className=" text-3xl">{t("write and add")}</h1> */}
@@ -236,7 +236,7 @@ const AddTask = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div className="w-full max-w-sm flex gap-1 overflow-x-auto">
+      <div className="w-full flex gap-1 overflow-x-auto">
         {/* <label htmlFor="data">{t("select time")}</label> */}
         <DatePicker
           id="date"

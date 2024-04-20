@@ -59,7 +59,7 @@ const MainLayout = () => {
             style={{
               boxShadow: "0px -5px 15px -1px rgba(0,0,0,0.4)",
             }}
-            className={`fixed bottom-0 z-50 shadow-lg ${
+            className={`fixed bottom-0 z-50 shadow-lg w-full ${
               isAddingTask ? "h-[270px]" : "h-[0px]"
             } bg-white border-t transition-all ease-in-out`}
           >
