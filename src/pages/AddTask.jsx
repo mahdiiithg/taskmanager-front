@@ -319,9 +319,9 @@ const AddTask = () => {
           )}
         />
       </div>
-      <div className="flex gap-2 border-t pt-4 w-full justify-between">
+      <div className="flex gap-2 border-t pt-3 px-4 items-center pb-5 w-full justify-between">
         <div className="flex gap-x-2">
-          <button onClick={onAddTask}>
+          <button className=" active:scale-90" onClick={onAddTask}>
             {isEditingTask ? (
               <img className=" h-10" src="/images/close.webp" alt="close" />
             ) : (
@@ -332,7 +332,7 @@ const AddTask = () => {
               />
             )}
           </button>
-          <button onClick={onCancel}>
+          <button className="active:scale-90" onClick={onCancel}>
             <img className=" h-10" src="/images/close.webp" alt="close" />
           </button>
           {isEditingTask && (
