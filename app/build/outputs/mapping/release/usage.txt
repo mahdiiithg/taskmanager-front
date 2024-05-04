@@ -1937,8 +1937,8 @@ com.google.android.gms.common.moduleinstall.internal.zad
 com.google.android.gms.location.zzs:
     public final void zzd(android.location.Location)
     public final void zze()
-androidx.customview.widget.FocusStrategy$SequentialComparator
 androidx.drawerlayout.widget.DrawerLayout
+androidx.customview.widget.FocusStrategy$SequentialComparator
 com.google.android.gms.tasks.zzf
 androidx.core.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19
 com.google.android.gms.location.LocationResult:
@@ -4099,8 +4099,8 @@ com.google.androidbrowserhelper.R$style
 androidx.core.provider.SelfDestructiveThread$2
 com.google.android.gms.common.data.Freezable
 com.mahditahavorgar.twa.R$raw
-com.mahditahavorgar.twa.R$id
 androidx.loader.R$integer
+com.mahditahavorgar.twa.R$id
 androidx.core.graphics.TypefaceCompatApi26Impl
 androidx.core.view.DragStartHelper$2
 android.support.v4.os.IResultReceiver$Stub

@@ -1,9 +1,9 @@
 {
   "packageId": "com.mahditahavorgar.twa",
   "host": "mahditahavorgar.com",
-  "name": "personal-planner",
-  "launcherName": "planner",
-  "display": "fullscreen",
+  "name": "todolist",
+  "launcherName": "todo",
+  "display": "standalone",
   "themeColor": "#000000",
   "themeColorDark": "#000000",
   "navigationColor": "#000000",
@@ -14,13 +14,15 @@
   "enableNotifications": true,
   "startUrl": "/",
   "iconUrl": "https://mahditahavorgar.com/logo512.png",
+  "maskableIconUrl": "https://mahditahavorgar.com/splash.png",
+  "monochromeIconUrl": "https://mahditahavorgar.com/splash.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "/Users/mahdithg/Desktop/projects/learnings/task-manager-front/android.keystore",
     "alias": "android"
   },
-  "appVersionName": "2",
-  "appVersionCode": 2,
+  "appVersionName": "1",
+  "appVersionCode": 1,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://mahditahavorgar.com/manifest.json",
@@ -45,5 +47,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "2"
+  "appVersion": "1"
 }

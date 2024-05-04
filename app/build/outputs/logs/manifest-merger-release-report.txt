@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
-INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
-INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
-INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
+INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
+INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
+INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
 MERGED from [com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.androidbrowserhelper:billing:1.0.0-alpha10] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/f2ba2e6c870009bc3aac6f23ab76d131/billing-1.0.0-alpha10/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/816850808f9de9e670a4838cd1f96218/androidbrowserhelper-2.5.0/AndroidManifest.xml:17:1-36:12
@@ -36,20 +36,20 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mahdithg/.gradle
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/fb5e65a69b576ac546080993fe26d407/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/7b69e6173655717e69f5c7f6f1302d3b/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/8fe2a3deec1ef3dd659aa5f55d73edd7/print-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
-INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
-INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
+INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
+INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
+INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
 	package
 		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:23:5-38
 		INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
 		INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-216:12
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:1-213:12
 		INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:22:11-69
@@ -58,7 +58,7 @@ ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src
 	android:name
 		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:26:26-78
 application
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:35:5-215:19
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:35:5-212:19
 MERGED from [com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:14:5-16:19
 MERGED from [com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:14:5-16:19
 MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/271e47a6034a2065a6e2a65e90fb1381/play-services-location-21.0.1/AndroidManifest.xml:7:5-20
@@ -120,7 +120,7 @@ ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src
 	android:name
 		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:67:17-83
 activity#com.mahditahavorgar.twa.LauncherActivity
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:72:9-148:20
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:72:9-145:20
 	android:label
 		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:74:13-49
 	android:exported
@@ -207,140 +207,134 @@ ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src
 		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:118:17-53
 	android:name
 		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:117:24-91
-meta-data#android.support.customtabs.trusted.DISPLAY_MODE
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:123:13-124:45
-	android:value
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:124:17-42
-	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:123:24-86
 meta-data#android.support.customtabs.trusted.SCREEN_ORIENTATION
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:127:13-128:54
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:124:13-125:54
 	android:value
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:128:17-52
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:125:17-52
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:127:24-92
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:124:24-92
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:134:13-137:29
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:131:13-134:29
 action#android.intent.action.MAIN
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:135:17-69
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:132:17-69
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:135:25-66
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:132:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:136:17-77
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:133:17-77
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:136:27-74
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:133:27-74
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:@string/hostName+data:scheme:https
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:139:13-145:29
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:136:13-142:29
 	android:autoVerify
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:139:28-53
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:136:28-53
 action#android.intent.action.VIEW
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:17-68
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:137:17-68
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:25-66
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:137:25-66
 category#android.intent.category.DEFAULT
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:141:17-76
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:138:17-76
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:141:27-73
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:138:27-73
 category#android.intent.category.BROWSABLE
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:142:17-77
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:139:17-77
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:142:27-75
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:139:27-75
 data
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:143:17-144:54
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:17-141:54
 	android:host
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:144:21-52
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:141:21-52
 	android:scheme
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:143:23-45
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:140:23-45
 activity#com.google.androidbrowserhelper.trusted.FocusActivity
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:150:9-90
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:147:9-90
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:150:19-87
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:147:19-87
 activity#com.google.androidbrowserhelper.trusted.WebViewFallbackActivity
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:152:9-153:62
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:149:9-150:62
 	android:configChanges
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:153:13-59
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:150:13-59
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:152:19-97
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:149:19-97
 provider#androidx.core.content.FileProvider
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:155:9-163:20
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:152:9-160:20
 	android:grantUriPermissions
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:158:13-47
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:155:13-47
 	android:authorities
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:157:13-60
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:154:13-60
 	android:exported
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:159:13-37
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:156:13-37
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:156:13-62
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:153:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:160:13-162:53
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:157:13-159:53
 	android:resource
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:162:17-50
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:159:17-50
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:161:17-67
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:158:17-67
 service#com.mahditahavorgar.twa.DelegationService
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:165:9-180:19
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:162:9-177:19
 	android:enabled
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:167:13-55
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:164:13-55
 	android:exported
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:168:13-56
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:165:13-56
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:166:13-46
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:163:13-46
 meta-data#android.support.customtabs.trusted.SMALL_ICON
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:171:17-173:73
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:168:17-170:73
 	android:resource
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:173:21-70
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:170:21-70
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:172:21-81
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:169:21-81
 intent-filter#action:name:android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE+category:name:android.intent.category.DEFAULT
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:176:13-179:29
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:173:13-176:29
 action#android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:177:17-105
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:174:17-105
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:177:25-103
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:174:25-103
 activity#com.google.androidbrowserhelper.trusted.NotificationPermissionRequestActivity
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:183:13-118
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:180:13-118
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:183:23-115
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:180:23-115
 activity#com.google.androidbrowserhelper.locationdelegation.PermissionRequestActivity
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:187:13-188:89
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:184:13-185:89
 MERGED from [com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:15:9-113
 MERGED from [com.google.androidbrowserhelper:locationdelegation:1.1.1] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e9d115f76e557f4a6a4d1d5ae527d644/locationdelegation-1.1.1/AndroidManifest.xml:15:9-113
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:187:23-123
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:184:23-123
 activity#com.google.androidbrowserhelper.playbilling.provider.PaymentActivity
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:191:9-204:20
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:188:9-201:20
 	android:exported
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:195:13-36
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:192:13-36
 	android:configChanges
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:194:13-96
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:191:13-96
 	android:theme
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:193:13-72
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:190:13-72
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:192:13-96
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:189:13-96
 intent-filter#action:name:org.chromium.intent.action.PAY
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:197:13-199:29
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:194:13-196:29
 action#org.chromium.intent.action.PAY
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:198:17-73
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:195:17-73
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:198:25-70
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:195:25-70
 meta-data#org.chromium.default_payment_method_name
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:201:13-203:67
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:198:13-200:67
 	android:value
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:203:17-64
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:200:17-64
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:202:17-72
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:199:17-72
 service#com.google.androidbrowserhelper.playbilling.provider.PaymentService
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:207:9-213:19
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:204:9-210:19
 	android:exported
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:209:13-36
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:206:13-36
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:208:13-95
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:205:13-95
 intent-filter#action:name:org.chromium.intent.action.IS_READY_TO_PAY
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:210:13-212:29
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:207:13-209:29
 action#org.chromium.intent.action.IS_READY_TO_PAY
-ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:211:17-85
+ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:208:17-85
 	android:name
-		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:211:25-82
+		ADDED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:208:25-82
 uses-sdk
 INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml
