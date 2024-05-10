@@ -196,16 +196,7 @@ const AddTask = () => {
   };
 
   return (
-    <div className="space-y-2 capitalize p-2 bg-white z-50 ">
-      <div className=" flex items-center justify-between w-full">
-        {/* <h1 className=" text-3xl">{t("write and add")}</h1> */}
-        {/* <h1 className="p-0 m-0 text-lg">
-          {selectedDate ? dayjs(selectedDate).format("DD MMMM - dddd") : ""}
-        </h1> */}
-        {/* <button onClick={closeAddingDrawer}>
-          <IoCloseSharp size={34} />
-        </button> */}
-      </div>
+    <div className="space-y-2 capitalize p-2 bg-white z-50 pb-10">
       <div
         style={{
           // background: 'url("images/white-clipboard.avif")',
@@ -215,16 +206,33 @@ const AddTask = () => {
         className=" text-black space-y-2 relative z-10"
       >
         {/* <label htmlFor="Task">{t("name")}</label> */}
-        <Input
-          className="border-none text-xl"
-          size="large"
-          id="Task"
-          name="name"
-          required
-          placeholder={t("name")}
-          value={taskData.name}
-          onChange={handleInputChange}
-        />
+        <div className=" flex items-center">
+          <Input
+            className="border-none text-xl flex-1 "
+            size="large"
+            id="Task"
+            name="name"
+            required
+            placeholder={t("name")}
+            value={taskData.name}
+            onChange={handleInputChange}
+          />
+          {isEditingTask && (
+            <button
+              onClick={deletTask}
+              className=" capitalize flex items-center justify-center gap-x-1
+            text-white min-w-[30px]
+            rounded
+            active:scale-95
+            transition-all
+            duration-75 mr-2
+            "
+            >
+              {/* <GoTrash size={28} className="text-red-500 font-semibold" /> */}
+              <img alt="arrow up" src="/images/trash.webp" className="h-11" />
+            </button>
+          )}
+        </div>
         <TextArea
           className="border-none"
           id="description"
@@ -319,42 +327,14 @@ const AddTask = () => {
           )}
         />
       </div>
-      <div className="flex gap-2 border-t pt-3 px-4 items-center pb-5 w-full justify-between">
+      <div className="flex gap-2 border-t pt-3 px-4 items-center w-full justify-between">
         <div className="flex gap-x-2">
           <button className=" active:scale-90" onClick={onAddTask}>
-            {isEditingTask ? (
-              <img className=" h-10" src="/images/close.webp" alt="close" />
-            ) : (
-              <img
-                alt="arrow up"
-                src="/images/arrowUp.webp"
-                className=" h-12"
-              />
-            )}
+            {isEditingTask ? <img alt="arrow up" src="/images/update.webp" className=" h-10" />  :<img alt="arrow up" src="/images/arrowUp.webp" className=" h-12" />}
           </button>
           <button className="active:scale-90" onClick={onCancel}>
             <img className=" h-10" src="/images/close.webp" alt="close" />
           </button>
-          {isEditingTask && (
-            <button
-              onClick={deletTask}
-              className=" capitalize flex items-center justify-center gap-x-1
-            min-w-[90px]
-            bg-red-500
-            text-white
-            px-2
-            py-1
-            rounded
-            hover:bg-red-400
-            active:scale-95
-            transition-all
-            duration-75
-            w-fit
-            "
-            >
-              <span>{t("delete")}</span> <GoTrash />
-            </button>
-          )}
         </div>
         <div className="p-0 m-0 text-lg">
           {selectedDate ? dayjs(selectedDate).format("DD MMMM - dddd") : ""}

@@ -78,7 +78,7 @@ const MainLayout = () => {
               boxShadow: "0px -5px 15px -1px rgba(0,0,0,0.1)",
             }}
             className={`fixed bottom-0 z-50 shadow-lg w-full rounded-2xl max-w-lg mx-auto overflow-hidden ${
-              isAddingTask ? "h-[270px]" : "h-[0px]"
+              isAddingTask ? "h-[280px]" : "h-[0px]"
             } bg-white border-t transition-all ease-in-out`}
           >
             <AddTask />
