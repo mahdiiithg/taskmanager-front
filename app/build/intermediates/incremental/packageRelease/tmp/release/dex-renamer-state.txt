@@ -1,4 +1,0 @@
-#Sat May 04 12:53:00 IRDT 2024
-base.0=/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

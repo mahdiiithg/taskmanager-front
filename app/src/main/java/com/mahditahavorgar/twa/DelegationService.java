@@ -1,8 +1,6 @@
 package com.mahditahavorgar.twa;
 
 
-import com.google.androidbrowserhelper.locationdelegation.LocationDelegationExtraCommandHandler;
-
 import com.google.androidbrowserhelper.playbilling.digitalgoods.DigitalGoodsRequestHandler;
 
 
@@ -12,8 +10,6 @@ public class DelegationService extends
     public void onCreate() {
         super.onCreate();
 
-        
-            registerExtraCommandHandler(new LocationDelegationExtraCommandHandler());
         
             registerExtraCommandHandler(new DigitalGoodsRequestHandler(getApplicationContext()));
         

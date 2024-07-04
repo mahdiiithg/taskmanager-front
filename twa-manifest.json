@@ -1,9 +1,9 @@
 {
   "packageId": "com.mahditahavorgar.twa",
   "host": "mahditahavorgar.com",
-  "name": "todolist",
-  "launcherName": "todo",
-  "display": "standalone",
+  "name": "android_app",
+  "launcherName": "todo_app",
+  "display": "fullscreen",
   "themeColor": "#000000",
   "themeColorDark": "#000000",
   "navigationColor": "#000000",
@@ -14,8 +14,6 @@
   "enableNotifications": true,
   "startUrl": "/",
   "iconUrl": "https://mahditahavorgar.com/logo512.png",
-  "maskableIconUrl": "https://mahditahavorgar.com/splash.png",
-  "monochromeIconUrl": "https://mahditahavorgar.com/splash.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "/Users/mahdithg/Desktop/projects/learnings/task-manager-front/android.keystore",
@@ -29,9 +27,6 @@
   "fallbackType": "customtabs",
   "features": {
     "playBilling": {
-      "enabled": true
-    },
-    "locationDelegation": {
       "enabled": true
     }
   },
