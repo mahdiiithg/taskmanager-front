@@ -1,0 +1,26 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "web",
+      "site": "https://mahditahavorgar.com"
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mahditahavorgar.twa",
+      "sha256_cert_fingerprints": [
+        "86:BC:24:A7:8A:D2:51:14:8B:8E:CA:6B:A8:C7:FF:46:CB:9C:86:B2:61:79:7F:4D:E4:8B:45:90:95:CF:65:58"
+      ]
+    }
+  },
+  {
+    "relation": ["check_validation"],
+    "target": {
+      "namespace": "cafebazaar_twa",
+      "package_name": "com.mahditahavorgar.twa"
+    }
+  }
+]
