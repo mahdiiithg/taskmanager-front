@@ -1,8 +1,8 @@
 {
   "packageId": "com.mahditahavorgar.twa",
   "host": "mahditahavorgar.com",
-  "name": "android_app",
-  "launcherName": "todo_app",
+  "name": "todo",
+  "launcherName": "todo",
   "display": "fullscreen",
   "themeColor": "#000000",
   "themeColorDark": "#000000",
@@ -25,13 +25,9 @@
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://mahditahavorgar.com/manifest.json",
   "fallbackType": "customtabs",
-  "features": {
-    "playBilling": {
-      "enabled": true
-    }
-  },
+  "features": {},
   "alphaDependencies": {
-    "enabled": true
+    "enabled": false
   },
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
