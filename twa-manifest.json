@@ -1,8 +1,8 @@
 {
   "packageId": "com.mahditahavorgar.twa",
   "host": "mahditahavorgar.com",
-  "name": "todo",
-  "launcherName": "todo",
+  "name": "Planner and Personal Assistant",
+  "launcherName": "Planner and Personal Assistant",
   "display": "fullscreen",
   "themeColor": "#000000",
   "themeColorDark": "#000000",

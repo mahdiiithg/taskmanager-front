@@ -1,6 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Planner and Personal Assistant",
+  "name": [
+    {
+      "lang": "en",
+      "text": "Planner and Personal Assistant"
+    },
+    {
+      "lang": "fa",
+      "text": "برنامه ریز و دستیار شخصی"
+    }
+  ],
   "icons": [
     {
       "src": "favicon.ico",

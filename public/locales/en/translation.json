@@ -45,5 +45,93 @@
   "Submit": "Submit",
   "cancel": "cancel",
   "label": "label",
-  "something went wrong make sure all fields are correctly fill": "something went wrong make sure all fields are correctly fill"
+  "something went wrong make sure all fields are correctly fill": "something went wrong make sure all fields are correctly fill",
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "intro": "At Planner and Personal Assistant, we value the privacy of our users and are committed to protecting their personal information. This privacy policy explains what information we collect, how we use it, and how we protect it.",
+    "section1": {
+      "title": "1. Information We Collect",
+      "description": "We may collect the following information from you:",
+      "items": {
+        "phoneNumber": "Phone number",
+        "nationalId": "National ID",
+        "personalInfo": "Personal information (name, surname, date of birth, etc.)",
+        "address": "Address",
+        "email": "Email",
+        "locationInfo": "Location information (if using location-based features)",
+        "deviceInfo": "Device information (device model, operating system, app version, etc.)",
+        "usageInfo": "Usage information (such as your activities and interactions with the app)",
+        "financialInfo": "Financial and payment information",
+        "authInfo": "Authentication information",
+        "contacts": "Contacts",
+        "smsCallData": "SMS and call data",
+        "microphoneCamera": "Microphone and camera"
+      }
+    },
+    "section2": {
+      "title": "2. Use of Information",
+      "description": "We use your information for the following purposes:",
+      "items": {
+        "betterServices": "Providing better and more efficient services",
+        "communication": "Communicating with you to provide important information and updates",
+        "personalization": "Personalizing your user experience",
+        "performanceAnalysis": "Analyzing and improving the performance of the app",
+        "lawCompliance": "Ensuring compliance with relevant laws and regulations",
+        "paymentProcessing": "Processing payments and transactions",
+        "advertising": "Sending notifications and promotional messages (with your consent)"
+      }
+    },
+    "section3": {
+      "title": "3. Protection of Information",
+      "description": "We are committed to protecting your personal information and use appropriate security measures to prevent unauthorized access, disclosure, alteration, or destruction of information. Your information is kept confidential and will not be misused or shared with third parties."
+    },
+    "section4": {
+      "title": "4. Sharing of Information",
+      "description": "We do not share your information with third parties, except in the following cases:",
+      "items": {
+        "withConsent": "With your consent",
+        "legalObligations": "To comply with legal obligations",
+        "subsidiaries": "With subsidiaries and affiliates to provide better services",
+        "businessPartners": "With business partners who help us provide and improve services (subject to confidentiality obligations)"
+      }
+    },
+    "section5": {
+      "title": "5. Your Rights",
+      "description": "You have the right to access your information and, if necessary, correct or delete it. You can also request that the use of your information be restricted. To exercise these rights, you can contact us."
+    },
+    "section6": {
+      "title": "6. Transparency in Data Management",
+      "description": "We are transparent in how we manage user data. Information collected from users includes device information and personal information used within specified frameworks. We inform our users about how data is accessed, collected, used, and shared, and limit the use of data to the stated purposes."
+    },
+    "section7": {
+      "title": "7. Use of Information for Advertising",
+      "description": "Apps that use data to provide advertisements must comply with our advertising policy."
+    },
+    "section8": {
+      "title": "8. Hidden Costs",
+      "description": "The use of the app should not create hidden costs for the user. For example, the app should not send SMS or make phone calls without the user's permission. All steps should be transparently communicated to the user."
+    },
+    "section9": {
+      "title": "9. Data Security",
+      "description": "We securely manage all personal and sensitive user data, including its transmission using modern encryption (e.g., HTTPS)."
+    },
+    "section10": {
+      "title": "10. Access to Installed Apps Inventory",
+      "description": "Apps that access the inventory of installed apps on the user's device must obtain user permission and mention this in the privacy section."
+    },
+    "section11": {
+      "title": "11. Runtime Permission Requests",
+      "description": "Request the necessary app permissions at runtime as much as possible."
+    },
+    "section12": {
+      "title": "12. Prohibition of Selling Information",
+      "description": "You are not allowed to sell the user's sensitive and personal information."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "If you have any questions or concerns about our privacy policy, please contact us:",
+      "email": "Email: mahditahavorgarrr@gmail.com",
+      "phone": "Phone: 989213280382"
+    }
+  }
 }

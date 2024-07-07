@@ -5,12 +5,32 @@ import { https } from "../api/http";
 import ModalContext from "../context/ModalContext";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import PrivacyPolicy from "../components/Policy";
 
+const ModalPrivacy = ({
+  openPrivacyModal,
+  handleOkPrivacyModal,
+  handleCancelPrivacyModal,
+  language,
+}) => {
+  return (
+    <Modal
+      closable={false}
+      open={openPrivacyModal}
+      onOk={handleOkPrivacyModal}
+      onCancel={handleCancelPrivacyModal}
+      className={`${language === "fa" ? "text-right" : "text-left"}`}
+    >
+      <PrivacyPolicy />
+    </Modal>
+  );
+};
 
-const LoginModal = ({language}) => {
+const LoginModal = ({ language }) => {
   const { isModalLoginOpen, setIsModalLoginOpen } = useContext(ModalContext);
   const { t } = useTranslation();
   const [isLogining, setIsLogining] = useState(true);
+  const [openPrivacyModal, setOpenPrivacyModal] = useState(false);
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -81,7 +101,7 @@ const LoginModal = ({language}) => {
         open={open || isModalLoginOpen}
         onOk={handleOk}
         onCancel={handleCancel}
-        className={`${language === 'fa' ? 'text-right' : 'text-left' }`}
+        className={`${language === "fa" ? "text-right" : "text-left"}`}
         footer={[
           <Button
             key="submit"
@@ -145,27 +165,44 @@ const LoginModal = ({language}) => {
           />
         </div>
         {isLogining ? (
-          <p>
-            {t("Don't have account?")}{" "}
+          <p className="flex items-center gap-2 w-full justify-end">
+            <button
+              onClick={() => setOpenPrivacyModal(true)}
+              className=" text-blue-800 underline"
+            >
+              {t("privacy and policy")}
+            </button>
             <button
               onClick={() => setIsLogining(false)}
               className=" text-blue-800 underline"
             >
               {t("resgister")}
             </button>
+            <div>{t("Don't have account?")}</div>
           </p>
         ) : (
-          <p>
-            {t("have an account?")}
+          <p className="flex items-center gap-2 w-full justify-end">
+            <button
+              onClick={() => setOpenPrivacyModal(true)}
+              className=" text-blue-800 underline"
+            >
+              {t("privacy and policy")}
+            </button>
             <button
               onClick={() => setIsLogining(true)}
               className=" text-blue-800 underline"
             >
-              {t("Login")}
+              {t("login")}
             </button>
+            <div>{t("have an account?")}</div>
           </p>
         )}
       </Modal>
+      <ModalPrivacy
+        openPrivacyModal={openPrivacyModal}
+        handleOkPrivacyModal={() => setOpenPrivacyModal(false)}
+        handleCancelPrivacyModal={() => setOpenPrivacyModal(false)}
+      />
     </>
   );
 };
