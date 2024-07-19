@@ -23,8 +23,8 @@
 23-->
 24<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 25    package="com.mahditahavorgar.twa"
-26    android:versionCode="1"
-27    android:versionName="1" >
+26    android:versionCode="2"
+27    android:versionName="2" >
 28
 29    <uses-sdk
 30        android:minSdkVersion="19"
@@ -61,7 +61,7 @@
 47        android:allowBackup="true"
 47-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:37:9-35
 48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-48-->[androidx.core:core:1.3.2] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/870f77caa98361babb7de475f36bb8a2/core-1.3.2/AndroidManifest.xml:24:18-86
+48-->[androidx.core:core:1.1.0] /Users/mahdithg/.gradle/caches/transforms-2/files-2.1/e601daed4ba62929db8b322b2974c8f8/core-1.1.0/AndroidManifest.xml:24:18-86
 49        android:icon="@mipmap/ic_launcher"
 49-->/Users/mahdithg/Desktop/projects/learnings/task-manager-front/app/src/main/AndroidManifest.xml:38:9-43
 50        android:label="@string/appName"

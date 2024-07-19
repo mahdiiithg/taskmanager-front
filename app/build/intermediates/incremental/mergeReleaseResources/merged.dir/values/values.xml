@@ -2,8 +2,6 @@
 <resources>
     <bool name="enableNotification">true</bool>
     <bool name="enableSiteSettingsShortcut">true</bool>
-    <color name="androidx_core_ripple_material_light">#1f000000</color>
-    <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
     <color name="backgroundColor">#FFFFFF</color>
     <color name="browser_actions_bg_grey">#F5F5F5</color>
     <color name="browser_actions_divider_color">#1E000000</color>
@@ -17,6 +15,8 @@
     <color name="navigationDividerColorDark">#000000</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="ripple_material_light">#1f000000</color>
+    <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="shortcut_background">#F5F5F5</color>
     <dimen name="browser_actions_context_menu_max_width">500dp</dimen>
     <dimen name="browser_actions_context_menu_min_padding">20dp</dimen>
@@ -92,7 +92,7 @@
     <item name="title" type="id"/>
     <integer name="splashScreenFadeOutDuration">300</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
-    <string name="appName" translatable="false">todo</string>
+    <string name="appName" translatable="false">Planner and Personal Assistant</string>
     <string name="app_name">Android Browser Helper</string>
     <string name="assetStatements">
     [{
@@ -113,7 +113,7 @@
     <string name="generatorApp" translatable="false">bubblewrap-cli</string>
     <string name="hostName" translatable="false">mahditahavorgar.com</string>
     <string name="launchUrl" translatable="false">https://mahditahavorgar.com/</string>
-    <string name="launcherName" translatable="false">todo</string>
+    <string name="launcherName" translatable="false">Planner and Personal Assistant</string>
     <string name="manage_space_no_data_toast">This app holds no browsing data.</string>
     <string name="manage_space_not_supported_toast">This app\'s data is stored in %1$s.</string>
     <string name="no_provider_toast">Please install Chrome Stable 72 or later.</string>

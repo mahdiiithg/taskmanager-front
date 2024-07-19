@@ -1,118 +1,74 @@
 import dayjs from "dayjs";
 import jalaali from 'jalaali-js';
-
 import React from "react";
 import { CgRadioChecked, CgRadioCheck } from "react-icons/cg";
 import { useAddingTask } from "../state/StateManger";
 import { https } from "../api/http";
-import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-// import utc from 'dayjs/plugin/utc'; // make sure to import and use UTC plugin for dayjs
-// dayjs.extend(utc);
-
 const convertJalaliToGregorian = (jalaliDateInput) => {
-  // Ensure jalaliDateInput is a string
   const jalaliDateString = jalaliDateInput.format ? jalaliDateInput.format('YYYY-MM-DD') : String(jalaliDateInput);
-  
-  // Proceed with splitting the date and time
   const [date, time] = jalaliDateString.split('T');
   const [year, month, day] = date.split('-').map(Number);
 
   const gregorian = jalaali.toGregorian(year, month, day);
-  // Assuming you want to keep the original time and timezone offset
   return `${gregorian.gy}-${String(gregorian.gm).padStart(2, '0')}-${String(gregorian.gd).padStart(2, '0')}`;
 };
 
 const DayDetailView = ({ selectedDate, tasks, getTasks }) => {
-  const {setEditingTask, toggleAddingTask} = useAddingTask();
+  const { setEditingTask, toggleAddingTask } = useAddingTask();
 
   const handleEditClick = (taskId) => {
-    toggleAddingTask()
-    setEditingTask(taskId, true)
+    toggleAddingTask();
+    setEditingTask(taskId, true);
   };
 
-  const jalaliDate = selectedDate; // This should be a string
-  const gregorianDate = convertJalaliToGregorian(jalaliDate); // Convert to Gregorian
-  // Convert the Gregorian date to UTC to match your tasks' timestamp format
-  // const formattedDate = dayjs(gregorianDate).utc().format("YYYY-MM-DD");
-  const formattedDate = gregorianDate
-  // const formattedDate = selectedDate.format("YYYY-MM-DD");
+  const jalaliDate = selectedDate; 
+  const gregorianDate = convertJalaliToGregorian(jalaliDate);
+  const formattedDate = gregorianDate;
   Cookies.set("selectedDate", JSON.stringify(selectedDate));
   const localDetector = Cookies.get("language") === "en" ? "en-US" : "fa-IR";
 
   const hours = Array.from({ length: 24 }, (_, i) => {
-    const hourFormattedStart = `${formattedDate}T${i
-      .toString()
-      .padStart(2, "0")}:00:00`;
-    const hourFormattedEnd = `${formattedDate}T${(i + 1)
-      .toString()
-      .padStart(2, "0")}:00:00`;
+    const hourFormattedStart = `${formattedDate}T${i.toString().padStart(2, "0")}:00:00`;
+    const hourFormattedEnd = `${formattedDate}T${(i + 1).toString().padStart(2, "0")}:00:00`;
 
-    // Filter tasks that start within this hour
     const tasksForHour = tasks.filter((task) => {
       if (task.status) {
-        return false; // Ignore tasks with false status
+        return false;
       }
-      
-      const taskTime = task.dueDate
-        ? dayjs(task.dueDate)
-        : dayjs(task.createdAt);
-      return (
-        taskTime.isAfter(dayjs(hourFormattedStart)) &&
-        taskTime.isBefore(dayjs(hourFormattedEnd))
-      );
+      const taskTime = task.dueDate ? dayjs(task.dueDate) : dayjs(task.createdAt);
+      return taskTime.isAfter(dayjs(hourFormattedStart)) && taskTime.isBefore(dayjs(hourFormattedEnd));
     });
 
-    // console.log("tasksForHour", tasksForHour);
-
     const toggleTaskStatus = (id, status) => {
-      const response = () => {
-        getTasks();
-      };
-
-      const error = () => {};
-
-      https.toggleTaskStatus(response, error, id, { status });
+      https.toggleTaskStatus(() => getTasks(), () => {}, id, { status });
     };
+
+    const displayHour = new Date(0, 0, 0, i).toLocaleTimeString(localDetector, {
+      hour: '2-digit',
+      hour12: false
+    }).split(":")[0];
 
     return (
       <li className="flex items-center gap-x-2 py-4 w-full border-b" key={i}>
-        {i.toLocaleString(localDetector)}:{(0).toLocaleString(localDetector)}
-        {(0).toLocaleString(localDetector)}
+        {displayHour}
         <ul className="flex flex-col gap-y-2 w-full ">
           {tasksForHour.length > 0 ? (
-            tasksForHour?.map((task) => {
-              const colorCode = task.color;
+            tasksForHour.map((task) => {
               return (
                 <li
-                  // style={{
-                  //   borderLeft: `8px solid ${colorCode}`,
-                  //   // backgroundColor: `${task.color}`
-                  // }}
-                  className={`
-                    w-full justify-between 
-                    rounded-l-none
-                    bg-[${colorCode}]
-                    bg-opacity-30
-                    ${task.status && "line-through"}
-                    py-2
-                    px-2
-                    rounded-md
-                    flex
-                    `}
+                  className={`w-full justify-between rounded-l-none bg-[${task.color}] bg-opacity-30 ${task.status && "line-through"} py-2 px-2 rounded-md flex`}
                   key={task._id}
                 >
-                  <button onClick={()=> handleEditClick(task._id)} className="flex-1 flex w-full justify-start" >
+                  <button onClick={() => handleEditClick(task._id)} className="flex-1 flex w-full justify-start">
                     <span>{task?.name || task.description}</span>
                   </button>
-                  <span
-                    onClick={() => toggleTaskStatus(task._id, !task.status)}
-                  >
+                  <span onClick={() => toggleTaskStatus(task._id, !task.status)}>
                     {task.status ? (
-                      <CgRadioChecked size={20} style={{ color: `${task.color}`}} />
+                      <CgRadioChecked size={20} style={{ color: `${task.color}` }} />
                     ) : (
-                      <CgRadioCheck size={20} style={{ color: `${task.color}`}} />
+                      <CgRadioCheck size={20} style={{ color: `${task.color}` }} />
                     )}
                   </span>
                 </li>
